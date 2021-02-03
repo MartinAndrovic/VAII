@@ -1,0 +1,35 @@
+/*.posts {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+
+}
+.post {
+    width: 23%;
+
+}*/
+
+.post {
+    padding-bottom: 50px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.post img {
+    width: 100%;
+    height: auto;
+}
+
+.post h2 {
+    color: red;
+}
+
+.comment {
+    border-bottom: 2px solid black;
+}
+.comment p {
+    font-size: 0.7em;
+}

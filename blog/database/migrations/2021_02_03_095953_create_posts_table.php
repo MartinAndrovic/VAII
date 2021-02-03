@@ -19,7 +19,10 @@ class CreatePostsTable extends Migration
             $table->string('uvod');
             $table->text('text');
             $table->string('obrazok');
+            $table->bigInteger('user_id')->default(0);
+            $table->bigInteger('category_id')->default(0);
             $table->timestamps();
+
         });
     }
 
