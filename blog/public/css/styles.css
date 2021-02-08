@@ -19,6 +19,7 @@
     padding-bottom: 50px;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
     text-align: center;
+
 }
 .post img {
 
@@ -83,7 +84,7 @@
     background-color: #2a9055;
 
 }
-#postCreate{
+#postCreate {
     max-width: 500px;
     margin:2rem auto;
     border:2px solid #2a9055;
@@ -116,5 +117,41 @@ textarea{
 
  }
 
+
+#listCat {
+
+    max-width: 500px;
+    margin: 2rem auto;
+    border: 2px solid #2a9055;
+    padding: 2rem;
+}
+
+h1{
+    text-align: center;
+}
+
+
+
+#btn{
+    border: 2px solid black;
+}
+
+#btn:hover{
+    background-color: #761b18;
+}
+
+#add{
+    display: block;
+    text-align: center;
+}
+
+#item{
+    border-bottom: 1px solid black;
+}
+
+#box{
+    margin-top: -2px;
+    margin-bottom: 5px;
+}
 
 

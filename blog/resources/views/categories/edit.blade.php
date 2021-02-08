@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="/kategorie/{{$category->id}}" method="POST" >
+    <form action="/kategorie/{{$category->id}}" method="POST" id="postCreate" >
         @csrf
         @method('PATCH')
         <div class="input-wrapper">
@@ -14,7 +14,7 @@
         </div>
 
 
-        <button type="submit"> Upravit</button>
+        <button type="submit" id="submit"> Upravit</button>
 
 
 

@@ -5,7 +5,7 @@
     <div class="container">
        <div class="row justify-content-around">
            @forelse($prispevky as $prispevok)   <!-- poslane z compact -->
-               <div class="col-xl-3 col-md-5 col-sm-12 post">
+               <div class="col-xl-3 col-md-5 col-sm-12 post ">
 
                    <img src="/storage/{{$prispevok->obrazok}}" alt="{{$prispevok->nazov}}">
                    <a href="/posts/{{$prispevok->id}}"><h2>{{$prispevok->nazov}}</h2></a>

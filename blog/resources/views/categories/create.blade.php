@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="/kategorie" method="POST" >
+    <form action="/kategorie" method="POST" id="postCreate" >
         @csrf
         <div class="input-wrapper">
             <label for="nazov"> Nazov </label>
