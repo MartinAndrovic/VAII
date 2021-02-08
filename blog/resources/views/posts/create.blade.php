@@ -14,14 +14,14 @@
 
         <div class="input-wrapper">
             <label for="uvod"> uvod </label>
-            <input id="uvod" type="text" name="uvod" placeholder="Uvod">
+            <textarea id="uvod" > </textarea>
             <div class="alert-danger" id="uvodError"></div>
 
         </div>
 
         <div class="input-wrapper">
             <label for="text"> text </label>
-            <input id="text" type="text" name="text" placeholder="Text">
+            <textarea id="text" > </textarea>
             <div class="alert-danger" id="textError"></div>
 
         </div>
@@ -45,7 +45,7 @@
 
         </div>
 
-       <button type="submit"> vytvorit</button>
+       <button type="submit" id="submit"> vytvorit</button>
 
 
 

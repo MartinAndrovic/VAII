@@ -13,17 +13,23 @@
 
 }*/
 
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .post {
     padding-bottom: 50px;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
     text-align: center;
 }
 .post img {
+
     width: 100%;
     height: auto;
 }
 
 .post h2 {
+    text-align: left;
+    font-family: "Arial ";
+    font-weight: bold;
     color: red;
 }
 
@@ -33,3 +39,82 @@
 .comment p {
     font-size: 0.7em;
 }
+
+
+
+
+.nav-link {
+   font-style: italic;
+
+}
+
+.nav-link:hover{
+    color: #761b18 !important;
+}
+
+.title{
+    text-align: center;
+}
+
+.navbar{
+    background-color: #2a9055;
+
+}
+
+.navbar-brand{
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+
+}
+.navbar-toggler{
+    background: #761b18;
+    broder: none;
+    padding: 10px 6px;
+    outline: none;
+
+}
+
+#login{
+    resize: horizontal;
+    background-color: #761b18;
+}
+
+#loginHeader {
+    background-color: #2a9055;
+
+}
+#postCreate{
+    max-width: 500px;
+    margin:2rem auto;
+    border:2px solid #2a9055;
+    padding: 2rem;
+}
+
+.input-wrapper{
+    margin-bottom: 10px;
+}
+label {
+    display: block;
+}
+
+input {
+    width: 50%;
+}
+
+textarea{
+    width:100%
+}
+
+#submit{
+    font-weight: bolder;
+    border:0!important;
+    background: #761b18 !important;
+    padding: .5rem!important;
+    color:white!important;
+    margin:1rem 0!important;
+    text-transform: uppercase!important;
+
+ }
+
+
+

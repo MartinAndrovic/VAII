@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Prispevky</h1>
+    <h1 class="title">Prispevky</h1>
     <div class="container">
        <div class="row justify-content-around">
            @forelse($prispevky as $prispevok)   <!-- poslane z compact -->
