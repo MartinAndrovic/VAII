@@ -40,13 +40,14 @@
 }
 
 .commentare {
-    width: 60%;
+    width: 100%;
     margin: auto;
-    margin-bottom: 100px;
+    margin-bottom: 15px;
 }
 .comment {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    font-size: large;
 
 }
 .comment p {
@@ -207,7 +208,20 @@ h1{
 }
 
 .postName{
+    font-family: cursive;
     margin-top: 20px;
     text-align: left;
 
 }
+
+.submit{
+    margin-bottom: 20px;
+}
+ .comName{
+     text-align: left;
+     font-size: larger;
+ }
+.postUvod{
+    text-align: left;
+}
+
