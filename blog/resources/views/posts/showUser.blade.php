@@ -11,8 +11,8 @@
         </form>
         <img src="/storage/{{$post->obrazok}}" alt="{{$post->nazov}}">
         <h1>{{$post->nazov}}</h1>
-        <p>Categoria: {{$post->category->nazov}}</p>
-        <p>{{$post->text}}</p>
+        <p class="catText">Categoria: {{$post->category->nazov}}</p>
+        <p class="catText">{{$post->text}}</p>
 
         <h2>Komentare</h2>
         @auth

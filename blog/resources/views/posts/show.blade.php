@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="post-show">
+    <div class="post-show col-xl-10 ">
         <img src="/storage/{{$post->obrazok}}" alt="{{$post->nazov}}">
-        <p class="small">Kategória: {{$post->category->nazov}}</p>
-        <h1>{{$post->nazov}}</h1>
+        <h1 class="postName">{{$post->nazov}}</h1>
+        <p class="small catText">Kategória: {{$post->category->nazov}}</p>
+
         <p>{{$post->text}}</p>
 
         <h2>Komentare</h2>
@@ -27,7 +28,7 @@
         <div class="commentare">
         @forelse($post->comments as $comment)
             <div class="comment">
-                <p>{{$comment->text}}</p>
+                <p >{{$comment->text}}</p>
                 <p>Napisal : {{$comment->user->name}}</p>
             </div>
         @empty

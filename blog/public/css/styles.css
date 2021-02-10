@@ -171,14 +171,11 @@ h1{
 }
 
 
-.post-show {
-    text-align: center;
 
-}
 
 .post-show img{
-    height: 50%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
 }
 
 .footer {
@@ -195,12 +192,22 @@ h1{
 
 
 .post-show  {
-    width: 1000px;
+    width: 60%;
    margin: auto;
+
+    text-align: center;
 
 }
 
-.post-show p  {
-    position: relative;
+.post-show .catText{
+
     text-align: left;
+    margin-top: 20px;
+
+}
+
+.postName{
+    margin-top: 20px;
+    text-align: left;
+
 }
