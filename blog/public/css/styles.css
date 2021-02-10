@@ -108,6 +108,9 @@
     padding: 2rem;
 }
 
+
+
+
 .input-wrapper{
     margin-bottom: 10px;
 }
@@ -134,6 +137,16 @@ textarea{
 
  }
 
+#postUpdate{
+    max-width: 500px;
+    margin:2rem auto;
+    border:2px solid #2a9055;
+    padding: 2rem;
+
+}
+#postUpdate img{
+    width: 70%;
+}
 
 #listCat {
 

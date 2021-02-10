@@ -13,14 +13,14 @@
 
         <div class="input-wrapper">
             <label for="uvod"> uvod </label>
-            <input id="uvod" type="text" name="uvod" placeholder="Uvod" value="{{$post->uvod}}">
+            <textarea id="uvod" type="text" name="uvod" placeholder="Uvod" >{{$post->uvod}} </textarea>
             <div class="alert-danger" id="uvodError"></div>
 
         </div>
 
         <div class="input-wrapper">
             <label for="text"> text </label>
-            <input id="text" type="text" name="text" placeholder="Text" value="{{$post->text}}">
+            <textarea id="text" type="text" name="text" placeholder="Text" >{{$post->text}} </textarea>
             <div class="alert-danger" id="textError"></div>
 
         </div>
