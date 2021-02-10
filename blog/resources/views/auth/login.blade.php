@@ -4,8 +4,8 @@
 <div class="container "  >
     <div class="row justify-content-center " >
         <div class="col-md-8">
-            <div class="card"  id="login">
-                <div class="card-header" id="loginHeader">{{ __('Login') }}</div>
+            <div class="card"  class="login">
+                <div class="card-header loginHeader" >{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
