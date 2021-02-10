@@ -15,6 +15,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -140,6 +141,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -164,7 +166,8 @@
       <updated>1612345094069</updated>
       <workItem from="1612345095424" duration="1124000" />
       <workItem from="1612346375728" duration="31238000" />
-      <workItem from="1612785831629" duration="14775000" />
+      <workItem from="1612785831629" duration="14799000" />
+      <workItem from="1612962100654" duration="5863000" />
     </task>
     <servers />
   </component>

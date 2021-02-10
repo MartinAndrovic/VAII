@@ -3,8 +3,8 @@
 @section('content')
     <div class="post-show">
         <img src="/storage/{{$post->obrazok}}" alt="{{$post->nazov}}">
+        <p class="small">Kategória: {{$post->category->nazov}}</p>
         <h1>{{$post->nazov}}</h1>
-        <p>Categoria: {{$post->category->nazov}}</p>
         <p>{{$post->text}}</p>
 
         <h2>Komentare</h2>
@@ -24,7 +24,7 @@
                 </div>
             </form>
         @endauth
-
+        <div class="commentare">
         @forelse($post->comments as $comment)
             <div class="comment">
                 <p>{{$comment->text}}</p>
@@ -33,7 +33,7 @@
         @empty
             <h2>Ziadne komentare</h2>
         @endforelse
-
+        </div>
 
 
     </div>

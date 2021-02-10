@@ -19,26 +19,40 @@
     padding-bottom: 50px;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
     text-align: center;
+    font-family:  Roboto;
+    padding: 0px !important;
+    padding-bottom: 10px !important;
+    margin: 0 5px 25px 5px;
 
 }
 .post img {
-
+    grid-area: img;
     width: 100%;
     height: auto;
+
 }
 
 .post h2 {
     text-align: left;
     font-family: "Arial ";
     font-weight: bold;
-    color: red;
+    color: green;
 }
 
+.commentare {
+    width: 60%;
+    margin: auto;
+}
 .comment {
-    border-bottom: 2px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 .comment p {
     font-size: 0.7em;
+}
+.inner-bottom {
+    width: 90% !important;
+    margin: auto;
 }
 
 
@@ -155,3 +169,12 @@ h1{
 }
 
 
+.post-show {
+    text-align: center;
+
+}
+
+.post-show img{
+    height: 50%;
+    width: 50%;
+}
