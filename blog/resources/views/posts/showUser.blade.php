@@ -33,10 +33,12 @@
         @endauth
 
         @forelse($post->comments as $comment)
+
             <div class="comment">
                 <p>{{$comment->text}}</p>
                 <p>Napisal : {{$comment->user->name}}</p>
             </div>
+
         @empty
             <h2>Ziadne komentare</h2>
         @endforelse

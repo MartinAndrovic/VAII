@@ -42,10 +42,12 @@
 .commentare {
     width: 60%;
     margin: auto;
+    margin-bottom: 100px;
 }
 .comment {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+
 }
 .comment p {
     font-size: 0.7em;
@@ -177,4 +179,28 @@ h1{
 .post-show img{
     height: 50%;
     width: 50%;
+}
+
+.footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #2a9055;
+    opacity: 60%;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+.post-show  {
+    width: 1000px;
+   margin: auto;
+
+}
+
+.post-show p  {
+    position: relative;
+    text-align: left;
 }
