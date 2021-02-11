@@ -6,18 +6,20 @@
         <h1 class="postName">{{$post->nazov}}</h1>
         <p class="small catText">Kategória: {{$post->category->nazov}}</p>
         <p class="postUvod">{{$post->uvod}}</p>
-        <p>{{$post->text}}</p>
+        <p class="postText">{{$post->text}}</p>
 
-        <h2 class="comName">Komentare</h2>
+        <h2 class="comName">Komentáre</h2>
 
         <div class="commentare">
         @forelse($post->comments as $comment)
             <div class="comment">
-                <p >{{$comment->text}}</p>
-                <p>Napisal : {{$comment->user->name}}</p>
+
+                <p class="comAutor"> {{$comment->user->name}}</p>
+                <p class="comText" >{{$comment->text}}</p>
+                <p class="comText" >{{$comment->text}}</p>
             </div>
         @empty
-            <h2>Ziadne komentare</h2>
+            <h2 class="noCom">zatiaľ žiadne komentáre</h2>
         @endforelse
         </div>
 
@@ -37,7 +39,20 @@
 
                 </div>
             </form>
+
+
+
+
+            <a href="/posts/{{$post->id}}/edit">Edit</a>
+            <form id="postDelete" method="POST">
+                @csrf
+                @method('DELETE')
+                <input type="hidden" name="post_id" value="{{$post->id}}" id="post_id_delete">
+                <button type="submit">Vymazat</button>
+            </form>
         @endauth
+
+
 
 
     </div>

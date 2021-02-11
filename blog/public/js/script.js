@@ -34,7 +34,6 @@ $(document).ready(function() {
                 printError(errors.obrazok, "#obrazokError");
                 printError(errors.kategoria, "#kategoriaError");
             });
-
     });
 
      function printError(error, id) {

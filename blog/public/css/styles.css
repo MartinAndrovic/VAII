@@ -25,6 +25,10 @@
     margin: 0 5px 25px 5px;
 
 }
+
+.post:hover{
+    background-color: #95999c;
+}
 .post img {
     grid-area: img;
     width: 100%;
@@ -123,7 +127,7 @@ textarea{
     width:100%
 }
 
-#submit{
+.submitBt{
     font-weight: bolder;
     border:0!important;
     background: #761b18 !important;
@@ -163,9 +167,7 @@ h1{
     border: 2px solid black;
 }
 
-#btn:hover{
-    background-color: #761b18;
-}
+
 
 #add{
     display: block;
@@ -204,18 +206,29 @@ h1{
 
 .post-show  {
     width: 60%;
-   margin: auto;
-
+    margin: auto;
     text-align: center;
 
 }
 
-.post-show .catText{
+.post-show {
 
     text-align: left;
     margin-top: 20px;
 
 }
+
+
+
+.submit{
+    margin-bottom: 20px;
+
+}
+
+#submit:hover{
+    background-color: #1b4b72;
+}
+
 
 .postName{
     font-family: cursive;
@@ -224,15 +237,51 @@ h1{
 
 }
 
-.submit{
-    margin-bottom: 20px;
-}
- .comName{
-     text-align: left;
-     font-size: larger;
- }
 .postUvod{
-    text-align: left;
+    font-family: "Hind", Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: bold;
 }
 
+.postText{
+    font-family: "Hind", Arial, Helvetica, sans-serif;
+}
 
+.catText{
+    color: #1d68a7;
+
+}
+
+.comName{
+    margin-top: 50px;
+    text-align: left;
+    font-size: larger;
+}
+
+.comAutor{
+    font-family: cursive;
+
+}
+
+.footer{
+    margin-bottom: 3px;
+    font-family: "Hind", Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+
+.edit{
+    font-size: x-large;
+}
+
+.noCom{
+    font-size: small;
+
+}
+
+.title{
+    font-family: "Hind", Arial, Helvetica, sans-serif;
+}
+
+.log{
+    font-weight: bold;
+}

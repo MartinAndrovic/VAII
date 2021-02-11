@@ -45,7 +45,7 @@
 
         </div>
 
-       <button type="submit" id="submit"> vytvorit</button>
+       <button type="submit" class="submitBt"> vytvorit</button>
 
 
 

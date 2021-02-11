@@ -54,14 +54,14 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="  nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="  nav-link log" href="{{ route('login') }}">{{ __('Prihlásenie') }}</a>
                                 </li>
 
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link log" href="{{ route('register') }}">{{ __('Registrácia') }}</a>
                                 </li>
                             @endif
                         @else
@@ -74,7 +74,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('odhlásiť sa') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -93,7 +93,9 @@
 
         </main>
         <div class="footer">
-            <p>Footer</p>
+            <p class="footer">Martin Androvič</p>
+            <p class="footer">martin.androvic@gmail.com</p>
+            <p class="footer">2021</p>
         </div>
     </div>
 </body>

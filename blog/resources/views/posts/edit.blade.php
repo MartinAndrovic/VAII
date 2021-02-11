@@ -5,14 +5,14 @@
         @csrf
         @method('PATCH')
         <div class="input-wrapper">
-            <label for="nazov"> Nazov </label>
-            <input id="nazov" type="text" name="nazov" placeholder="Nazov" value="{{$post->nazov}}">
+            <label for="nazov"> názov </label>
+            <input id="nazov" type="text" name="nazov" placeholder="Názov" value="{{$post->nazov}}">
             <div class="alert-danger" id="nazovvError"></div>
 
         </div>
 
         <div class="input-wrapper">
-            <label for="uvod"> uvod </label>
+            <label for="uvod"> úvod </label>
             <textarea id="uvod" type="text" name="uvod" placeholder="Uvod" >{{$post->uvod}} </textarea>
             <div class="alert-danger" id="uvodError"></div>
 
@@ -26,7 +26,7 @@
         </div>
 
         <div class="input-wrapper ">
-            <label for="kategoria"> Kategoria </label>
+            <label for="kategoria"> kategória </label>
             <select name="kategoria" id="kategoria">
                 @forelse($kategorie as $kategoria)
                     <option value="{{$kategoria->id}}" @if($kategoria->id == $post->category_id) selected @endif>{{$kategoria->nazov}}</option>
@@ -39,7 +39,7 @@
 
         <img src="/storage/{{$post->obrazok}}" alt="">
         <div class="input-wrapper ">
-            <label for="obrazok"> text </label>
+            <label for="obrazok"> obrázok </label>
             <input id="obrazok" type="file" name="obrazok" >
             <div class="alert-danger" id="obrazokError"></div>
         </div>
@@ -47,7 +47,7 @@
 
         <input type="hidden" name="post_id" id="post_id" value="{{$post->id}}">
 
-        <button type="submit"> Edit</button>
+        <button type="submit" class="submitBt"> Edit</button>
 
 
 

@@ -59,7 +59,7 @@ class PostController extends Controller
 
         //obrazok musime skopirovat na storage
         $this->saveObrazok($post);
-        return "Uspesne si vytvoril prispevok";
+        return "prispevok bol vvytvorený";
     }
 
     public function edit(Post $post)  {
@@ -95,7 +95,7 @@ class PostController extends Controller
                 $this->deleteObrazok($stary);
 
             }
-            return "Uspesne update";
+            return "príspevok bol upravený";
         }
         return "Forbidden";
     }
@@ -105,7 +105,7 @@ class PostController extends Controller
             $obrazok = $post->obrazok;
             $post->delete();
             $this->deleteObrazok($obrazok);
-            return "Uspesne si vymazal";
+            return "príspevok bol vymazany";
         }
         echo "Forbidden";
     }

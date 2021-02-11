@@ -20,6 +20,7 @@
             <div class="comment">
                 <p>{{$comment->text}}</p>
                 <p>Napisal : {{$comment->user->name}}</p>
+                <p>coje zase</p>
             </div>
 
         @empty
@@ -44,7 +45,7 @@
         @endauth
 
 
-        <div class="edit">
+        <p>coje zase</p>
         <a href="/posts/{{$post->id}}/edit">Edit</a>
         <form id="postDelete" method="POST">
             @csrf
@@ -52,7 +53,7 @@
             <input type="hidden" name="post_id" value="{{$post->id}}" id="post_id_delete">
             <button type="submit">Vymazat</button>
         </form>
-        </div>
+
 
     </div>
 @endsection
