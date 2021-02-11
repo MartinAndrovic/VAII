@@ -14,7 +14,7 @@
                             <p>{{$prispevok->uvod}}</p>
                             <div class="row inner-bottom">
                                 <div class="col-5 col-offset-1">
-                                    <p class="small">Kategória : {{$prispevok->category->nazov}}</p>
+                                    <p class="small catText">Kategória : {{$prispevok->category->nazov}}</p>
                                 </div>
                                 <div class="col-5 col-offset-1">
                                     <h3 class="small">Autor : {{$prispevok->user->name}}</h3>
@@ -27,7 +27,7 @@
             </a>
 
         @empty                           <!-- ak je prazdne -->
-            <h2>Ziadne prispevky</h2>
+            <h2>zatiaľ žiadne príspevky</h2>
             @endforelse
 
         </div>

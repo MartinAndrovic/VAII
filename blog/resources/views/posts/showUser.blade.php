@@ -12,7 +12,7 @@
         <p class="catText">Categoria: {{$post->category->nazov}}</p>
         <p class="catText">{{$post->text}}</p>
 
-        <h2 class="comName">Komentare</h2>
+        <h2 class="comName">Komentáre</h2>
 
 
         @forelse($post->comments as $comment)
@@ -28,7 +28,7 @@
         @endforelse
 
         @auth
-          <!--  <h3>Komentovat vlastny prispevok</h3> -->
+
             <form action="/komentar" method="POST">
                 @csrf
                 <div class="input-wrapper ">
@@ -38,14 +38,14 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     <input type="hidden" value="{{$post->id}}" name="post_id">
-                    <button type="submit">Komentovat</button>
+                    <button type="submit">komentovať</button>
 
                 </div>
             </form>
         @endauth
 
 
-        <p>coje zase</p>
+
         <a href="/posts/{{$post->id}}/edit">Edit</a>
         <form id="postDelete" method="POST">
             @csrf

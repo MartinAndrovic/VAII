@@ -4,7 +4,7 @@
     <form action="/posts" method="POST" enctype='multipart/form-data' id="postCreate">
         @csrf
         <div class="input-wrapper">
-            <label for="nazov"> Nazov </label>
+            <label for="nazov"> názov </label>
             <input id="nazov" type="text" name="nazov" placeholder="Nazov">
                                                                              <!-- vracia php -->
             <div class="alert-danger" id="nazovvError"></div>
@@ -13,7 +13,7 @@
         </div>
 
         <div class="input-wrapper">
-            <label for="uvod"> uvod </label>
+            <label for="uvod"> úvod </label>
             <textarea id="uvod" > </textarea>
             <div class="alert-danger" id="uvodError"></div>
 
@@ -27,14 +27,14 @@
         </div>
 
         <div class="input-wrapper ">
-            <label for="obrazok"> Obrazok </label>
+            <label for="obrazok"> obrázok </label>
             <input id="obrazok" type="file" name="obrazok" >
             <div class="alert-danger" id="obrazokError"></div>
 
         </div>
 
         <div class="input-wrapper ">
-            <label for="kategoria"> Kategoria </label>
+            <label for="kategoria"> kategória </label>
             <select name="kategoria" id="kategoria">
                 @forelse($kategorie as $kategoria)
                     <option value="{{$kategoria->id}}">{{$kategoria->nazov}}</option>
