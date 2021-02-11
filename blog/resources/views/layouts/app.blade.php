@@ -35,14 +35,14 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="/posts/create">Vytvorit prispevok</a>
+                                <a class="nav-link" href="/posts/create">Vytvoriť príspevok</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/user/posts">Moje prispevky</a>
+                                <a class="nav-link" href="/user/posts">Moje príspevky</a>
                             </li>
                             @if(Auth::user()->isAdmin())
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/kategorie">Kategorie</a>
+                                    <a class="nav-link" href="/kategorie">Kategórie</a>
                                 </li>
                             @endif
                         @endauth

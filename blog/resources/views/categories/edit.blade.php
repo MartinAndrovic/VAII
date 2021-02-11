@@ -11,7 +11,7 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
-            <button type="submit" id="submit"> Upravit</button>
+            <button type="submit" class="submit"> Upravit</button>
         </div>
 
 

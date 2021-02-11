@@ -10,7 +10,7 @@
             <div id="item">
             <p>{{$kategoria->nazov}}</p>
         <div id="box">
-            <a href="/kategorie/{{$kategoria->id}}" id="btn">Edit</a>
+            <a href="/kategorie/{{$kategoria->id}}" id="btn" class="submit">Edit</a>
     </div>
             </div>
         @empty

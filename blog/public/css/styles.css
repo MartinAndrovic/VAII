@@ -1,18 +1,3 @@
-/*.posts {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: center;
-
-}
-.post {
-    width: 23%;
-
-}*/
-
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 .post {
@@ -91,7 +76,7 @@
 }
 .navbar-toggler{
     background: #761b18;
-    broder: none;
+    border: none;
     padding: 10px 6px;
     outline: none;
 
@@ -229,11 +214,13 @@ h1{
 
 .submit{
     margin-bottom: 20px;
+    color: black !important;
 
 }
 
-#submit:hover{
-    background-color: #1b4b72;
+.submit:hover{
+    background-color: #1d68a7;
+
 }
 
 
