@@ -29,7 +29,7 @@
                 @csrf
                 <div class="input-wrapper ">
 
-                    <textarea type="text" id="text" name="text" placeholder="Komentar"> </textarea>
+                    <textarea  id="text" name="text" placeholder="Komentar"> </textarea>
 
                     @error('text')
                     <div class="alert alert-danger">{{ $message }}</div>

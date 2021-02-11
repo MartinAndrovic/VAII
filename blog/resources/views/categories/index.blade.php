@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Kategorie</h1>
+    <h1 class="title">Kategorie</h1>
 
 
     <div class="categories" id="listCat">
-        <a href="/kategorie/create" id="add" >Pridat kategoriu</a>
+        <a href="/kategorie/create" id="add" >Pridať kategóriu</a>
         @forelse($kategorie as $kategoria)
             <div id="item">
             <p>{{$kategoria->nazov}}</p>
@@ -14,7 +14,7 @@
     </div>
             </div>
         @empty
-            <h2>ziadne kategorie</h2>
+            <h2>zatiaľ žiadne kategórie</h2>
         @endforelse
     </div>
 @endsection

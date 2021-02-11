@@ -10,7 +10,7 @@
                     <div class="inner">
                         <img src="/storage/{{$prispevok->obrazok}}" alt="{{$prispevok->nazov}}">
                         <div class="text text-center">
-                            <a href="/posts/{{$prispevok->id}}"><h2 class="text-center">{{$prispevok->nazov}}</h2></a>
+                            <a ><h2 class="text-center">{{$prispevok->nazov}}</h2></a>
                             <p>{{$prispevok->uvod}}</p>
                             <div class="row inner-bottom">
                                 <div class="col-5 col-offset-1">
