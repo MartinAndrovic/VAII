@@ -15,7 +15,7 @@
                             <p class="postUvod">{{$prispevok->uvod}}</p>
                             <div class="row inner-bottom">
                                 <div class="col-5 col-offset-1">
-                                    <p class="small catText">Kategoria : {{$prispevok->category->nazov}}</p>
+                                    <p class="small catText">Kategória : {{$prispevok->category->nazov}}</p>
                                 </div>
                                 <div class="col-5 col-offset-1">
                                     <h3 class="small postAutor">Autor : {{$prispevok->user->name}}</h3>

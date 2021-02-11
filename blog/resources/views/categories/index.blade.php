@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="title">Kategorie</h1>
+    <h1 class="title">Kategórie</h1>
 
 
     <div class="categories" id="listCat">
