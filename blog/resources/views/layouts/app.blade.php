@@ -88,20 +88,22 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main style="min-height: 100vh;" class="py-4">
             @yield('content')
+
         </main>
+        <div class="footer">
+            <p>Footer</p>
+        </div>
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="{{asset('js/script.js')}}"></script>
 
-<div class="footer">
-    <p>Footer</p>
-</div>
 
-</body>
+
+
 </html>
 
 </html>
