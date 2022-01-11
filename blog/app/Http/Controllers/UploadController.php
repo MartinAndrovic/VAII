@@ -10,6 +10,13 @@ class UploadController extends Controller
 
         $name=$req->file('file') ->getClientOriginalName() ;
 
-        return $req->file('file') ->storeAs('blog\public', $name) ;
+        $req->file('file') ->storeAs('blog\public\storage', $name) ;
+
+        return redirect()->route('evaluation');
+    }
+
+    public function index()
+    {
+        return view('evaluation');
     }
 }

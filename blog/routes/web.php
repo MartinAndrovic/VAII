@@ -19,6 +19,7 @@ use \App\Http\Controllers\UploadController;
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/evaluation', [App\Http\Controllers\UploadController::class, 'index'])->name('evaluation');
 
 Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('postHome');
 
