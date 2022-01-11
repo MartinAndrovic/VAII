@@ -18,7 +18,7 @@
                                     <p class="small catText">Kategória : {{$prispevok->category->nazov}}</p>
                                 </div>
                                 <div class="col-5 col-offset-1">
-                                    <h3 class="small postAutor">Autor : {{$prispevok->user->name}}</h3>
+
                                 </div>
                             </div>
 

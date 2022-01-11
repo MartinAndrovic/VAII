@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\UploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,8 @@ Route::get('/kategorie/create', [App\Http\Controllers\CategoryController::class,
 Route::get('/kategorie/{category}', [App\Http\Controllers\CategoryController::class, 'edit']);
 Route::post('/kategorie', [App\Http\Controllers\CategoryController::class, 'store']);
 Route::patch('/kategorie/{category}', [App\Http\Controllers\CategoryController::class, 'update']);
+Route::view('upload','upload');
+Route::post('upload',[UploadController::class,'upl']);
 
 
 

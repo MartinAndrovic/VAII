@@ -25,6 +25,7 @@
 
         @empty
             <h2>Ziadne komentare</h2>
+
         @endforelse
 
         @auth

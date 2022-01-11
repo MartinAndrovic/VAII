@@ -155,9 +155,10 @@ h1{
 
 
 
-#btn{
+.btn{
     border: 2px solid black;
 }
+
 
 
 
@@ -166,7 +167,7 @@ h1{
     text-align: center;
 }
 
-#item{
+.item{
     border-bottom: 1px solid black;
 }
 
@@ -175,7 +176,10 @@ h1{
     margin-bottom: 5px;
 }
 
-
+.box{
+    margin-top: -2px;
+    margin-bottom: 5px;
+}
 
 
 .post-show img{
@@ -219,6 +223,17 @@ h1{
 }
 
 .submit:hover{
+    background-color: #1d68a7;
+
+}
+
+.btn{
+    margin-bottom: 20px;
+    color: black !important;
+
+}
+
+.btn:hover{
     background-color: #1d68a7;
 
 }

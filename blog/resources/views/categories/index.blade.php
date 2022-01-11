@@ -7,10 +7,10 @@
     <div class="categories" id="listCat">
         <a href="/kategorie/create" id="add" >Pridať kategóriu</a>
         @forelse($kategorie as $kategoria)
-            <div id="item">
+            <div class="item">
             <p>{{$kategoria->nazov}}</p>
-        <div id="box">
-            <a href="/kategorie/{{$kategoria->id}}" id="btn" class="submit">Edit</a>
+        <div class="box">
+            <a href="/kategorie/{{$kategoria->id}}"  class="submit btn">Edit</a>
     </div>
             </div>
         @empty
