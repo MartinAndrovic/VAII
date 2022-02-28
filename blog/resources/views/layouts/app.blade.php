@@ -40,6 +40,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/user/posts">Moje príspevky</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user/skuska">Skúšky</a>
+                            </li>
+
                             @if(Auth::user()->isAdmin())
                                 <li class="nav-item">
                                     <a class="nav-link" href="/kategorie">Kategórie</a>

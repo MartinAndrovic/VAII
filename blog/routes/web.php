@@ -19,7 +19,7 @@ use \App\Http\Controllers\UploadController;
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/evaluation', [App\Http\Controllers\UploadController::class, 'index'])->name('evaluation');
+
 
 Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('postHome');
 
@@ -45,10 +45,13 @@ Route::get('/kategorie/create', [App\Http\Controllers\CategoryController::class,
 Route::get('/kategorie/{category}', [App\Http\Controllers\CategoryController::class, 'edit']);
 Route::post('/kategorie', [App\Http\Controllers\CategoryController::class, 'store']);
 Route::patch('/kategorie/{category}', [App\Http\Controllers\CategoryController::class, 'update']);
+
+//asi nove
 Route::view('upload','upload');
 Route::post('upload',[UploadController::class,'upl']);
 
+//nove
+Route::get('/user/skuska',[App\Http\Controllers\SkuskyController::class, 'index']);
 
-
-
+Route::get('/evaluation', [App\Http\Controllers\UploadController::class, 'index']);
 
