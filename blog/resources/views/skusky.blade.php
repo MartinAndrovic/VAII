@@ -7,7 +7,7 @@
         @forelse($prispevky as $prispevok)   <!-- poslane z compact -->
 
             <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
-                <a href="/posts/{{$prispevok->id}}">
+                <a href="/user/skuska/{{$prispevok->id}}">
                     <div class="inner">
 
                         <div class="text text-center">

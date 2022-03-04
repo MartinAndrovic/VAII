@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Zadania extends Migration
+class EditZadaniaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,8 +16,8 @@ class Zadania extends Migration
         Schema::create('zadania', function (Blueprint $table) {
             $table->id();
             $table->string('nazov');
+            $table->bigInteger('skuska_id')->default(0);;
             $table->timestamps();
-
         });
     }
 
