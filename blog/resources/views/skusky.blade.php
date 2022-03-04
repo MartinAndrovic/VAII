@@ -28,11 +28,33 @@
 
 
         @empty                           <!-- ak je prazdne -->
-            <h2>zatiaľ žiadne príspevky</h2>
+            <h2>zatiaľ žiadne skúšky</h2>
             @endforelse
 
         </div>
     </div>
 
+
+    <!--vytvorenie novej skusky-->
+
+    <form action="/user/skuska" method="POST" >
+        @csrf
+        <div class="input-wrapper catEdit">
+            <label for="nazov"> názov </label>
+            <input id="nazov" type="text" name="nazov" placeholder="názov">
+        @error('nazov')                                                                 <!-- vracia php -->
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
+            <button type="submit" class="submit"> vytvoriť</button>
+        </div>
+
+
+
+
+
+
+
+    </form>
 
 @endsection

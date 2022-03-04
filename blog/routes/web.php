@@ -52,6 +52,7 @@ Route::post('upload',[UploadController::class,'upl']);
 
 //nove
 Route::get('/user/skuska',[App\Http\Controllers\SkuskyController::class, 'index']);
+Route::post('/user/skuska', [App\Http\Controllers\SkuskyController::class, 'store']);
 
 Route::get('/evaluation', [App\Http\Controllers\UploadController::class, 'index']);
 

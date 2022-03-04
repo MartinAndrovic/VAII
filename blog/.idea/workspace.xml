@@ -148,6 +148,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="full.screen.before.presentation.mode" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -193,6 +194,7 @@
       <workItem from="1644606195340" duration="2419000" />
       <workItem from="1645459927328" duration="3201000" />
       <workItem from="1646070169178" duration="6287000" />
+      <workItem from="1646414704930" duration="3244000" />
     </task>
     <servers />
   </component>
@@ -212,10 +214,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="797" y="253" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1646072318600" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1646077599066">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1646416460271">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1646077599066" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1646416460271" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1641738550453">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -224,6 +226,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1645464158287" />
+    <state x="850" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1646417930246">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="850" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1646417930246" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1646070392369">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
