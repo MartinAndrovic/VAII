@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="title">Príspevky</h1>
+    <h1 class="title">Skúšky</h1>
     <div class="container">
         <div class="row justify-content-around">
         @forelse($prispevky as $prispevok)   <!-- poslane z compact -->
@@ -11,7 +11,7 @@
                     <div class="inner">
 
                         <div class="text text-center">
-                            <h2 class="text-center">{{$prispevok->id}}</h2>
+                            <h2 class="text-center">{{$prispevok->nazov}}</h2>
                             <p class="postUvod">{{$prispevok->id}}</p>
                             <div class="row inner-bottom">
                                 <div class="col-5 col-offset-1">
@@ -33,4 +33,6 @@
 
         </div>
     </div>
+
+
 @endsection
