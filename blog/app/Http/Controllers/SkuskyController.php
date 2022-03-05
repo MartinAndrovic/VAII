@@ -29,15 +29,24 @@ class SkuskyController extends Controller
     public function show()
     {
 
-        $prispevky = Zadania::all();
+        //$prispevky = Skusky::all();
+       // $zadania = Zadania::all();
 
-        return view('skuska',compact('prispevky'));
+       // return view('skuska',compact('prispevky'),compact('zadania'));
+
+
+        $ms = Skusky::all();
+
+        $persons = Zadania::all();
+
+        return view('skuska')->with('persons', $persons)->with('ms', $ms);
 
     }
 
     public function storeSk() {
         Zadania::create(request()->validate([
-            "nazov" => "required|string|min:3"
+            "nazov" => "required|string|min:3",
+            'skuska_id' => 'required|numeric'
         ]));
         return redirect('/user/skuska/{skuska}');
     }

@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="title">Skúška </h1>
+    <h1 class="title">Skuska-zadania </h1>
     <div class="container">
         <div class="row justify-content-around">
-        @forelse($prispevky as $prispevok)   <!-- poslane z compact -->
+        @forelse($persons as $prispevok)   <!-- poslane z compact -->
 
             <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
                 <a href="{{$prispevok->id}}">
@@ -35,7 +35,7 @@
     </div>
 
 
-    <!--vytvorenie novej skusky-->
+    <!--vytvorenie noveho zadania-->
 
     <form action="/user/skuska/id" method="POST" >
         @csrf
@@ -46,7 +46,7 @@
         @error('nazov')                                                                 <!-- vracia php -->
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-
+            <input type="hidden" value="{{$prispevok->id}}" name="post_id">
             <button type="submit" class="submit"> vytvoriť</button>
         </div>
 
