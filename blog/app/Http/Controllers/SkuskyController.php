@@ -7,10 +7,12 @@ use App\Models\Post;
 use App\Models\Skusky;
 use App\Models\Zadania;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class SkuskyController extends Controller
 {
-    public function index()
+    public function index()     //vypis skusok v user/skuska
     {
 
         $prispevky = Skusky::all();
@@ -19,14 +21,16 @@ class SkuskyController extends Controller
 
     }
 
-    public function store() {
-        Skusky::create(request()->validate([
+    public function store() {       //vytvorenie novejskusky v user/skuska
+        $user = Auth::user();
+        $post = $user->skusky()->create(request()->validate([
+
             "nazov" => "required|string|min:3"
         ]));
         return redirect('/user/skuska');
     }
 
-    public function show()
+    public function show($skuska)   //zobrazenie zadani v user/skuska/{skuska}
     {
 
         //$prispevky = Skusky::all();
@@ -36,18 +40,24 @@ class SkuskyController extends Controller
 
 
         $ms = Skusky::all();
+        $lastName = $skuska;
 
         $persons = Zadania::all();
 
-        return view('skuska')->with('persons', $persons)->with('ms', $ms);
+        return view('skuska')->with(compact('lastName','persons'));
 
     }
 
-    public function storeSk() {
-        Zadania::create(request()->validate([
-            "nazov" => "required|string|min:3",
-            'skuska_id' => 'required|numeric'
+    public function storeSk($skuska) {         //vytvorenie zadania v user/skuska/{skuska}
+
+        $user = Skusky::find(1);
+        $user->zadania()->create(request()->validate([
+            "nazov" => "required|string|min:3"
+
         ]));
+
+
+
         return redirect('/user/skuska/{skuska}');
     }
 }

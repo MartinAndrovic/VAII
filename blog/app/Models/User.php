@@ -49,7 +49,13 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function   skusky() {
+        return $this->hasMany(Skusky::class);
+    }
+
     public function isAdmin() {
         return $this->isAdmin == 1;
     }
+
+
 }

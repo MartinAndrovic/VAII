@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSkuskyTable extends Migration
+class CreateZadaniaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateSkuskyTable extends Migration
      */
     public function up()
     {
-        Schema::create('skusky', function (Blueprint $table) {
+        Schema::create('zadania', function (Blueprint $table) {
             $table->id();
             $table->string('nazov');
+            $table->bigInteger('skusky_id')->default(0);;
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateSkuskyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('skusky');
+        Schema::dropIfExists('zadania');
     }
 }

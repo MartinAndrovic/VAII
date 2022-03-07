@@ -4,14 +4,16 @@
     <h1 class="title">Skuska-zadania </h1>
     <div class="container">
         <div class="row justify-content-around">
+
+
         @forelse($persons as $prispevok)   <!-- poslane z compact -->
 
             <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
-                <a href="{{$prispevok->id}}">
+                <a href="{{$lastName}}/{{$prispevok->id}}  ">
                     <div class="inner">
 
                         <div class="text text-center">
-                            <h2 class="text-center">{{$prispevok->nazov}}</h2>
+                            <h2 class="text-center">{{$lastName}}</h2>
                             <p class="postUvod">{{$prispevok->id}}</p>
                             <div class="row inner-bottom">
                                 <div class="col-5 col-offset-1">
@@ -46,7 +48,7 @@
         @error('nazov')                                                                 <!-- vracia php -->
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-            <input type="hidden" value="{{$prispevok->id}}" name="post_id">
+
             <button type="submit" class="submit"> vytvoriť</button>
         </div>
 
