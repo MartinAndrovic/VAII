@@ -47,22 +47,25 @@ class SkuskyController extends Controller
 
         return view('skuska')->with(compact('lastName','persons'));
 
+
     }
 
-    public function storeSk($skuska) {         //vytvorenie zadania v user/skuska/{skuska}
+    public function storeSk(Request $request) {         //vytvorenie zadania v user/skuska/{skuska}
 
-        $user = Skusky::find(1);
-        $user->zadania()->create(request()->validate([
+        $idd= $request->skuska;
+        $skuska = Skusky::find($idd);
+        $skuska->zadania()->create(request()->validate([
             "nazov" => "required|string|min:3"
 
         ]));
 
 
 
-        return back();
+       // return back();
+        return redirect($idd);
     }
 
-    public function showZ($skuska,$zadanie)   //zobrazenie uloh v user/skuska/{skuska}/(zadania)
+    public function showZ($skuska,$zadanie)   //zobrazenie zadani v user/skuska/{skuska}
     {
 
         $ms = Skusky::all();
@@ -75,7 +78,7 @@ class SkuskyController extends Controller
 
     }
 
-    public function storeU($skuska) {         //vytvorenie zadania v user/skuska/{skuska}/(zadania)
+    public function storeZ($skuska) {         //vytvorenie zadania v user/skuska/{skuska}
 
         $user = Skusky::find(1);
         $user->zadania()->create(request()->validate([

@@ -39,7 +39,7 @@
 
     <!--vytvorenie noveho zadania-->
 
-    <form action="/user/skuska/id" method="POST" >
+    <form  method="POST" >
         @csrf
         <div class="input-wrapper catEdit">
             <h1> pridat zadanie</h1>
