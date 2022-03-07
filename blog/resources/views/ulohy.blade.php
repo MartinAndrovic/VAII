@@ -30,7 +30,7 @@
 
 
         @empty                           <!-- ak je prazdne -->
-            <h2>zatiaľ žiadne zadania</h2>
+            <h2>zatiaľ žiadne ulohy</h2>
             @endforelse
 
         </div>
