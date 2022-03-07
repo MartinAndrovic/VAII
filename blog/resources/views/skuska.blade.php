@@ -13,8 +13,8 @@
                     <div class="inner">
 
                         <div class="text text-center">
-                            <h2 class="text-center">{{$lastName}}</h2>
-                            <p class="postUvod">{{$prispevok->id}}</p>
+                            <h2 class="text-center">{{$prispevok->nazov}}</h2>
+                            
                             <div class="row inner-bottom">
                                 <div class="col-5 col-offset-1">
                                 </div>

@@ -58,6 +58,6 @@ class SkuskyController extends Controller
 
 
 
-        return redirect('/user/skuska/{skuska}');
+        return back();
     }
 }
