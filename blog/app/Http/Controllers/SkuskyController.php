@@ -62,30 +62,33 @@ class SkuskyController extends Controller
 
 
        // return back();
-        return redirect($idd);
+        return back();
     }
 
-    public function showZ($skuska,$zadanie)   //zobrazenie zadani v user/skuska/{skuska}
+    public function showZ(Request $request,$zadanie)   //zobrazenie uloh v user/skuska/{skuska}/{zadanie}
     {
 
         $ms = Skusky::all();
         $lastName = $zadanie;
-        $skuska = $skuska;
+       $url=$request->fullUrl();
+
 
         $persons = Ulohy::all()->where('zadania_id','=',$lastName);
 
-        return view('ulohy')->with(compact('lastName','persons','skuska'));
+        return view('ulohy')->with(compact('lastName','persons','url'));
+
 
     }
 
-    public function storeZ($skuska) {         //vytvorenie zadania v user/skuska/{skuska}
+    public function storeZ(Request $request) {         //vytvorenie ulohy v user/skuska/{skuska}/{zadanie}
 
-        $user = Skusky::find(1);
-        $user->zadania()->create(request()->validate([
+        $id = $request->zadanie;
+
+        $zadanie = Zadania::find($id);
+        $zadanie->ulohy()->create(request()->validate([
             "nazov" => "required|string|min:3"
 
         ]));
-
 
 
         return back();

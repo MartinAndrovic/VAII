@@ -2,6 +2,7 @@
 
 @section('content')
     <h1 class="title">Skuska-zadania </h1>
+    {{$url}}
     <div class="container">
         <div class="row justify-content-around">
 
@@ -39,10 +40,10 @@
 
     <!--vytvorenie noveho zadania-->
 
-    <form action="/user/skuska/id" method="POST" >
+    <form  method="POST" >
         @csrf
         <div class="input-wrapper catEdit">
-            <h1> pridat zadanie</h1>
+            <h1> pridat ulohu</h1>
             <label for="nazov"> názov </label>
             <input id="nazov" type="text" name="nazov" placeholder="názov">
         @error('nazov')                                                                 <!-- vracia php -->

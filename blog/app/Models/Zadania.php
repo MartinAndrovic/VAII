@@ -17,4 +17,8 @@ class Zadania extends Model
     public function skuska() {
         return $this->belongsTo(Skusky::class);
     }
+
+    public function ulohy() {
+        return $this->hasMany(Ulohy::class);
+    }
 }
