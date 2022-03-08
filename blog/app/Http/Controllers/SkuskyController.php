@@ -9,6 +9,8 @@ use App\Models\Zadania;
 use App\Models\Ulohy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 
 class SkuskyController extends Controller
@@ -65,15 +67,16 @@ class SkuskyController extends Controller
         return back();
     }
 
-    public function showZ(Request $request,$zadanie)   //zobrazenie uloh v user/skuska/{skuska}/{zadanie}
+    public function showZ(Request $request, $skuska, $zadanie)   //zobrazenie uloh v user/skuska/{skuska}/{zadanie}  skuska je id zadanie neviem preco
     {
 
-        $ms = Skusky::all();
+        //$ms = Skusky::all();
         $lastName = $zadanie;
        $url=$request->fullUrl();
 
 
         $persons = Ulohy::all()->where('zadania_id','=',$lastName);
+
 
         return view('ulohy')->with(compact('lastName','persons','url'));
 
@@ -85,13 +88,34 @@ class SkuskyController extends Controller
         $id = $request->zadanie;
 
         $zadanie = Zadania::find($id);
-        $zadanie->ulohy()->create(request()->validate([
+        $id=$zadanie->ulohy()->create(request()->validate([
             "nazov" => "required|string|min:3"
 
-        ]));
+        ]))->id;
+
+
+        //dd($request->all());
+
+        $dest = '/storage/vzorove/';
+      //  $txt = request()->file('obrazok');
+        $nazov = $request->file('obrazok')->getClientOriginalName();
+        $ste=$request->file('obrazok')->storeAs($dest,$nazov);
+
+
+        //$ste->save($dest . $nazov);
+
+        // aktualizacia cesty pre obrazok
+        $uloha=Ulohy::find($id);
+        $uloha->update([
+           'obrazok' => ('postImages/' . $nazov)
+        ]);
 
 
         return back();
+        //return redirect($nazov);
     }
+
+
+
 
 }

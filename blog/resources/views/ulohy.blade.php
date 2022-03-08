@@ -40,12 +40,19 @@
 
     <!--vytvorenie noveho zadania-->
 
-    <form  method="POST" >
+    <form  method="POST"  enctype='multipart/form-data' >
         @csrf
         <div class="input-wrapper catEdit">
             <h1> pridat ulohu</h1>
             <label for="nazov"> názov </label>
             <input id="nazov" type="text" name="nazov" placeholder="názov">
+
+            <div class="input-wrapper ">
+                <label for="obrazok"> konfiguracia </label>
+                <input id="obrazok" type="file" name="obrazok" >
+                <div class="alert-danger" id="obrazokError"></div>
+
+            </div>
         @error('nazov')                                                                 <!-- vracia php -->
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror

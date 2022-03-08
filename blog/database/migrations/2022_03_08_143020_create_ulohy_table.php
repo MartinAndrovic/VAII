@@ -17,7 +17,7 @@ class CreateUlohyTable extends Migration
             $table->id();
             $table->string('nazov');
             $table->bigInteger('zadania_id')->default(0);;
-            $table->string('obrazok');
+            $table->string('obrazok')->default(0);
             $table->timestamps();
         });
     }
