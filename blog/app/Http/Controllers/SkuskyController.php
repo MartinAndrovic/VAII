@@ -96,7 +96,7 @@ class SkuskyController extends Controller
 
         //dd($request->all());
 
-        $dest = '/storage/vzorove/';
+        $dest = '/storage/app/storage/vzorove';
       //  $txt = request()->file('obrazok');
         $nazov = $request->file('obrazok')->getClientOriginalName();
         $ste=$request->file('obrazok')->storeAs($dest,$nazov);
@@ -107,12 +107,31 @@ class SkuskyController extends Controller
         // aktualizacia cesty pre obrazok
         $uloha=Ulohy::find($id);
         $uloha->update([
-           'obrazok' => ('postImages/' . $nazov)
+           'obrazok' => ('/app/storage/vzorove/' . $nazov)
         ]);
 
 
         return back();
         //return redirect($nazov);
+    }
+
+    public function showU(Request $request){
+
+
+        $uloha=$request->uloha;
+
+
+
+        $post=Ulohy::find($uloha);
+
+        $content = $post->obrazok;
+
+
+        return view('uloha')->with(compact('post','content'));
+
+
+
+
     }
 
 
