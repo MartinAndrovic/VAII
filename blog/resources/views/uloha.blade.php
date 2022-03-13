@@ -1,26 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <form id="postUpdate"  method="POST" enctype='multipart/form-data'>
-        @csrf
-        @method('PATCH')
-        <div class="input-wrapper">
-            <label for="nazov"> názov </label>
-            <input id="nazov" type="text" name="nazov" placeholder="Názov" value="{{$post->nazov}}">
-            <div class="alert-danger" id="nazovvError"></div>
-
-        </div>
 
 
 
 
 
-        <file src="/storage/{{$post->obrazok}}" alt="">
-        <div class="input-wrapper ">
-            <label for="obrazok"> obrázok </label>
-            <input id="obrazok" type="file" name="obrazok" >
-            <div class="alert-danger" id="obrazokError"></div>
-        </div>
+
 
 
             <?php
@@ -32,56 +18,70 @@
 
 
 
-           // echo "co je";
+            // echo "co je";
             /*
             $contents = Storage::disk("local")->get("novy.txt");
                 //echo $contents;
             */
             //  echo fgets($file). "<br>";
-            $file = fopen(storage_path($content), "r");
-
-            echo "<table border='4' class='stats' cellspacing='0'>";
+            $file = fopen(storage_path($content), "r");  ?>
 
 
-
-
-            while(!feof($file)) {
+            <form id="postUpdate1" method="POST" >
+                @csrf
+            <table border='4' class='stats' cellspacing='0'>";
 
 
 
 
-                echo" <form  method=POST> ";
 
-                echo "<tr>";
+                <?php
+                while(!feof($file)) {
 
-                echo "<td>",fgets($file). "<br>", "</td>";
-                echo "<td  style=width:100px>";
-                echo " <input type=checkbox name=terms>";
-                echo "</td>";
-                echo "</form>";
 
-                echo   "</tr>";
 
-            }
+                    echo "<tr>";
 
-            echo "</table>";
+                    echo "<td>",fgets($file). "<br>", "</td>";
+                    echo "<td  style=width:40px>";
+
+
+                    echo " <input type=checkbox name=box[] > ";
+                    echo "</td>";
+
+
+                    echo   "</tr>";
+
+
+
+                }
+                ?>
+
+
+            </table>
+
+            <button type=submit class=submit> vytvoriť</button>
+
+
+            <?php
             fclose($file);
-
-
-
-
-
-
-
-
-
             ?>
+
+
+
+
+
+
+
+
+
+
 
 
 
             <input type="hidden" name="post_id" id="post_id" value="{{$post->id}}">
 
-        <button type="submit" class="submitBt"> Edit</button>
+            <!-- <button type="submit" class="submitBt"> Edit</button> -->
 
 
 

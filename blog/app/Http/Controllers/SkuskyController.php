@@ -127,12 +127,48 @@ class SkuskyController extends Controller
         $content = $post->obrazok;
 
 
+
+
+
         return view('uloha')->with(compact('post','content'));
 
 
 
 
     }
+
+    public function storeU(Request $request){
+
+        /*
+        $idd= $request->skuska;
+
+        $skuska = Skusky::find($idd);
+        $skuska->zadania()->create(request()->validate([
+            "nazov" => "required|string|min:3"
+
+        ]));
+
+        */
+
+
+
+
+        $sundays = $request->box;
+        $pole = array();
+
+       // foreach($sundays as $sunday) {
+         //  $pole[]=$sunday;
+
+
+      // }
+
+      $myVar = $request->box[0];
+      dd($myVar);
+
+            return back();
+    }
+
+
 
 
 
