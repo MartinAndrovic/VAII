@@ -49,10 +49,16 @@
 
 
 
+
+                echo" <form  method=POST> ";
+
                 echo "<tr>";
 
                 echo "<td>",fgets($file). "<br>", "</td>";
-
+                echo "<td  style=width:100px>";
+                echo " <input type=checkbox name=terms>";
+                echo "</td>";
+                echo "</form>";
 
                 echo   "</tr>";
 
