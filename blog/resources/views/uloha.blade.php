@@ -36,6 +36,7 @@
 
 
                 <?php
+                $i=0;
                 while(!feof($file)) {
 
 
@@ -46,13 +47,13 @@
                     echo "<td  style=width:40px>";
 
 
-                    echo " <input type=checkbox name=box[] > ";
+                    echo " <input type=checkbox name=box[$i] > ";
                     echo "</td>";
 
 
                     echo   "</tr>";
 
-
+                $i++;
 
                 }
                 ?>

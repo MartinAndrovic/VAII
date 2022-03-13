@@ -161,9 +161,14 @@ class SkuskyController extends Controller
 
 
       // }
+        if(isset($sundays[0])){
+            dd('je 1');
+        }
+        else{
+            dd('nenastavene');
+        }
 
-      $myVar = $request->box[0];
-      dd($myVar);
+
 
             return back();
     }
