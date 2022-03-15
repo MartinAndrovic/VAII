@@ -10,6 +10,11 @@
         @csrf
         <div class="input-wrapper catEdit">
             <h1> vyplnte udaje</h1>
+
+
+            <label for="ldap"> LDAP login </label>
+            <input id="ldap" type="text" name="ldap" placeholder="ldap">
+
             <label for="meno"> meno </label>
             <input id="meno" type="text" name="meno" placeholder="meno">
 

@@ -16,7 +16,8 @@ class CreateZadaniaTable extends Migration
         Schema::create('zadania', function (Blueprint $table) {
             $table->id();
             $table->string('nazov');
-            $table->bigInteger('skusky_id')->default(0);;
+            $table->bigInteger('skusky_id')->default(0);
+            $table->string('token')->default(0);
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Skusky;
 use App\Models\Zadania;
 use App\Models\Ulohy;
+use App\MOdels\Studenti;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -56,10 +57,19 @@ class SkuskyController extends Controller
 
         $idd= $request->skuska;
         $skuska = Skusky::find($idd);
-        $skuska->zadania()->create(request()->validate([
+        $id=$skuska->zadania()->create(request()->validate([
             "nazov" => "required|string|min:3"
 
-        ]));
+        ]))->id;
+
+
+        $token = Str::random(10) ;
+
+        $zadanie=Zadania::find($id);
+        $zadanie->update([
+
+            'token' => ($token)
+        ]);
 
 
 
@@ -197,19 +207,29 @@ class SkuskyController extends Controller
     }
 
 
-    public function showIn(Request $request){
-
-
-
-
-
-
-
+    public function showIn(){
 
         return view('inputSkuska');
 
+    }
+
+    public function storeIn(Request $request){
 
 
+        $student = Studenti::where('ldap', '=', $request->ldap)->first();
+        if($student == null){
+           // dd('student este neexistuje');
+
+            Studenti::create(request()->validate([
+
+                "meno" => "required|string|min:3",
+                "priezvisko" => "required|string|min:3",
+                "ldap" => "required|string|min:3"
+            ]));
+        }
+
+
+        return view('inputSkuska');
 
     }
 
