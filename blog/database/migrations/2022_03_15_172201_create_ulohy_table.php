@@ -16,8 +16,9 @@ class CreateUlohyTable extends Migration
         Schema::create('ulohy', function (Blueprint $table) {
             $table->id();
             $table->string('nazov');
-            $table->bigInteger('zadania_id')->default(0);;
+            $table->bigInteger('zadania_id')->default(0);
             $table->string('obrazok')->default(0);
+            $table->text('riadiace')->default('nic');
             $table->timestamps();
         });
     }

@@ -59,8 +59,10 @@
                 ?>
 
 
+
             </table>
 
+                <input type=hidden name="size" value="{{$i}}">
             <button type=submit class=submit> vytvoriť</button>
 
 

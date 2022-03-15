@@ -156,17 +156,38 @@ class SkuskyController extends Controller
         $sundays = $request->box;
         $pole = array();
 
-       // foreach($sundays as $sunday) {
-         //  $pole[]=$sunday;
+        if(isset($request->size)) {
+            dd('tu je');
+        }
+
+        $i=0;
+        $size= count(array($sundays));
+
+        while($i<$size) {
+
+            if (isset($sundays[$i])) {
+
+                $pole[] = 1;
+                //dd('je 1');
+
+            } else {
+                //dd('nenastavene');
+                $pole[] = 0;
+
+            }
+            $i++;
+
+        }
+
+        $dbRiadiace=serialize($pole);
+        //dd(unserialize($dbRiadiace));
 
 
-      // }
-        if(isset($sundays[0])){
-            dd('je 1');
-        }
-        else{
-            dd('nenastavene');
-        }
+        $uloha=Ulohy::find($request->uloha);
+        $uloha->update([
+            'riadiace' => ($dbRiadiace)
+        ]);
+
 
 
 
