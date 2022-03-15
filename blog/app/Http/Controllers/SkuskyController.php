@@ -104,10 +104,14 @@ class SkuskyController extends Controller
 
         //$ste->save($dest . $nazov);
 
-        // aktualizacia cesty pre obrazok
+        // aktualizacia cesty pre obrazok a token
+
+        $token = Str::random(10) ;
+
         $uloha=Ulohy::find($id);
         $uloha->update([
-           'obrazok' => ('/app/storage/vzorove/' . $nazov)
+           'obrazok' => ('/app/storage/vzorove/' . $nazov),
+            'token' => ($token)
         ]);
 
 
@@ -178,7 +182,7 @@ class SkuskyController extends Controller
         }
 
         $dbRiadiace=serialize($pole);
-        dd(unserialize($dbRiadiace));
+       // dd(unserialize($dbRiadiace));
 
 
         $uloha=Ulohy::find($request->uloha);
@@ -193,6 +197,21 @@ class SkuskyController extends Controller
     }
 
 
+    public function showIn(Request $request){
+
+
+
+
+
+
+
+
+        return view('inputSkuska');
+
+
+
+
+    }
 
 
 

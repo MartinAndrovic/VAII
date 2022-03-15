@@ -61,5 +61,7 @@ Route::post('/user/skuska/{skuska}/{zadanie}', [App\Http\Controllers\SkuskyContr
 Route::get('/user/skuska/{skuska}/{zadanie}/{uloha}', [App\Http\Controllers\SkuskyController::class, 'showU']);
 Route::post('/user/skuska/{skuska}/{zadanie}/{uloha}', [App\Http\Controllers\SkuskyController::class, 'storeU']);
 
+Route::get('/skuska',[App\Http\Controllers\SkuskyController::class, 'showIn']);
+
 Route::get('/evaluation', [App\Http\Controllers\UploadController::class, 'index']);
 
