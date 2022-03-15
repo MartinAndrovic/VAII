@@ -156,12 +156,10 @@ class SkuskyController extends Controller
         $sundays = $request->box;
         $pole = array();
 
-        if(isset($request->size)) {
-            dd('tu je');
-        }
+
 
         $i=0;
-        $size= count(array($sundays));
+        $size= $request->size;
 
         while($i<$size) {
 
@@ -180,7 +178,7 @@ class SkuskyController extends Controller
         }
 
         $dbRiadiace=serialize($pole);
-        //dd(unserialize($dbRiadiace));
+        dd(unserialize($dbRiadiace));
 
 
         $uloha=Ulohy::find($request->uloha);
