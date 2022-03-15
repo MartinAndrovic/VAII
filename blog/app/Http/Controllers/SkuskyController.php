@@ -228,8 +228,14 @@ class SkuskyController extends Controller
             ]));
         }
 
+        $student = Studenti::where('ldap', '=', $request->ldap)->first();
+        $id=$student->id;
 
-        return view('inputSkuska');
+        $zadanie = Zadania::where('token', '=', $request->token)->first()->id;
+
+        
+
+        return view('exam')->with(compact('id','zadanie'));
 
     }
 

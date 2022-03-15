@@ -4,7 +4,7 @@
     <h1 class="title">Príspevky</h1>
     <div class="container">
         <div class="row justify-content-around">
-        @forelse($prispevky as $prispevok)   <!-- poslane z compact -->
+        @forelse($ as $prispevok)   <!-- poslane z compact -->
 
             <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
                 <a href="/posts/{{$prispevok->id}}">
