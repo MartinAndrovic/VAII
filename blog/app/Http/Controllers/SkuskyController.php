@@ -60,16 +60,21 @@ class SkuskyController extends Controller
         //$idZadani=Zadania::select('id')->where('skusky_id', '=', $skuska);
 
         $skuskaAkt=Skusky::where('id','=',$skuska)->first();
-        dd($skuskaAkt);
+       // dd($skuskaAkt);
 
 
         $idZadani=$skuskaAkt->zadania()->select('id');
+
+        //dd($idZadani);
+
         $ulohy = Ulohy::whereIn('zadania_id',$idZadani)->select('id');
 
+            //dd($ulohy);
 
 
+        $riesenia=Riesenia::whereIn('ulohy_id',$ulohy)->get();
 
-        $riesenia=Riesenia::whereIn('ulohy_id',$ulohy);
+        //dd($riesenia);
 
 
 
