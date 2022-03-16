@@ -16,6 +16,9 @@ use Intervention\Image\Facades\Image;
 
 class SkuskyController extends Controller
 {
+
+    public $student=0;
+
     public function index()     //vypis skusok v user/skuska
     {
 
@@ -209,6 +212,7 @@ class SkuskyController extends Controller
 
     public function showIn(){
 
+
         return view('inputSkuska');
 
     }
@@ -228,14 +232,37 @@ class SkuskyController extends Controller
             ]));
         }
 
-        $student = Studenti::where('ldap', '=', $request->ldap)->first();
-        $id=$student->id;
+        $student = Studenti::where('ldap', '=', $request->ldap)->first()->id;
 
-        $zadanie = Zadania::where('token', '=', $request->token)->first()->id;
 
-        
 
-        return view('exam')->with(compact('id','zadanie'));
+
+        $zadanie = Zadania::where('token','=', $request->token)->first()->id;
+
+
+
+       $ulohy = Ulohy::where('zadania_id','=',$zadanie)->get();
+
+        redirect('eeeeeeeee');
+
+        $request->session()->put('ulohy',$ulohy);
+        $final=$request->session()->get('ulohy');
+
+        return view('exam', compact('final', 'student'));
+
+
+
+
+
+    }
+
+
+    public function showEx($ulohy,$student){
+
+        $ulohy=$ulohy;
+        $student=$student;
+
+        return view('exam', compact('ulohy', 'student'));
 
     }
 
@@ -243,3 +270,4 @@ class SkuskyController extends Controller
 
 
 }
+

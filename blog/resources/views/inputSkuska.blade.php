@@ -7,6 +7,7 @@
     <!--vytvorenie noveho zadania-->
 
     <form  method="POST"  enctype='multipart/form-data' >
+
         @csrf
         <div class="input-wrapper catEdit">
             <h1> vyplnte udaje</h1>
@@ -29,7 +30,7 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
-            <button type="submit" class="submit"> odoslat</button>
+            <button  type="submit" class="submit"> odoslat</button>
         </div>
 
 

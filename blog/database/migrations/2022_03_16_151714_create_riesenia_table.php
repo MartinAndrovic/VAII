@@ -15,6 +15,7 @@ class CreateRieseniaTable extends Migration
     {
         Schema::create('riesenia', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('studenti_id')->default(0);
             $table->bigInteger('ulohy_id')->default(0);
             $table->string('konfiguracia')->default(0);
             $table->timestamps();
