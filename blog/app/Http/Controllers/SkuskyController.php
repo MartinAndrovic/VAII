@@ -246,9 +246,10 @@ class SkuskyController extends Controller
         redirect('eeeeeeeee');
 
         $request->session()->put('ulohy',$ulohy);
-        $final=$request->session()->get('ulohy');
+        $request->session()->put('student',$student);
 
-        return view('exam', compact('final', 'student'));
+
+        return redirect('/skuska/start');
 
 
 
@@ -257,10 +258,10 @@ class SkuskyController extends Controller
     }
 
 
-    public function showEx($ulohy,$student){
+    public function showEx(Request $request){
 
-        $ulohy=$ulohy;
-        $student=$student;
+        $ulohy=$request->session()->get('ulohy');
+        $student=$request->session()->get('student');
 
         return view('exam', compact('ulohy', 'student'));
 

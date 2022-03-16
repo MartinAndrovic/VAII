@@ -8,7 +8,7 @@
 
 
 
-    @forelse($final as $ulohy)   <!-- poslane z compact -->
+    @forelse($ulohy as $ulohy)   <!-- poslane z compact -->
 
         <h1 class="postName">{{$ulohy->nazov}}</h1>
         <p class="postUvod">{{$ulohy->nazov}}</p>
