@@ -272,14 +272,32 @@ class SkuskyController extends Controller
     public function storeEx(Request $request){
 
 
-        $iduloha = $request->uloha;
+        $obrazok = $request->obrazok;
+
+
+
+        $dest = '/storage/app/storage/riesenia';
+        //  $txt = request()->file('obrazok');
+
+
 
         $i=0;
-        foreach ($iduloha as $id){
+        foreach ($obrazok as $obr){
 
             $riesenie = new Riesenia();
-            $riesenie->ulohy_id=$id;
+
+            $riesenie->ulohy_id=$request->uloha[$i];
+
+            $riesenie->studenti_id=$request->student;
+
+            //ulozenie konfiguracie
+            $nazov = $obr->getClientOriginalName();
+            $ste=$obr->storeAs($dest,$nazov);
+            $riesenie->konfiguracia=$nazov;
+
+
             $i++;
+
             $riesenie->save();
 
         }
