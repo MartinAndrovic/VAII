@@ -37,6 +37,7 @@
         <h2>zatiaľ žiadne skúšky</h2>
         @endforelse
 
+            <input type=hidden name="student" value="{{$student}}">
             <button type="submit" class="submit"> ulozit </button>
         </form>
 

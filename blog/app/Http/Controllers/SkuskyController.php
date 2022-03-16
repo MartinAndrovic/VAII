@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Riesenia;
 use App\Models\Skusky;
 use App\Models\Zadania;
 use App\Models\Ulohy;
@@ -264,6 +265,29 @@ class SkuskyController extends Controller
         $student=$request->session()->get('student');
 
         return view('exam', compact('ulohy', 'student'));
+
+    }
+
+
+    public function storeEx(Request $request){
+
+
+        $iduloha = $request->uloha;
+
+        $i=0;
+        foreach ($iduloha as $id){
+
+            $riesenie = new Riesenia();
+            $riesenie->ulohy_id=$id;
+            $i++;
+            $riesenie->save();
+
+        }
+
+
+
+
+
 
     }
 

@@ -65,6 +65,7 @@ Route::get('/skuska',[App\Http\Controllers\SkuskyController::class, 'showIn']);
 Route::post('/skuska',[App\Http\Controllers\SkuskyController::class, 'storeIn']);
 
 Route::get('/skuska/start',[App\Http\Controllers\SkuskyController::class, 'showEx']);
+Route::post('/skuska/start',[App\Http\Controllers\SkuskyController::class, 'storeEx']);
 
 Route::get('/eval', [App\Http\Controllers\UploadController::class, 'index']);
 
