@@ -52,7 +52,28 @@ class SkuskyController extends Controller
 
         $persons = Zadania::all()->where('skusky_id','=',$skuska);
 
-        return view('skuska')->with(compact('lastName','persons'));
+
+
+        //zobrazenie studentov
+
+        //$zadanie=Zadania::all()->where('skusky_id', '=', $skuska);
+        //$idZadani=Zadania::select('id')->where('skusky_id', '=', $skuska);
+
+        $skuskaAkt=Skusky::where('id','=',$skuska)->first();
+        dd($skuskaAkt);
+
+
+        $idZadani=$skuskaAkt->zadania()->select('id');
+        $ulohy = Ulohy::whereIn('zadania_id',$idZadani)->select('id');
+
+
+
+
+        $riesenia=Riesenia::whereIn('ulohy_id',$ulohy);
+
+
+
+        return view('skuska')->with(compact('lastName','persons','riesenia'));
 
 
     }
@@ -301,10 +322,6 @@ class SkuskyController extends Controller
             $riesenie->save();
 
         }
-
-
-
-
 
 
     }

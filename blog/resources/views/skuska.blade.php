@@ -60,4 +60,43 @@
 
     </form>
 
+
+
+
+
+    <h1 class="title">Riesenia </h1>
+    <div class="container">
+        <div class="row justify-content-around">
+
+
+        @forelse($riesenia as $prispevok)   <!-- poslane z compact -->
+
+            <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
+                <a href="{{$lastName}}/{{$prispevok->id}}  ">
+                    <div class="inner">
+
+                        <div class="text text-center">
+                            <h2 class="text-center">{{$prispevok->id}}</h2>
+
+                            <div class="row inner-bottom">
+                                <div class="col-5 col-offset-1">
+                                </div>
+                                <div class="col-5 col-offset-1">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+        @empty                           <!-- ak je prazdne -->
+            <h2>zatiaľ žiadne zadania</h2>
+            @endforelse
+
+        </div>
+    </div>
+
 @endsection
