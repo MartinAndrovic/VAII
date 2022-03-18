@@ -69,11 +69,80 @@
         <div class="row justify-content-around">
 
 
-        @forelse($riesenia as $prispevok)   <!-- poslane z compact -->
+
+
+        @forelse($zadania as $idZadania)   <!-- poslane z compact -->
 
             <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
-                <a href="{{$lastName}}/{{$prispevok->id}}  ">
+          <!--      <a href="{{$lastName}}/{{$prispevok->id}}  "> -->
                     <div class="inner">
+
+                        <h2 class="text-center">{{$idZadania->id}}</h2>
+
+                        @foreach($ulohyVs as $uloha)
+
+                            @foreach($riesenia as $riesenie)
+                                @if($riesenie->ulohy_id==$uloha->id)
+
+                                    <?php
+
+                                    $file = fopen(storage_path($riesenie->konfiguracia), "r");
+
+                                    while(!feof($file)) {
+
+
+
+                                    echo "<tr>";
+
+                                        echo "<td>",fgets($file). "<br>", "</td>";
+                                        echo "<td  style=width:40px>";
+
+
+                                            echo " <input type=checkbox name=box[$i] > ";
+                                            echo "</td>";
+
+
+                                        echo   "</tr>";
+
+
+
+                                    }
+                                    ?>
+
+
+
+
+
+                                    <input type=hidden name="size" value="{{$i}}">
+                                    <button type=submit class=submit> vytvoriť</button>
+
+
+                                    <?php
+                                    fclose($file);
+                                    ?>
+
+
+
+                                @endif
+
+
+
+                             @endforeach
+
+
+
+                        @endforeach
+
+                        @foreach($studenti as $student)
+
+                            @if($prispevok->studenti_id==$student->id)
+
+                                <h2 class="text-center">{{$student->meno}}</h2>
+                                <h2 class="text-center">{{$student->priezvisko}}</h2>
+
+                            @endif
+
+                        @endforeach
 
                         <div class="text text-center">
                             <h2 class="text-center">{{$prispevok->id}}</h2>
@@ -95,6 +164,8 @@
         @empty                           <!-- ak je prazdne -->
             <h2>zatiaľ žiadne zadania</h2>
             @endforelse
+
+
 
         </div>
     </div>

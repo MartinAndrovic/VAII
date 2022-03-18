@@ -38,7 +38,7 @@ class SkuskyController extends Controller
         return redirect('/user/skuska');
     }
 
-    public function show($skuska)   //zobrazenie zadani v user/skuska/{skuska}
+    public function show($skuska)   //zobrazenie zadani v user/skuska/{skuska} a rieseni
     {
 
         //$prispevky = Skusky::all();
@@ -59,26 +59,45 @@ class SkuskyController extends Controller
         //$zadanie=Zadania::all()->where('skusky_id', '=', $skuska);
         //$idZadani=Zadania::select('id')->where('skusky_id', '=', $skuska);
 
+
+
+        //vysledky-------------------------------------------------------------------------------
+
         $skuskaAkt=Skusky::where('id','=',$skuska)->first();
        // dd($skuskaAkt);
 
 
-        $idZadani=$skuskaAkt->zadania()->select('id');
+        $idZadani=$skuskaAkt->zadania()->select('id');        //idcka vsetkych zadani v skuske
+        $zadania= $skuskaAkt->zadania()->get();
 
         //dd($idZadani);
 
-        $ulohy = Ulohy::whereIn('zadania_id',$idZadani)->select('id');
-
-            //dd($ulohy);
-
-
-        $riesenia=Riesenia::whereIn('ulohy_id',$ulohy)->get();
-
-        //dd($riesenia);
+        $ulohy = Ulohy::whereIn('zadania_id',$idZadani)->select('id');      //idcka vsetkych uloh v skuske
+        $ulohyVs = Ulohy::whereIn('zadania_id',$idZadani)->get();      //vsetky ulohy v skuske
 
 
 
-        return view('skuska')->with(compact('lastName','persons','riesenia'));
+
+        $riesenia=Riesenia::whereIn('ulohy_id',$ulohy)->get();          //vsetky riesenia v skuske
+        $studenti=Studenti::all();                                      //vsetci studenti v skuske
+
+
+        //odoslanie txt cez nazov do zadani. aby sa vypocitali vysledky
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        return view('skuska')->with(compact('lastName','persons','riesenia','studenti','zadania','ulohyVs'));
 
 
     }
@@ -159,7 +178,7 @@ class SkuskyController extends Controller
         //return redirect($nazov);
     }
 
-    public function showU(Request $request){
+    public function showU(Request $request){                //zobrazenie konfiguracie
 
 
         $uloha=$request->uloha;
@@ -181,7 +200,7 @@ class SkuskyController extends Controller
 
     }
 
-    public function storeU(Request $request){
+    public function storeU(Request $request){           //ulozenie riadiaceho pola
 
         /*
         $idd= $request->skuska;
@@ -237,14 +256,14 @@ class SkuskyController extends Controller
     }
 
 
-    public function showIn(){
+    public function showIn(){               //zobrazenie formu pre vstu studenta
 
 
         return view('inputSkuska');
 
     }
 
-    public function storeIn(Request $request){
+    public function storeIn(Request $request){  //ulozenie udajov pri vstupe studenta
 
 
         $student = Studenti::where('ldap', '=', $request->ldap)->first();
@@ -285,7 +304,7 @@ class SkuskyController extends Controller
     }
 
 
-    public function showEx(Request $request){
+    public function showEx(Request $request){           //zobrazenie uloh skusky studentovi
 
         $ulohy=$request->session()->get('ulohy');
         $student=$request->session()->get('student');
@@ -295,15 +314,17 @@ class SkuskyController extends Controller
     }
 
 
-    public function storeEx(Request $request){
+    public function storeEx(Request $request){      //ulozenie konfiguracii studenta k uloham
 
 
-        $obrazok = $request->obrazok;
+        $obrazok = $request->file('obrazok');
 
 
 
-        $dest = '/storage/app/storage/riesenia';
+
         //  $txt = request()->file('obrazok');
+
+        $dest = '/storage/app/storage/vzorove';
 
 
 
@@ -317,9 +338,12 @@ class SkuskyController extends Controller
             $riesenie->studenti_id=$request->student;
 
             //ulozenie konfiguracie
+
+
+
             $nazov = $obr->getClientOriginalName();
-            $ste=$obr->storeAs($dest,$nazov);
-            $riesenie->konfiguracia=$nazov;
+            $obr->storeAs($dest,$nazov);
+            $riesenie->konfiguracia='/app/storage/vzorove/'.$nazov;
 
 
             $i++;
