@@ -74,89 +74,108 @@
         @forelse($zadania as $idZadania)   <!-- poslane z compact -->
 
             <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
-          <!--      <a href="{{$lastName}}/{{$prispevok->id}}  "> -->
-                    <div class="inner">
+            <!--      <a href="{{$lastName}}/{{$prispevok->id}}  "> -->
+                <div class="inner">
 
-                        <h2 class="text-center">{{$idZadania->id}}</h2>
+                    <h2 class="text-center">{{$idZadania->id}}</h2>
 
-                        @foreach($ulohyVs as $uloha)
+                    @foreach($ulohyVs as $uloha)
 
-                            @foreach($riesenia as $riesenie)
-                                @if($riesenie->ulohy_id==$uloha->id)
+                        @foreach($riesenia as $riesenie)
+                            @if($riesenie->ulohy_id==$uloha->id)
 
-                                    <?php
+                                <?php
 
-                                    $file = fopen(storage_path($riesenie->konfiguracia), "r");
+                                 $vzorovy = fopen(storage_path($uloha->obrazok), "r");
+                                 $odovzdany = fopen(storage_path($riesenie->konfiguracia), "r");
 
-                                    while(!feof($file)) {
+                                 $pocetRVz=0;
+                                 $pocetOk=1;
 
-
-
-                                    echo "<tr>";
-
-                                        echo "<td>",fgets($file). "<br>", "</td>";
-                                        echo "<td  style=width:40px>";
+                                while(!feof($vzorovy)) {
 
 
-                                            echo " <input type=checkbox name=box[$i] > ";
-                                            echo "</td>";
+                                    $aktualnyRV= fgets($vzorovy);
+                                    $zhoda=0;
 
 
-                                        echo   "</tr>";
+                                    echo "<td>",$aktualnyRV,    "</td>";
+                                    echo "<td>",$pocetRVz. "<br>", "</td>";
 
+                                    while(!feof($odovzdany)){                //ku kazdemu riadku vzoroveho sa hlada riadok v rieseni
+
+                                        $aktualnyRR= fgets($odovzdany);
+                                        if($aktualnyRV == $aktualnyRR){
+                                            $zhoda++;
+
+
+
+                                        }
 
 
                                     }
-                                    ?>
+
+                                    $pocetRVz++;
+                                    if($zhoda!=0){
+                                        $pocetOk++;
+                                    }
 
 
 
 
 
-                                    <input type=hidden name="size" value="{{$i}}">
-                                    <button type=submit class=submit> vytvoriť</button>
-
-
-                                    <?php
-                                    fclose($file);
-                                    ?>
+                                }
+                                var_dump($pocetOk,$pocetRVz);
+                                ?>
 
 
 
-                                @endif
 
 
 
-                             @endforeach
 
 
+                                <?php
+                                fclose($vzorovy);
+                                fclose($odovzdany);
+                                ?>
 
-                        @endforeach
 
-                        @foreach($studenti as $student)
-
-                            @if($prispevok->studenti_id==$student->id)
-
-                                <h2 class="text-center">{{$student->meno}}</h2>
-                                <h2 class="text-center">{{$student->priezvisko}}</h2>
 
                             @endif
 
+
+
                         @endforeach
 
-                        <div class="text text-center">
-                            <h2 class="text-center">{{$prispevok->id}}</h2>
 
-                            <div class="row inner-bottom">
-                                <div class="col-5 col-offset-1">
-                                </div>
-                                <div class="col-5 col-offset-1">
 
-                                </div>
+                    @endforeach
+
+                    @foreach($studenti as $student)
+
+                        @if($prispevok->studenti_id==$student->id)
+
+                            <h2 class="text-center">{{$student->meno}}</h2>
+                            <h2 class="text-center">{{$student->priezvisko}}</h2>
+
+                        @endif
+
+                    @endforeach
+
+                    <div class="text text-center">
+                        <h2 class="text-center">{{$prispevok->id}}</h2>
+
+                        <div class="row inner-bottom">
+                            <div class="col-5 col-offset-1">
                             </div>
+                            <div class="col-5 col-offset-1">
 
+                            </div>
                         </div>
+
                     </div>
+                </div>
                 </a>
             </div>
 

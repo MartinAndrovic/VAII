@@ -155,7 +155,7 @@ class SkuskyController extends Controller
 
         //dd($request->all());
 
-        $dest = '/storage/app/storage/vzorove';
+        $dest = '/public/vzorove/';
       //  $txt = request()->file('obrazok');
         $nazov = $request->file('obrazok')->getClientOriginalName();
         $ste=$request->file('obrazok')->storeAs($dest,$nazov);
@@ -169,7 +169,7 @@ class SkuskyController extends Controller
 
         $uloha=Ulohy::find($id);
         $uloha->update([
-           'obrazok' => ('/app/storage/vzorove/' . $nazov),
+           'obrazok' => ('/app/public/vzorove/' . $nazov),
             'token' => ($token)
         ]);
 
@@ -324,7 +324,7 @@ class SkuskyController extends Controller
 
         //  $txt = request()->file('obrazok');
 
-        $dest = '/storage/app/storage/vzorove';
+        $dest = '/public/riesenia/';
 
 
 
@@ -343,7 +343,7 @@ class SkuskyController extends Controller
 
             $nazov = $obr->getClientOriginalName();
             $obr->storeAs($dest,$nazov);
-            $riesenie->konfiguracia='/app/storage/vzorove/'.$nazov;
+            $riesenie->konfiguracia='app/public/riesenia/'.$nazov;
 
 
             $i++;
