@@ -81,32 +81,37 @@
 
                     @foreach($ulohyVs as $uloha)
 
-                        @foreach($riesenia as $riesenie)
+                        @foreach($riesenia as $riesenie)                // tu ide pre vsetky riesenia, kazde treba oddelit
                             @if($riesenie->ulohy_id==$uloha->id)
 
                                 <?php
 
                                  $vzorovy = fopen(storage_path($uloha->obrazok), "r");
-                                 $odovzdany = fopen(storage_path($riesenie->konfiguracia), "r");
+                                // $odovzdany = fopen(storage_path($riesenie->konfiguracia), "r");
 
                                  $pocetRVz=0;
-                                 $pocetOk=1;
+                                 $pocetOk=0;
 
                                 while(!feof($vzorovy)) {
 
+
+                                    $odovzdany = fopen(storage_path($riesenie->konfiguracia), "r");
 
                                     $aktualnyRV= fgets($vzorovy);
                                     $zhoda=0;
 
 
-                                    echo "<td>",$aktualnyRV,    "</td>";
-                                    echo "<td>",$pocetRVz. "<br>", "</td>";
+                                  //  echo "<td>",$aktualnyRV,    "</td>";
+                                  //  echo "<td>",$pocetRVz. "<br>", "</td>";
 
                                     while(!feof($odovzdany)){                //ku kazdemu riadku vzoroveho sa hlada riadok v rieseni
 
                                         $aktualnyRR= fgets($odovzdany);
+
+
                                         if($aktualnyRV == $aktualnyRR){
                                             $zhoda++;
+                                          //  echo "<td>",$aktualnyRR,  "<br>",  "</td>";
 
 
 
@@ -114,6 +119,8 @@
 
 
                                     }
+
+                                    fclose($odovzdany);
 
                                     $pocetRVz++;
                                     if($zhoda!=0){
@@ -125,7 +132,8 @@
 
 
                                 }
-                                var_dump($pocetOk,$pocetRVz);
+                                //var_dump($pocetOk/$pocetRVz*100);
+                                  echo "<td>",($pocetOk/$pocetRVz*100),    "</td>";
                                 ?>
 
 
@@ -137,7 +145,7 @@
 
                                 <?php
                                 fclose($vzorovy);
-                                fclose($odovzdany);
+
                                 ?>
 
 
@@ -163,18 +171,7 @@
 
                     @endforeach
 
-                    <div class="text text-center">
-                        <h2 class="text-center">{{$prispevok->id}}</h2>
 
-                        <div class="row inner-bottom">
-                            <div class="col-5 col-offset-1">
-                            </div>
-                            <div class="col-5 col-offset-1">
-
-                            </div>
-                        </div>
-
-                    </div>
                 </div>
                 </a>
             </div>
