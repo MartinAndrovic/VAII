@@ -79,9 +79,17 @@
 
                     <h2 class="text-center">{{$idZadania->id}}</h2>
 
-                    @foreach($ulohyVs as $uloha)
+                    @forelse($ulohyVs as $uloha)
+                        <?php
+                        $pole=array();
+                        $pole=unserialize($uloha->riadiace);
 
-                        @foreach($riesenia as $riesenie)
+
+                        ?>
+
+                        @forelse($riesenia as $riesenie)
+
+
                             @if($riesenie->ulohy_id==$uloha->id)
 
                                 <?php
@@ -90,9 +98,9 @@
 
                                  $pocetRVz=0;
                                  $pocetOk=0;
+                                 $indexB=0;
 
                                 while(!feof($vzorovy)) {
-
 
 
 
@@ -104,42 +112,48 @@
 
 
                                     if($aktualnyRV !=  "!\r\n"){
+                                        ($pole[$indexB]);
+                                        //if($pole[$indexB]==0){
+
+                                        $zhoda=0;
 
 
-                                    $zhoda=0;
+                                        // echo "<td>",$aktualnyRV,    "</td>";
+                                        //  echo "<td>",$pocetRVz. "<br>", "</td>";
+
+                                        while(!feof($odovzdany)){                //ku kazdemu riadku vzoroveho sa hlada riadok v rieseni
+
+                                             $aktualnyRR= fgets($odovzdany);
 
 
-                                   // echo "<td>",$aktualnyRV,    "</td>";
-                                  //  echo "<td>",$pocetRVz. "<br>", "</td>";
-
-                                    while(!feof($odovzdany)){                //ku kazdemu riadku vzoroveho sa hlada riadok v rieseni
-
-                                        $aktualnyRR= fgets($odovzdany);
-
-
-                                        if($aktualnyRV == $aktualnyRR){
+                                            if($aktualnyRV == $aktualnyRR){
                                             $zhoda++;
-                                           // echo "<td>",$aktualnyRR,  "<br>",  "</td>";
+                                            // echo "<td>",$aktualnyRR,  "<br>",  "</td>";
 
+
+
+                                            }
 
 
                                         }
 
+                                        $pocetRVz++;
 
-                                    }
-
-                                    $pocetRVz++;
-                                    if($zhoda!=0){
-                                        $pocetOk++;
-                                    }
+                                        if($zhoda!=0){
+                                            $pocetOk++;
+                                        }
 
 
 
 
 
                                     }
+                                        // }
+
+                                        $indexB++;
                                 }
-                                var_dump($pocetOk,$pocetRVz);
+                                        var_dump($pocetOk,$pocetRVz);
+
 
 
                                 ?>
@@ -160,13 +174,15 @@
 
                             @endif
 
+                            @empty                           <!-- ak je prazdne -->
+                                <h2>zatiaľ žiadne riesenia</h2>
 
+                        @endforelse
 
-                        @endforeach
+                        @empty                           <!-- ak je prazdne -->
+                            <h2>zatiaľ žiadne ulohy</h2>
 
-
-
-                    @endforeach
+                    @endforelse
 
                     @foreach($studenti as $student)
 

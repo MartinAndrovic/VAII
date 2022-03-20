@@ -20,6 +20,7 @@ class CreateUlohyTable extends Migration
             $table->string('obrazok')->default(0);
             $table->string('token')->default(0);
             $table->text('riadiace')->default('nic');
+            $table->text('riadiaceS')->default('nic');
             $table->timestamps();
         });
     }

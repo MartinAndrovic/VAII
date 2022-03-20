@@ -200,7 +200,7 @@ class SkuskyController extends Controller
 
     }
 
-    public function storeU(Request $request){           //ulozenie riadiaceho pola
+    public function storeU(Request $request){           //ulozenie 2 riadiacich poli
 
         /*
         $idd= $request->skuska;
@@ -216,8 +216,11 @@ class SkuskyController extends Controller
 
 
 
-        $sundays = $request->box;
+        $box = $request->box;
+        $boxS = $request->boxS;
+
         $pole = array();
+        $poleS = array();
 
 
 
@@ -226,7 +229,7 @@ class SkuskyController extends Controller
 
         while($i<$size) {
 
-            if (isset($sundays[$i])) {
+            if (isset($box[$i])) {
 
                 $pole[] = 1;
                 //dd('je 1');
@@ -243,10 +246,33 @@ class SkuskyController extends Controller
         $dbRiadiace=serialize($pole);
        // dd(unserialize($dbRiadiace));
 
+        $i=0;
+        $size= $request->sizeS;
+
+        while($i<$size) {
+
+            if (isset($boxS[$i])) {
+
+                $poleS[] = 1;
+                //dd('je 1');
+
+            } else {
+                //dd('nenastavene');
+                $poleS[] = 0;
+
+            }
+            $i++;
+
+        }
+
+        $dbRiadiaceS=serialize($poleS);
+        // dd(unserialize($dbRiadiace));
+
 
         $uloha=Ulohy::find($request->uloha);
         $uloha->update([
-            'riadiace' => ($dbRiadiace)
+            'riadiace' => ($dbRiadiace),
+            'riadiaceS' => ($dbRiadiaceS)
         ]);
 
 
@@ -256,7 +282,7 @@ class SkuskyController extends Controller
     }
 
 
-    public function showIn(){               //zobrazenie formu pre vstu studenta
+    public function showIn(){               //zobrazenie formu pre vstup studenta
 
 
         return view('inputSkuska');

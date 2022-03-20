@@ -160,11 +160,19 @@
       <recent name="C:\Users\Správca\Desktop\Nový priečinok\VAII\blog\resources\views" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.skuska.blade.php">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="skuska.blade.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/resources/views/skuska.blade.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.skuska.blade.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -204,7 +212,7 @@
       <workItem from="1647440417692" duration="15199000" />
       <workItem from="1647628324637" duration="6706000" />
       <workItem from="1647712477195" duration="6391000" />
-      <workItem from="1647796674750" duration="3816000" />
+      <workItem from="1647796674750" duration="6576000" />
     </task>
     <servers />
   </component>
@@ -236,10 +244,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1645464158287" />
-    <state x="850" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1647443771903">
+    <state x="850" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1647801240381">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="850" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1647443771903" />
+    <state x="850" y="407" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1647801240381" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1646070392369">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -37,6 +37,7 @@
 
                 <?php
                 $i=0;
+                $x=0;
                 while(!feof($file)) {
 
 
@@ -50,9 +51,10 @@
                         if($word!=""){
 
                         echo "<td style=display:inline-block>",$word. "<br>";
-                         echo " <input type=checkbox name=box[$i] > ";
+                         echo " <input type=checkbox name=boxS[$x] > ";
 
                          echo "</td>";
+                         $x++;
 
                          }
                     }
@@ -78,6 +80,7 @@
             </table>
 
                 <input type=hidden name="size" value="{{$i}}">
+                <input type=hidden name="sizeS" value="{{$x}}">
             <button type=submit class=submit> vytvoriť</button>
 
 
