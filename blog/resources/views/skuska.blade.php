@@ -89,19 +89,28 @@
                                  $vzorovy = fopen(storage_path($uloha->obrazok), "r");
 
                                  $pocetRVz=0;
-                                 $pocetOk=1;
+                                 $pocetOk=0;
 
                                 while(!feof($vzorovy)) {
 
 
+
+
                                     $odovzdany = fopen(storage_path($riesenie->konfiguracia), "r");
 
+
+
                                     $aktualnyRV= fgets($vzorovy);
+
+
+                                    if($aktualnyRV !=  "!\r\n"){
+
+
                                     $zhoda=0;
 
 
-                                    //echo "<td>",$aktualnyRV,    "</td>";
-                                   // echo "<td>",$pocetRVz. "<br>", "</td>";
+                                   // echo "<td>",$aktualnyRV,    "</td>";
+                                  //  echo "<td>",$pocetRVz. "<br>", "</td>";
 
                                     while(!feof($odovzdany)){                //ku kazdemu riadku vzoroveho sa hlada riadok v rieseni
 
@@ -128,8 +137,11 @@
 
 
 
+                                    }
                                 }
                                 var_dump($pocetOk,$pocetRVz);
+
+
                                 ?>
 
 

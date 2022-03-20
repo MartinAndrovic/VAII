@@ -43,17 +43,32 @@
 
                     echo "<tr>";
 
-                    echo "<td>",fgets($file). "<br>", "</td>";
-                    echo "<td  style=width:40px>";
+                    $line=fgets($file);
+                    if($line !=  "!\r\n"){
+                    $word_arr = explode(" ", $line); //return word array
+                    foreach($word_arr as $word){
+                        if($word!=""){
+
+                        echo "<td style=display:inline-block>",$word. "<br>";
+                         echo " <input type=checkbox name=box[$i] > ";
+
+                         echo "</td>";
+
+                         }
+                    }
 
 
-                    echo " <input type=checkbox name=box[$i] > ";
-                    echo "</td>";
+                    echo "<td  style=display:block>";
+
+
+                   echo " <input type=checkbox name=box[$i] > ";
+                   echo "</td>";
 
 
                     echo   "</tr>";
 
-                $i++;
+                    $i++;
+                    }
 
                 }
                 ?>
