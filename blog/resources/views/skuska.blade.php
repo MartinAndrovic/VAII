@@ -83,7 +83,7 @@
                         <?php
                         $pole=array();
                         $pole=unserialize($uloha->riadiace);
-
+                        //dd($pole);
 
                         ?>
 
@@ -112,45 +112,51 @@
 
 
                                     if($aktualnyRV !=  "!\r\n"){
-                                        ($pole[$indexB]);
-                                        //if($pole[$indexB]==0){
-
-                                        $zhoda=0;
 
 
-                                        // echo "<td>",$aktualnyRV,    "</td>";
-                                        //  echo "<td>",$pocetRVz. "<br>", "</td>";
+                                        if($pole[$indexB]==0){
 
-                                        while(!feof($odovzdany)){                //ku kazdemu riadku vzoroveho sa hlada riadok v rieseni
-
-                                             $aktualnyRR= fgets($odovzdany);
+                                            $zhoda=0;
 
 
-                                            if($aktualnyRV == $aktualnyRR){
-                                            $zhoda++;
-                                            // echo "<td>",$aktualnyRR,  "<br>",  "</td>";
+                                            // echo "<td>",$aktualnyRV,    "</td>";
+                                            //  echo "<td>",$pocetRVz. "<br>", "</td>";
 
+                                            while(!feof($odovzdany)){                //ku kazdemu riadku vzoroveho sa hlada riadok v rieseni
+
+                                                $aktualnyRR= fgets($odovzdany);
+
+
+                                                if($aktualnyRV == $aktualnyRR){
+                                                $zhoda++;
+                                                // echo "<td>",$aktualnyRR,  "<br>",  "</td>";
+
+
+
+                                                }
 
 
                                             }
 
 
+
+                                            if($zhoda!=0){
+                                                $pocetOk++;
+                                            }
+
+                                            $pocetRVz++;
+
+
+
+
+
                                         }
-
-                                        $pocetRVz++;
-
-                                        if($zhoda!=0){
-                                            $pocetOk++;
-                                        }
-
-
-
-
-
-                                    }
-                                        // }
 
                                         $indexB++;
+                                    }
+
+
+                                        
                                 }
                                         var_dump($pocetOk,$pocetRVz);
 
