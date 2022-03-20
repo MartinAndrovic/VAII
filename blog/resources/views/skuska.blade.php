@@ -73,9 +73,7 @@
 
         @forelse($zadaniaSU as $idZadania)   <!-- poslane z compact -->
 
-            <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
-            <!--      <a href="{{$lastName}}/{{$prispevok->id}}  "> -->
-                <div class="inner">
+
 
 
 
@@ -83,7 +81,7 @@
                         <?php
 
                             if($idZadania->id==$uloha->zadania_id){
-                             echo"  <h2 class=text-center>$idZadania->id</h2>";
+
                         $pole=array();
                         $pole=unserialize($uloha->riadiace);
 
@@ -96,7 +94,13 @@
                         @forelse($riesenia as $riesenie)
 
 
+
                             @if($riesenie->ulohy_id==$uloha->id)
+
+                                    <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
+                                    <!--      <a href="{{$lastName}}/{{$prispevok->id}}  "> -->
+                                        <div class="inner">
+                                    <h2 class="text-center">{{$idZadania->id}}</h2>
 
                                 <?php
 
@@ -241,7 +245,8 @@
                                 ?>
 
 
-
+                                        </div>
+                                    </div>
                             @endif
 
                             }
@@ -283,9 +288,7 @@
                         </div>
 
                     </div>
-                </div>
-                </a>
-            </div>
+
 
 
         @empty                           <!-- ak je prazdne -->
