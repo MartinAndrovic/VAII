@@ -71,16 +71,18 @@
 
 
 
-        @forelse($zadania as $idZadania)   <!-- poslane z compact -->
+        @forelse($zadaniaSU as $idZadania)   <!-- poslane z compact -->
 
             <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
             <!--      <a href="{{$lastName}}/{{$prispevok->id}}  "> -->
                 <div class="inner">
 
-                    <h2 class="text-center">{{$idZadania->id}}</h2>
+
 
                     @forelse($ulohyVs as $uloha)
                         <?php
+
+                            if($idZadania->id==$uloha->zadania_id){
                         $pole=array();
                         $pole=unserialize($uloha->riadiace);
 
@@ -146,8 +148,8 @@
                                                     $chyba=0;
 
                                                     while($indexSlovo<sizeof($poleRiadokV)){
-                                                        echo "<td>",$poleRiadokV[$indexSlovo],    "</td>";
-                                                        echo "<td>",$poleRiadokR[$indexSlovo], "<br>",   "</td>";
+                                                       // echo "<td>",$poleRiadokV[$indexSlovo],    "</td>";
+                                                       // echo "<td>",$poleRiadokR[$indexSlovo], "<br>",   "</td>";
 
                                                         if($poleS[$indexBS]==0){                //ak sa slovo kontroluje
 
@@ -241,13 +243,19 @@
 
                             @endif
 
+                            }
+
                             @empty                           <!-- ak je prazdne -->
                                 <h2>zatiaľ žiadne riesenia</h2>
 
                         @endforelse
 
+
+
+                        <?php } ?>
                         @empty                           <!-- ak je prazdne -->
                             <h2>zatiaľ žiadne ulohy</h2>
+
 
                     @endforelse
 

@@ -67,12 +67,16 @@ class SkuskyController extends Controller
        // dd($skuskaAkt);
 
 
-        $idZadani=$skuskaAkt->zadania()->select('id');        //idcka vsetkych zadani v skuske
+        $idZadani=$skuskaAkt->zadania()->select('id');        //idcka vsetkych zadani v skuske, aj tych bez uloh
         $zadania= $skuskaAkt->zadania()->get();
+
 
         //dd($idZadani);
 
         $ulohy = Ulohy::whereIn('zadania_id',$idZadani)->select('id');      //idcka vsetkych uloh v skuske
+        $idzadaniaSU = Ulohy::whereIn('zadania_id',$idZadani)->select('zadania_id');  //idcka zadani, ktore maju ulohy
+        $zadaniaSU = Zadania::whereIn('id',$idzadaniaSU)->get();
+
         $ulohyVs = Ulohy::whereIn('zadania_id',$idZadani)->get();      //vsetky ulohy v skuske
 
 
@@ -97,7 +101,7 @@ class SkuskyController extends Controller
 
 
 
-        return view('skuska')->with(compact('lastName','persons','riesenia','studenti','zadania','ulohyVs'));
+        return view('skuska')->with(compact('lastName','persons','riesenia','studenti','zadania','ulohyVs','zadaniaSU'));
 
 
     }
