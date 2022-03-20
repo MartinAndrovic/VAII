@@ -83,6 +83,9 @@
                         <?php
                         $pole=array();
                         $pole=unserialize($uloha->riadiace);
+
+                        $poleS=array();
+                        $poleS=unserialize($uloha->riadiaceS);
                         //dd($pole);
 
                         ?>
@@ -99,6 +102,7 @@
                                  $pocetRVz=0;
                                  $pocetOk=0;
                                  $indexB=0;
+                                 $indexBS=0;
 
                                 while(!feof($vzorovy)) {
 
@@ -109,12 +113,18 @@
 
 
                                     $aktualnyRV= fgets($vzorovy);
+                                    $poleRiadokV = explode(" ", $aktualnyRV);
+
 
 
                                     if($aktualnyRV !=  "!\r\n"){
 
 
                                         if($pole[$indexB]==0){
+
+
+                                           // foreach($word_arr as $word){
+                                             //   if($word!=""){
 
                                             $zhoda=0;
 
@@ -128,7 +138,42 @@
 
 
                                                 if($aktualnyRV == $aktualnyRR){
-                                                $zhoda++;
+
+                                                    $poleRiadokR = explode(" ", $aktualnyRR);
+
+
+                                                    $indexSlovo=0;
+                                                    $chyba=0;
+
+                                                    while($indexSlovo<sizeof($poleRiadokV)){
+                                                        echo "<td>",$poleRiadokV[$indexSlovo],    "</td>";
+                                                        echo "<td>",$poleRiadokR[$indexSlovo], "<br>",   "</td>";
+
+                                                        if($poleS[$indexBS]==0){                //ak sa slovo kontroluje
+
+                                                            if($poleRiadokV[$indexSlovo]==$poleRiadokR[$indexSlovo]){
+
+                                                            }
+                                                            else{
+                                                                $chyba++;
+                                                            }
+
+                                                        }
+                                                        $indexSlovo++;
+
+                                                       // else{                   //ak sa slovo nkontroluje
+
+
+                                                       // }
+
+                                                    }
+
+                                                    if($chyba==0){
+                                                        $zhoda++;
+                                                    }
+
+
+                                                    //$zhoda++; tre pouzittttttttt
                                                 // echo "<td>",$aktualnyRR,  "<br>",  "</td>";
 
 
@@ -152,11 +197,27 @@
 
                                         }
 
+                                        else{
+
+
+                                            foreach($poleRiadokV as $word){
+                                                if($word!=""){
+
+                                                $indexBS++;}}
+
+
+
+
+
+
+
+                                        }
+
                                         $indexB++;
                                     }
 
 
-                                        
+
                                 }
                                         var_dump($pocetOk,$pocetRVz);
 
