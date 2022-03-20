@@ -83,6 +83,7 @@
                         <?php
 
                             if($idZadania->id==$uloha->zadania_id){
+                             echo"  <h2 class=text-center>$idZadania->id</h2>";
                         $pole=array();
                         $pole=unserialize($uloha->riadiace);
 
@@ -271,7 +272,7 @@
                     @endforeach
 
                     <div class="text text-center">
-                        <h2 class="text-center">{{$prispevok->id}}</h2>
+
 
                         <div class="row inner-bottom">
                             <div class="col-5 col-offset-1">
