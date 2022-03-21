@@ -87,7 +87,7 @@
 
                         $poleS=array();
                         $poleS=unserialize($uloha->riadiaceS);
-                        //dd($pole);
+                        //dd($poleS);
 
                         ?>
 
@@ -169,8 +169,8 @@
                                                         //echo "<td>",$poleRiadokV[$indexSlovo],    "</td>";
                                                        // echo "<td>",$poleRiadokR[$indexSlovo], "<br>",   "</td>";
 
-                                                        if($indexBS<375){
-                                                            echo "<td>",$poleRiadokV[$indexSlovo]." ",    "</td>";
+                                                        //if($indexBS<375){
+                                                        //    echo "<td>",$poleRiadokV[$indexSlovo]." ",    "</td>";
 
                                                         if($poleS[$indexBS]==0){                //ak sa slovo kontroluje
 
@@ -181,7 +181,7 @@
                                                                 $chyba++;
                                                             }
 
-                                                        }
+                                                       // }
                                                         }
 
                                                         //if($poleRiadokV[$indexSlovo]!=""){
@@ -247,7 +247,7 @@
 
 
                                 }
-                                       // var_dump($pocetOk,$pocetRVz);
+                                       //  var_dump($pocetOk,$pocetRVz);
 
 
 
