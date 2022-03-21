@@ -23,7 +23,7 @@
             </table>
 
 
-        <table style="display: inline-block" id="tabRies" border=4 class='stats' cellspacing='0'>
+        <table style="display: inline-block" id="tabRies" border=1 class='stats' cellspacing='0'>
 
             <tbody>
 
@@ -127,7 +127,7 @@
 
 
 
-                                    <?php
+                                    <?php                       //dorobit kod ked sa nenajdu riadky
 
 
                                                     $chyba=0;
@@ -139,7 +139,7 @@
                                                         <script type="text/javascript">
 
 
-                                                         myHtmlContent=<?php echo json_encode($poleRiadokR[$indexSlovo]); ?>
+
 
 
 
@@ -147,6 +147,9 @@
 
                                                         var tbodyRef = document.getElementById('tabRies').getElementsByTagName('tbody')[0];;
                                                         var newRow = tbodyRef.insertRow();
+
+                                                        var tbodyRef = document.getElementById('tabVzor').getElementsByTagName('tbody')[0];;
+                                                        var newRowV = tbodyRef.insertRow();
 
 
 
@@ -191,15 +194,21 @@
 
 
 
-                                                        // myHtmlContent=<?php echo json_encode($poleRiadokV[$indexSlovo]); ?>
+                                                         myHtmlContent=<?php echo json_encode($poleRiadokV[$indexSlovo]); ?>
+
+
+
+                                                         var TD = document.createElement('td'); //Create new cell
+                                                         TD.innerHTML = myHtmlContent; //Set some thing
+                                                         newRowV.appendChild (TD); //Add it to row
 
 
 
 
 
-                                                      //  var tbodyRef = document.getElementById('tabVzor').getElementsByTagName('tbody')[0];;
-                                                       // var newRow = tbodyRef.insertRow();
-                                                       // newRow.innerHTML = "<td>" +myHtmlContent+"<td>";
+                                                        //var tbodyRef = document.getElementById('tabVzor').getElementsByTagName('tbody')[0];;
+                                                        //var newRow = tbodyRef.insertRow();
+
 
 
 
