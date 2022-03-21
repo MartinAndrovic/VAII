@@ -14,7 +14,7 @@
     <form id="postUpdate1" method="POST" >
         @csrf
 
-        <table id="tabVzor" border=4 class='stats' cellspacing='0'>
+        <table style="float: left;" id="tabVzor" border=4 class='stats' cellspacing='0'>
 
             <tbody>
             <tr>
@@ -25,7 +25,7 @@
             </table>
 
 
-        <table id="tabRies" border=4 class='stats' cellspacing='0'>
+        <table style="display: inline-block" id="tabRies" border=4 class='stats' cellspacing='0'>
 
             <tbody>
             <tr>
@@ -76,7 +76,7 @@
 
 
 
-                                    if($aktualnyRV !=  "!\r\n"){
+                                    if($aktualnyRV !=  "!\r\n" && $aktualnyRV != false){
 
 
                                         if($pole[$indexB]==0){
@@ -87,7 +87,7 @@
 
                                             $zhoda=0;
 
-                                            $akt=$aktualnyRV;
+
 
 ?>
 
@@ -117,7 +117,7 @@
                                                       <script type="text/javascript">
 
 
-                                                         myHtmlContent=<?php echo json_encode($akt); ?>
+                                                         myHtmlContent=<?php echo json_encode($aktualnyRR); ?>
 
 
 
@@ -127,10 +127,23 @@
                                                          var newRow = tbodyRef.insertRow();
                                                          newRow.innerHTML = myHtmlContent;
 
+                                                         myHtmlContent=<?php echo json_encode($aktualnyRV); ?>
 
 
 
-                </script>
+
+
+                                                         var tbodyRef = document.getElementById('tabVzor').getElementsByTagName('tbody')[0];;
+                                                         var newRow = tbodyRef.insertRow();
+                                                         newRow.innerHTML = myHtmlContent;
+
+
+
+
+
+
+
+                                                      </script>
             <?php
 
                                                     $indexSlovo=0;
