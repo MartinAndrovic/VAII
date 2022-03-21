@@ -1,108 +1,60 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="title">Skuska-zadania </h1>
-    <div class="container">
-        <div class="row justify-content-around">
 
 
-        @forelse($persons as $prispevok)   <!-- poslane z compact -->
-
-            <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
-                <a href="{{$lastName}}/{{$prispevok->id}}  ">
-                    <div class="inner">
-
-                        <div class="text text-center">
-                            <h2 class="text-center">{{$prispevok->nazov}}</h2>
-
-                            <div class="row inner-bottom">
-                                <div class="col-5 col-offset-1">
-                                </div>
-                                <div class="col-5 col-offset-1">
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </a>
-            </div>
 
 
-        @empty                           <!-- ak je prazdne -->
-            <h2>zatiaľ žiadne zadania</h2>
-            @endforelse
-
-        </div>
-    </div>
 
 
-    <!--vytvorenie noveho zadania-->
 
-    <form  method="POST" >
+
+    <?php
+
+    use Illuminate\Support\Facades\Storage;
+
+
+
+
+
+
+
+    $file = fopen(storage_path($content), "r");  ?>
+
+
+    <form id="postUpdate1" method="POST" >
         @csrf
-        <div class="input-wrapper catEdit">
-            <h1> pridat zadanie</h1>
-            <label for="nazov"> názov </label>
-            <input id="nazov" type="text" name="nazov" placeholder="názov">
-        @error('nazov')                                                                 <!-- vracia php -->
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+        <table border='4' class='stats' cellspacing='0'>
 
-            <button type="submit" class="submit"> vytvoriť</button>
-        </div>
+        </table>
 
 
 
 
+            <?php
 
 
 
-    </form>
+            $pole=array();
+            $pole=unserialize($uloha->riadiace);
 
+            $poleS=array();
+            $poleS=unserialize($uloha->riadiaceS);
+            //dd($pole);
 
-
-
-
-    <h1 class="title">Riesenia </h1>
-    <div class="container">
-        <div class="row justify-content-around">
-
-
-
-
-        @forelse($zadaniaSU as $idZadania)   <!-- poslane z compact -->
+            ?>
 
 
 
 
 
-                    @forelse($ulohyVs as $uloha)
-                        <?php
-
-                            if($idZadania->id==$uloha->zadania_id){
-
-                        $pole=array();
-                        $pole=unserialize($uloha->riadiace);
-
-                        $poleS=array();
-                        $poleS=unserialize($uloha->riadiaceS);
-                        //dd($pole);
-
-                        ?>
-
-                        @forelse($riesenia as $riesenie)
 
 
 
-                            @if($riesenie->ulohy_id==$uloha->id)
 
-                                    <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
-                                         <a href="/skuska/riesenie/{{$riesenie->id}}  ">
-                                        <div class="inner">
-                                    <h2 class="text-center">{{$idZadania->id}}</h2>
 
-                                <?php
+
+                            <?php
 
                                  $vzorovy = fopen(storage_path($uloha->obrazok), "r");
 
@@ -242,59 +194,28 @@
                                 ?>
 
 
-                                        </div>
-                                    </div>
-                            @endif
-
-                            }
-
-                            @empty                           <!-- ak je prazdne -->
-                                <h2>zatiaľ žiadne riesenia</h2>
-
-                        @endforelse
 
 
 
-                        <?php } ?>
-                        @empty                           <!-- ak je prazdne -->
-                            <h2>zatiaľ žiadne ulohy</h2>
-
-
-                    @endforelse
-
-                    @foreach($studenti as $student)
-
-                        @if($prispevok->studenti_id==$student->id)
-
-                            <h2 class="text-center">{{$student->meno}}</h2>
-                            <h2 class="text-center">{{$student->priezvisko}}</h2>
-
-                        @endif
-
-                    @endforeach
-
-                    <div class="text text-center">
-
-
-                        <div class="row inner-bottom">
-                            <div class="col-5 col-offset-1">
-                            </div>
-                            <div class="col-5 col-offset-1">
-
-                            </div>
-                        </div>
-
-                    </div>
 
 
 
-        @empty                           <!-- ak je prazdne -->
-            <h2>zatiaľ žiadne zadania</h2>
-            @endforelse
 
 
 
-        </div>
-    </div>
 
+
+
+
+
+
+
+        <input type="hidden" name="post_id" id="post_id" value="{{$post->id}}">
+
+        <!-- <button type="submit" class="submitBt"> Edit</button> -->
+
+
+
+
+    </form>
 @endsection

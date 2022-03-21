@@ -386,6 +386,24 @@ class SkuskyController extends Controller
     }
 
 
+    public function showR(Request $request){
+
+        $riesenie=Riesenia::where('id','=',$request->riesenie)->get();
+        $idRiesenia=Riesenia::where('id','=',$request->riesenie)->first()->ulohy_id;
+        $uloha=Ulohy::where('id','=',$idRiesenia)->get();
+
+        //dd($idRiesenia);
+
+        return view('riesenie', compact('riesenie','uloha'));
+
+
+
+
+
+
+    }
+
+
 
 
 }
