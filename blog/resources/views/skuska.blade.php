@@ -111,6 +111,11 @@
                                  $indexB=0;
                                  $indexBS=0;
 
+                                 $hlavnyV=0;
+                                 $hlavnyV=1;
+                                 $predoslyHlavnyV=0;
+                                 $predoslyHlavnyR=1;
+
                                  //$polee=array();
 
                                  //while(!feof($vzorovy)){
@@ -155,14 +160,14 @@
 
                                                 if($aktualnyRV == $aktualnyRR){
 
-                                                    $hlavnyV=$aktualnyRV;     //zmena
-                                                    $hlavnyR=$aktualnyRR;      //zmena
+
 
                                                     $poleRiadokR = explode(" ", $aktualnyRR);
 
 
                                                     $chyba=0;
                                                     $indexSlovo=0;
+                                                    $checkH=0;
 
 
                                                     while($indexSlovo<sizeof($poleRiadokV)){
@@ -172,14 +177,37 @@
                                                         //if($indexBS<375){
                                                         //    echo "<td>",$poleRiadokV[$indexSlovo]." ",    "</td>";
 
+                                                        if($poleRiadokV[$indexSlovo]==""){
+                                                            $checkH=1;
+                                                        }
+                                                        else{
+                                                            $hlavnyV=$aktualnyRV;     //zmena
+                                                            $hlavnyR=$aktualnyRR;      //zmena
+                                                        }
 
-                                                        if($poleS[$indexBS]==0){                //ak sa slovo kontroluje
 
-                                                            if($poleRiadokV[$indexSlovo]==$poleRiadokR[$indexSlovo] ){
+                                                        if($poleS[$indexBS]==0){//ak sa slovo kontroluje
+
+                                                            if($checkH==0){
+
+                                                                if($poleRiadokV[$indexSlovo]==$poleRiadokR[$indexSlovo]){
+
+                                                                    }
+                                                                else{
+                                                                    $chyba++;
+                                                                }
+
+
 
                                                             }
+
                                                             else{
-                                                                $chyba++;
+                                                                if($poleRiadokV[$indexSlovo]==$poleRiadokR[$indexSlovo] && $predoslyHlavnyR==$predoslyHlavnyV){
+
+                                                                }
+                                                                else{
+                                                                    $chyba++;
+                                                                }
                                                             }
 
                                                        // }
@@ -209,8 +237,11 @@
                                                 // echo "<td>",$aktualnyRR,  "<br>",  "</td>";
 
 
+                                                $predoslyHlavnyR=$hlavnyR;
 
                                                 }
+
+
 
 
                                             }
@@ -245,7 +276,7 @@
                                         $indexB++;
                                     }
 
-
+                                    $predoslyHlavnyV=$hlavnyV;
 
                                 }
                                        //  var_dump($pocetOk,$pocetRVz);
