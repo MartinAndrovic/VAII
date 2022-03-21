@@ -172,9 +172,10 @@
                                                         //if($indexBS<375){
                                                         //    echo "<td>",$poleRiadokV[$indexSlovo]." ",    "</td>";
 
+
                                                         if($poleS[$indexBS]==0){                //ak sa slovo kontroluje
 
-                                                            if($poleRiadokV[$indexSlovo]==$poleRiadokR[$indexSlovo]){
+                                                            if($poleRiadokV[$indexSlovo]==$poleRiadokR[$indexSlovo] ){
 
                                                             }
                                                             else{
@@ -184,10 +185,10 @@
                                                        // }
                                                         }
 
-                                                        //if($poleRiadokV[$indexSlovo]!=""){
+                                                        if($poleRiadokV[$indexSlovo]!=""){
 
-                                                          //  $indexBS++;
-                                                      //  }
+                                                            $indexBS++;
+                                                        }
 
                                                         $indexSlovo++;
 

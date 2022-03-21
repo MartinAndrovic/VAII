@@ -17,9 +17,7 @@
         <table style="float: left;" id="tabVzor" border=4 class='stats' cellspacing='0'>
 
             <tbody>
-            <tr>
-                <td>initial row</td>
-            </tr>
+
             </tbody>
 
             </table>
@@ -28,9 +26,7 @@
         <table style="display: inline-block" id="tabRies" border=4 class='stats' cellspacing='0'>
 
             <tbody>
-            <tr>
-                <td>initial row</td>
-            </tr>
+
             </tbody>
 
         </table>
@@ -125,7 +121,7 @@
 
                                                          var tbodyRef = document.getElementById('tabRies').getElementsByTagName('tbody')[0];;
                                                          var newRow = tbodyRef.insertRow();
-                                                         newRow.innerHTML = myHtmlContent;
+                                                         newRow.innerHTML = "<td> " +myHtmlContent+ "</td>";
 
                                                          myHtmlContent=<?php echo json_encode($aktualnyRV); ?>
 
@@ -135,7 +131,7 @@
 
                                                          var tbodyRef = document.getElementById('tabVzor').getElementsByTagName('tbody')[0];;
                                                          var newRow = tbodyRef.insertRow();
-                                                         newRow.innerHTML = myHtmlContent;
+                                                         newRow.innerHTML = "<td>" +myHtmlContent+"<td>";
 
 
 
