@@ -131,7 +131,7 @@
 
 
 
-                                    if($aktualnyRV !=  "!\r\n" && $line != false){
+                                    if($aktualnyRV !=  "!\r\n" && $aktualnyRV != false){
 
 
                                         if($pole[$indexB]==0){
@@ -247,7 +247,7 @@
 
 
                                 }
-                                        var_dump($pocetOk,$pocetRVz);
+                                       // var_dump($pocetOk,$pocetRVz);
 
 
 
