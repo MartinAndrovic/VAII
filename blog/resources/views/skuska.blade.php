@@ -112,9 +112,9 @@
                                  $indexBS=0;
 
                                  $hlavnyV=0;
-                                 $hlavnyV=1;
+                                 $hlavnyV=0;
                                  $predoslyHlavnyV=0;
-                                 $predoslyHlavnyR=1;
+                                 $predoslyHlavnyR=0;
 
                                  //$polee=array();
 
@@ -158,9 +158,10 @@
 
 
 
-                                                if($aktualnyRV == $aktualnyRR){
+                                                if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){
 
-
+                                                    echo "<td>",$aktualnyRV, "<br>",    "</td>";
+                                                    echo "<td>",$aktualnyRR, "<br>",    "</td>";
 
                                                     $poleRiadokR = explode(" ", $aktualnyRR);
 
@@ -170,7 +171,7 @@
                                                     $checkH=0;
 
 
-                                                    while($indexSlovo<sizeof($poleRiadokV)){
+                                                    while($indexSlovo<sizeof($poleRiadokV)){        //spracovanie riadku
                                                         //echo "<td>",$poleRiadokV[$indexSlovo],    "</td>";
                                                        // echo "<td>",$poleRiadokR[$indexSlovo], "<br>",   "</td>";
 
@@ -201,14 +202,7 @@
 
                                                             }
 
-                                                            else{
-                                                                if($poleRiadokV[$indexSlovo]==$poleRiadokR[$indexSlovo] && $predoslyHlavnyR==$predoslyHlavnyV){
 
-                                                                }
-                                                                else{
-                                                                    $chyba++;
-                                                                }
-                                                            }
 
                                                        // }
                                                         }
