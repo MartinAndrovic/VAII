@@ -25,6 +25,17 @@
             </table>
 
 
+        <table id="tabRies" border=4 class='stats' cellspacing='0'>
+
+            <tbody>
+            <tr>
+                <td>initial row</td>
+            </tr>
+            </tbody>
+
+        </table>
+
+
 
             @forelse($uloha as $uloha)
             @forelse($riesenie as $riesenie)
@@ -63,6 +74,8 @@
 
 
 
+
+
                                     if($aktualnyRV !=  "!\r\n"){
 
 
@@ -74,20 +87,12 @@
 
                                             $zhoda=0;
 
+                                            $akt=$aktualnyRV;
+
 ?>
-                                            <script type="text/javascript">
-
-                                            var tbodyRef = document.getElementById('tabVzor').getElementsByTagName('tbody')[0];;
-                                            var newRow = tbodyRef.insertRow();
 
 
 
-
-                                            document.getElementById("demo").innerHTML = 5 + 6;
-
-                                            </script>
-
-                <p id="demo"></p>
 
 
 
@@ -104,8 +109,29 @@
 
 
 
-                                                    $poleRiadokR = explode(" ", $aktualnyRR);
 
+
+                                                    $poleRiadokR = explode(" ", $aktualnyRR);
+?>
+
+                                                      <script type="text/javascript">
+
+
+                                                         myHtmlContent=<?php echo json_encode($akt); ?>
+
+
+
+
+
+                                                         var tbodyRef = document.getElementById('tabRies').getElementsByTagName('tbody')[0];;
+                                                         var newRow = tbodyRef.insertRow();
+                                                         newRow.innerHTML = myHtmlContent;
+
+
+
+
+                </script>
+            <?php
 
                                                     $indexSlovo=0;
                                                     $chyba=0;
@@ -181,7 +207,7 @@
 
 
                                 }
-                                       // var_dump($pocetOk,$pocetRVz);
+                                        var_dump($pocetOk,$pocetRVz);
 
 
 

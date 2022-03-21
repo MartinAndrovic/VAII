@@ -111,6 +111,13 @@
                                  $indexB=0;
                                  $indexBS=0;
 
+                                 //$polee=array();
+
+                                 //while(!feof($vzorovy)){
+                                    // $polee[]=fgets($vzorovy);
+                                // }
+                                // dd($polee);
+
                                 while(!feof($vzorovy)) {
 
 
@@ -124,7 +131,7 @@
 
 
 
-                                    if($aktualnyRV !=  "!\r\n"){
+                                    if($aktualnyRV !=  "!\r\n" && $line != false){
 
 
                                         if($pole[$indexB]==0){
@@ -144,17 +151,26 @@
                                                 $aktualnyRR= fgets($odovzdany);
 
 
+
+
                                                 if($aktualnyRV == $aktualnyRR){
+
+                                                    $hlavnyV=$aktualnyRV;     //zmena
+                                                    $hlavnyR=$aktualnyRR;      //zmena
 
                                                     $poleRiadokR = explode(" ", $aktualnyRR);
 
 
-                                                    $indexSlovo=0;
                                                     $chyba=0;
+                                                    $indexSlovo=0;
+
 
                                                     while($indexSlovo<sizeof($poleRiadokV)){
-                                                       // echo "<td>",$poleRiadokV[$indexSlovo],    "</td>";
+                                                        //echo "<td>",$poleRiadokV[$indexSlovo],    "</td>";
                                                        // echo "<td>",$poleRiadokR[$indexSlovo], "<br>",   "</td>";
+
+                                                        if($indexBS<375){
+                                                            echo "<td>",$poleRiadokV[$indexSlovo]." ",    "</td>";
 
                                                         if($poleS[$indexBS]==0){                //ak sa slovo kontroluje
 
@@ -166,14 +182,22 @@
                                                             }
 
                                                         }
+                                                        }
+
+                                                        //if($poleRiadokV[$indexSlovo]!=""){
+
+                                                          //  $indexBS++;
+                                                      //  }
+
                                                         $indexSlovo++;
 
-                                                       // else{                   //ak sa slovo nkontroluje
 
-
-                                                       // }
 
                                                     }
+                                                    var_dump($pocetRVz);
+                                                    echo "<br>";
+
+                                                    //var_dump($indexBS);
 
                                                     if($chyba==0){
                                                         $zhoda++;

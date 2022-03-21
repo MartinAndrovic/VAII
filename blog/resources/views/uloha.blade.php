@@ -45,7 +45,7 @@
                     echo "<tr>";
 
                     $line=fgets($file);
-                    if($line !=  "!\r\n"){
+                    if($line !=  "!\r\n" && $line != false){
                     $word_arr = explode(" ", $line); //return word array
                     foreach($word_arr as $word){
                         if($word!=""){
