@@ -9,31 +9,27 @@
 
 
 
-    <?php
-
-    use Illuminate\Support\Facades\Storage;
-
-
-
-
-
-
-
-    $file = fopen(storage_path($content), "r");  ?>
 
 
     <form id="postUpdate1" method="POST" >
         @csrf
-        <table border='4' class='stats' cellspacing='0'>
 
-        </table>
+        <table id="tabVzor" border=4 class='stats' cellspacing='0'>
+
+            <tbody>
+            <tr>
+                <td>initial row</td>
+            </tr>
+            </tbody>
+
+            </table>
 
 
 
+            @forelse($uloha as $uloha)
+            @forelse($riesenie as $riesenie)
 
             <?php
-
-
 
             $pole=array();
             $pole=unserialize($uloha->riadiace);
@@ -43,15 +39,6 @@
             //dd($pole);
 
             ?>
-
-
-
-
-
-
-
-
-
 
 
                             <?php
@@ -67,7 +54,7 @@
 
 
 
-                                    $odovzdany = fopen(storage_path($riesenie->konfiguracia), "r");
+                                    $odovzdany = fopen(storage_path($uloha->obrazok), "r");
 
 
 
@@ -87,9 +74,26 @@
 
                                             $zhoda=0;
 
+?>
+                                            <script type="text/javascript">
 
-                                            // echo "<td>",$aktualnyRV,    "</td>";
-                                            //  echo "<td>",$pocetRVz. "<br>", "</td>";
+                                            var tbodyRef = document.getElementById('tabVzor').getElementsByTagName('tbody')[0];;
+                                            var newRow = tbodyRef.insertRow();
+
+
+
+
+                                            document.getElementById("demo").innerHTML = 5 + 6;
+
+                                            </script>
+
+                <p id="demo"></p>
+
+
+
+                                <?php
+
+
 
                                             while(!feof($odovzdany)){                //ku kazdemu riadku vzoroveho sa hlada riadok v rieseni
 
@@ -97,6 +101,8 @@
 
 
                                                 if($aktualnyRV == $aktualnyRR){
+
+
 
                                                     $poleRiadokR = explode(" ", $aktualnyRR);
 
@@ -175,7 +181,7 @@
 
 
                                 }
-                                        var_dump($pocetOk,$pocetRVz);
+                                       // var_dump($pocetOk,$pocetRVz);
 
 
 
@@ -210,11 +216,19 @@
 
 
 
-        <input type="hidden" name="post_id" id="post_id" value="{{$post->id}}">
+
 
         <!-- <button type="submit" class="submitBt"> Edit</button> -->
 
 
+            @empty
+                <h2>zatiaľ žiadne riesenia</h2>
+            @endforelse
+
+
+        @empty
+            <h2>zatiaľ žiadne riesenia</h2>
+        @endforelse
 
 
     </form>
