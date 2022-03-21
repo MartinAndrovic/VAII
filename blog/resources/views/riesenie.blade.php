@@ -187,9 +187,11 @@
 
                                                            // newRow.innerHTML = "<td> " +myHtmlContent+ "</td>";
 
-                                                         var TD = document.createElement('td'); //Create new cell
+                                                         var TD = document.createElement('tr'); //Create new cell
+
+
                                                          TD.innerHTML = myHtmlContent; //Set some thing
-                                                         newRow.appendChild (TD); //Add it to row
+                                                        // newRow.appendChild (TD); //Add it to row
 
 
 
@@ -198,8 +200,8 @@
 
 
 
-                                                         var TD = document.createElement('td'); //Create new cell
-                                                         TD.innerHTML = myHtmlContent; //Set some thing
+                                                         var TD = document.createElement('input'); //Create new cell
+                                                         TD.innerHTML = " <input type=checkbox name=boxS[] >";
                                                          newRowV.appendChild (TD); //Add it to row
 
 
