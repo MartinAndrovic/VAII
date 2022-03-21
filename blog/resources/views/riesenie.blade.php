@@ -14,7 +14,7 @@
     <form id="postUpdate1" method="POST" >
         @csrf
 
-        <table style="float: left;" id="tabVzor" border=4 class='stats' cellspacing='0'>
+        <table style="float: left;" id="tabVzor" border=1 class='stats' cellspacing='0'>
 
             <tbody>
 
@@ -52,13 +52,14 @@
 
 
                 @if($riesenie->ulohy_id==$uloha->id)
+                    <?php
 
-                    <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
-                        <a href="/skuska/riesenie/{{$riesenie->id}}  ">
-                            <div class="inner">
+                   // <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
+                    //    <a href="/skuska/riesenie/{{$riesenie->id}}  ">
+                       //     <div class="inner">
 
 
-                                <?php
+
 
                                 $vzorovy = fopen(storage_path($uloha->obrazok), "r");
 
@@ -116,44 +117,15 @@
 
                                                 if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){
 
-                                                    echo "<td>",$aktualnyRV, "<br>",    "</td>";
-                                                    echo "<td>",$aktualnyRR, "<br>",    "</td>";
+                                                   // echo "<td>",$aktualnyRV, "<br>",    "</td>";
+                                                   // echo "<td>",$aktualnyRR, "<br>",    "</td>";
 
                                                     $poleRiadokR = explode(" ", $aktualnyRR);
                                                     ?>
 
 
 
-                                                     <script type="text/javascript">
 
-
-                                                         myHtmlContent=<?php echo json_encode($aktualnyRR); ?>
-
-
-
-
-
-                                    var tbodyRef = document.getElementById('tabRies').getElementsByTagName('tbody')[0];;
-                                    var newRow = tbodyRef.insertRow();
-                                    newRow.innerHTML = "<td> " +myHtmlContent+ "</td>";
-
-                                    myHtmlContent=<?php echo json_encode($aktualnyRV); ?>
-
-
-
-
-
-                                    var tbodyRef = document.getElementById('tabVzor').getElementsByTagName('tbody')[0];;
-                                    var newRow = tbodyRef.insertRow();
-                                    newRow.innerHTML = "<td>" +myHtmlContent+"<td>";
-
-
-
-
-
-
-
-                                        </script>
 
                                     <?php
 
@@ -161,6 +133,28 @@
                                                     $chyba=0;
                                                     $indexSlovo=0;
                                                     $checkH=0;
+                                                    ?>
+
+
+                                                        <script type="text/javascript">
+
+
+                                                         myHtmlContent=<?php echo json_encode($poleRiadokR[$indexSlovo]); ?>
+
+
+
+
+
+                                                        var tbodyRef = document.getElementById('tabRies').getElementsByTagName('tbody')[0];;
+                                                        var newRow = tbodyRef.insertRow();
+
+
+
+
+
+                                                        </script>
+
+                    <?php
 
 
                                                     while($indexSlovo<sizeof($poleRiadokV)){        //spracovanie riadku
@@ -170,6 +164,53 @@
                                                         //if($indexBS<375){
                                                         //    echo "<td>",$poleRiadokV[$indexSlovo]." ",    "</td>";
 
+                                                        if($poleRiadokV[$indexSlovo]!=""){
+
+
+                                                        ?>
+
+
+                                                         <script type="text/javascript">
+
+
+                                                         myHtmlContent=<?php echo json_encode($poleRiadokR[$indexSlovo]); ?>
+
+
+
+
+
+                                                        // var tbodyRef = document.getElementById('tabRies').getElementsByTagName('tbody')[0];;
+                                                         //var newRow = tbodyRef.insertRow();
+
+                                                           // newRow.innerHTML = "<td> " +myHtmlContent+ "</td>";
+
+                                                         var TD = document.createElement('td'); //Create new cell
+                                                         TD.innerHTML = myHtmlContent; //Set some thing
+                                                         newRow.appendChild (TD); //Add it to row
+
+
+
+
+                                                        // myHtmlContent=<?php echo json_encode($poleRiadokV[$indexSlovo]); ?>
+
+
+
+
+
+                                                      //  var tbodyRef = document.getElementById('tabVzor').getElementsByTagName('tbody')[0];;
+                                                       // var newRow = tbodyRef.insertRow();
+                                                       // newRow.innerHTML = "<td>" +myHtmlContent+"<td>";
+
+
+
+
+
+
+
+                            </script>
+                    <?php
+
+                                                        }
                                                         if($poleRiadokV[$indexSlovo]==""){
                                                             $checkH=1;
                                                         }
@@ -209,8 +250,8 @@
 
 
                                                     }
-                                                    var_dump($pocetRVz);
-                                                    echo "<br>";
+                                                   // var_dump($pocetRVz);
+
 
                                                     //var_dump($indexBS);
 
@@ -281,11 +322,12 @@
                                 <?php
                                 fclose($vzorovy);
                                 fclose($odovzdany);
-                                ?>
 
 
-                            </div>
-                    </div>
+
+                           // </div>
+                    //</div>
+                     ?>
                 @endif
 
                 }
