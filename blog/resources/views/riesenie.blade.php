@@ -33,42 +33,62 @@
 
 
 
-            @forelse($uloha as $uloha)
-            @forelse($riesenie as $riesenie)
-
+        @forelse($uloha as $uloha)
             <?php
+
+
 
             $pole=array();
             $pole=unserialize($uloha->riadiace);
 
             $poleS=array();
             $poleS=unserialize($uloha->riadiaceS);
-            //dd($pole);
+            //dd($poleS);
 
             ?>
 
+            @forelse($riesenie as $riesenie)
 
-                            <?php
 
-                                 $vzorovy = fopen(storage_path($uloha->obrazok), "r");
 
-                                 $pocetRVz=0;
-                                 $pocetOk=0;
-                                 $indexB=0;
-                                 $indexBS=0;
+                @if($riesenie->ulohy_id==$uloha->id)
+
+                    <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
+                        <a href="/skuska/riesenie/{{$riesenie->id}}  ">
+                            <div class="inner">
+
+
+                                <?php
+
+                                $vzorovy = fopen(storage_path($uloha->obrazok), "r");
+
+                                $pocetRVz=0;
+                                $pocetOk=0;
+                                $indexB=0;
+                                $indexBS=0;
+
+                                $hlavnyV=0;
+                                $hlavnyV=0;
+                                $predoslyHlavnyV=0;
+                                $predoslyHlavnyR=0;
+
+                                //$polee=array();
+
+                                //while(!feof($vzorovy)){
+                                // $polee[]=fgets($vzorovy);
+                                // }
+                                // dd($polee);
 
                                 while(!feof($vzorovy)) {
 
 
 
-                                    $odovzdany = fopen(storage_path($uloha->obrazok), "r");
+                                    $odovzdany = fopen(storage_path($riesenie->konfiguracia), "r");
 
 
 
                                     $aktualnyRV= fgets($vzorovy);
                                     $poleRiadokV = explode(" ", $aktualnyRV);
-
-
 
 
 
@@ -78,39 +98,33 @@
                                         if($pole[$indexB]==0){
 
 
-                                           // foreach($word_arr as $word){
-                                             //   if($word!=""){
+                                            // foreach($word_arr as $word){
+                                            //   if($word!=""){
 
                                             $zhoda=0;
 
 
-
-?>
-
-
-
-
-
-
-                                <?php
-
-
+                                            // echo "<td>",$aktualnyRV,    "</td>";
+                                            //  echo "<td>",$pocetRVz. "<br>", "</td>";
 
                                             while(!feof($odovzdany)){                //ku kazdemu riadku vzoroveho sa hlada riadok v rieseni
 
                                                 $aktualnyRR= fgets($odovzdany);
 
 
-                                                if($aktualnyRV == $aktualnyRR){
 
 
+                                                if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){
 
-
+                                                    echo "<td>",$aktualnyRV, "<br>",    "</td>";
+                                                    echo "<td>",$aktualnyRR, "<br>",    "</td>";
 
                                                     $poleRiadokR = explode(" ", $aktualnyRR);
-?>
+                                                    ?>
 
-                                                      <script type="text/javascript">
+
+
+                                                     <script type="text/javascript">
 
 
                                                          myHtmlContent=<?php echo json_encode($aktualnyRR); ?>
@@ -119,37 +133,55 @@
 
 
 
-                                                         var tbodyRef = document.getElementById('tabRies').getElementsByTagName('tbody')[0];;
-                                                         var newRow = tbodyRef.insertRow();
-                                                         newRow.innerHTML = "<td> " +myHtmlContent+ "</td>";
+                                    var tbodyRef = document.getElementById('tabRies').getElementsByTagName('tbody')[0];;
+                                    var newRow = tbodyRef.insertRow();
+                                    newRow.innerHTML = "<td> " +myHtmlContent+ "</td>";
 
-                                                         myHtmlContent=<?php echo json_encode($aktualnyRV); ?>
-
-
-
-
-
-                                                         var tbodyRef = document.getElementById('tabVzor').getElementsByTagName('tbody')[0];;
-                                                         var newRow = tbodyRef.insertRow();
-                                                         newRow.innerHTML = "<td>" +myHtmlContent+"<td>";
+                                    myHtmlContent=<?php echo json_encode($aktualnyRV); ?>
 
 
 
 
 
+                                    var tbodyRef = document.getElementById('tabVzor').getElementsByTagName('tbody')[0];;
+                                    var newRow = tbodyRef.insertRow();
+                                    newRow.innerHTML = "<td>" +myHtmlContent+"<td>";
 
 
-                                                      </script>
-            <?php
 
-                                                    $indexSlovo=0;
+
+
+
+
+                                        </script>
+
+                                    <?php
+
+
                                                     $chyba=0;
+                                                    $indexSlovo=0;
+                                                    $checkH=0;
 
-                                                    while($indexSlovo<sizeof($poleRiadokV)){
-                                                       // echo "<td>",$poleRiadokV[$indexSlovo],    "</td>";
-                                                       // echo "<td>",$poleRiadokR[$indexSlovo], "<br>",   "</td>";
 
-                                                        if($poleS[$indexBS]==0){                //ak sa slovo kontroluje
+                                                    while($indexSlovo<sizeof($poleRiadokV)){        //spracovanie riadku
+                                                        //echo "<td>",$poleRiadokV[$indexSlovo],    "</td>";
+                                                        // echo "<td>",$poleRiadokR[$indexSlovo], "<br>",   "</td>";
+
+                                                        //if($indexBS<375){
+                                                        //    echo "<td>",$poleRiadokV[$indexSlovo]." ",    "</td>";
+
+                                                        if($poleRiadokV[$indexSlovo]==""){
+                                                            $checkH=1;
+                                                        }
+                                                        else{
+                                                            $hlavnyV=$aktualnyRV;     //zmena
+                                                            $hlavnyR=$aktualnyRR;      //zmena
+                                                        }
+
+
+                                                        if($poleS[$indexBS]==0){//ak sa slovo kontroluje
+
+                                                            //if($checkH==0){
 
                                                             if($poleRiadokV[$indexSlovo]==$poleRiadokR[$indexSlovo]){
 
@@ -158,15 +190,29 @@
                                                                 $chyba++;
                                                             }
 
+
+
+                                                            //}
+
+
+
+                                                            // }
                                                         }
+
+                                                        if($poleRiadokV[$indexSlovo]!=""){
+
+                                                            $indexBS++;
+                                                        }
+
                                                         $indexSlovo++;
 
-                                                       // else{                   //ak sa slovo nkontroluje
 
-
-                                                       // }
 
                                                     }
+                                                    var_dump($pocetRVz);
+                                                    echo "<br>";
+
+                                                    //var_dump($indexBS);
 
                                                     if($chyba==0){
                                                         $zhoda++;
@@ -174,11 +220,14 @@
 
 
                                                     //$zhoda++; tre pouzittttttttt
-                                                // echo "<td>",$aktualnyRR,  "<br>",  "</td>";
+                                                    // echo "<td>",$aktualnyRR,  "<br>",  "</td>";
 
 
+                                                    $predoslyHlavnyR=$hlavnyR;
 
                                                 }
+
+
 
 
                                             }
@@ -203,7 +252,7 @@
                                             foreach($poleRiadokV as $word){
                                                 if($word!=""){
 
-                                                $indexBS++;}}
+                                                    $indexBS++;}}
 
 
 
@@ -213,10 +262,10 @@
                                         $indexB++;
                                     }
 
-
+                                    $predoslyHlavnyV=$hlavnyV;
 
                                 }
-                                        var_dump($pocetOk,$pocetRVz);
+                                //  var_dump($pocetOk,$pocetRVz);
 
 
 
@@ -235,35 +284,26 @@
                                 ?>
 
 
+                            </div>
+                    </div>
+                @endif
 
+                }
 
+            @empty                           <!-- ak je prazdne -->
+            <h2>zatiaľ žiadne riesenia</h2>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- <button type="submit" class="submitBt"> Edit</button> -->
-
-
-            @empty
-                <h2>zatiaľ žiadne riesenia</h2>
             @endforelse
 
 
-        @empty
-            <h2>zatiaľ žiadne riesenia</h2>
+
+
+        @empty                           <!-- ak je prazdne -->
+        <h2>zatiaľ žiadne ulohy</h2>
+
+
         @endforelse
+
 
 
     </form>

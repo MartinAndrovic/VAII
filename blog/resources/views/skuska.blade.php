@@ -189,7 +189,7 @@
 
                                                         if($poleS[$indexBS]==0){//ak sa slovo kontroluje
 
-                                                            if($checkH==0){
+                                                            //if($checkH==0){
 
                                                                 if($poleRiadokV[$indexSlovo]==$poleRiadokR[$indexSlovo]){
 
@@ -200,7 +200,7 @@
 
 
 
-                                                            }
+                                                            //}
 
 
 
