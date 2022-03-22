@@ -66,6 +66,7 @@
 
                     $pocetRVz=0;
                     $pocetOk=0;
+                    $pocetChyb=0;
                     $indexB=0;
                     $indexBS=0;
 
@@ -132,17 +133,21 @@
                            if($medzery==0){
                                $hlavnyV=$aktualnyRV;    //treba spravit predosli77777777777777777
                                $hlavnyR=$aktualnyRV;
-                           }                                            // koniec zmena hlavneho riadku-------
+                           }                                           // koniec zmena hlavneho riadku-------
 
 
 
-                           if($uplneZhodny!=0){                        //ak su riadky zhodne
+                           if($uplneZhodny!=0){                        //hlavny if----------------------------
+
                                                     //zapis do vysledneho
+                               $pocetOk++;
                            }
                            else{     //treba prehladat riesenie a urcit cez poleS zhodu
 
                                if($pole[$indexB]==1){
                                                         //vypis
+
+                                   $pocetOk++;
                                }
 
 
@@ -168,6 +173,7 @@
                                             }
 
                                          $indexX++;
+                                            $indexBS++;
                                         }
 
                                         if($chybaRiadokS==0){
@@ -182,16 +188,19 @@
 
 
                                if($najdenyRiadok==0){
-                                   $chyba++;
+                                   $pocetChyb++;
+                               }
+                               else{
+                                   $pocetOk++;
                                }
 
                            }
 
                                                     $predoslyHlavnyR=$hlavnyR;
-
+                           $pocetRVz++;
                         }
 
-                                        $indexB++;
+                        $indexB++;
                     }
 
                     $predoslyHlavnyV=$hlavnyV;
@@ -201,6 +210,7 @@
 
                     fclose($vzorovy);
                     fclose($odovzdany);
+                    var_dump($pocetOk,$pocetRVz,$pocetChyb);
 
 
 
