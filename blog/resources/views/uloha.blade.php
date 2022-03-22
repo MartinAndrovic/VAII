@@ -29,7 +29,7 @@
 
             <form id="postUpdate1" method="POST" >
                 @csrf
-            <table border='4' class='stats' cellspacing='0'>";
+            <table border='4' class='stats' cellspacing='0'>
 
 
 

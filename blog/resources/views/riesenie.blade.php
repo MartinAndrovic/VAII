@@ -11,25 +11,6 @@
 
 
 
-    <form id="postUpdate1" method="POST" >
-        @csrf
-
-        <table style="float: left;" id="tabVzor" border=1 class='stats' cellspacing='0'>
-
-            <tbody>
-
-            </tbody>
-
-            </table>
-
-
-        <table style="display: inline-block" id="tabRies" border=1 class='stats' cellspacing='0'>
-
-            <tbody>
-
-            </tbody>
-
-        </table>
 
 
 
@@ -69,6 +50,9 @@
                     $pocetChyb=0;
                     $indexB=0;
                     $indexBS=0;
+
+                    $vypisV=array();
+                    $indexVypisV=0;
 
                     $hlavnyV=0;
                     $hlavnyV=0;
@@ -140,6 +124,12 @@
                            if($uplneZhodny!=0){                        //hlavny if----------------------------
 
                                                     //zapis do vysledneho
+
+                                $vypisV[$indexVypisV]=$aktualnyRV;
+                                $indexVypisV++;
+
+
+
                                $pocetOk++;
                            }
                            else{     //treba prehladat riesenie a urcit cez poleS zhodu
@@ -148,6 +138,7 @@
                                                         //vypis
 
                                    $pocetOk++;
+
                                }
 
 
@@ -234,6 +225,55 @@
         @endforelse
 
 
+        <form id="postUpdate1" method="POST" >
+            @csrf
+            <table border='4' class='stats' cellspacing='0'>
+
+                <tbody>
+
+                </tbody>
+
+
+                    @forelse($vypisV as $vypisV)
+
+
+
+                    <tr>
+
+
+
+                       <td>  {{$vypisV}} <br>
+
+
+                            </td>
+
+
+
+
+
+
+                      </tr>
+
+
+
+
+                    @empty
+
+                    <h2>vypis je prazdny</h2>
+
+                    @endforelse
+
+                <!--    <table style="display: inline-block" id="tabRies" border=1 class='stats' cellspacing='0'>
+
+                        <tbody>
+
+                        </tbody>
+
+                    </table>
+                    -->
+
+
+            </table>
 
     </form>
 @endsection
