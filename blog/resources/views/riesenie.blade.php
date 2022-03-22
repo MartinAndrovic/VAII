@@ -43,6 +43,7 @@
 
             $poleS=array();
             $poleS=unserialize($uloha->riadiaceS);
+            $chyba=0;
             //dd($poleS);
 
             ?>
@@ -61,145 +62,130 @@
 
 
 
-                                $vzorovy = fopen(storage_path($uloha->obrazok), "r");
+                    $vzorovy = fopen(storage_path($uloha->obrazok), "r");
 
-                                $pocetRVz=0;
-                                $pocetOk=0;
-                                $indexB=0;
-                                $indexBS=0;
+                    $pocetRVz=0;
+                    $pocetOk=0;
+                    $indexB=0;
+                    $indexBS=0;
 
-                                $hlavnyV=0;
-                                $hlavnyV=0;
-                                $predoslyHlavnyV=0;
-                                $predoslyHlavnyR=0;
+                    $hlavnyV=0;
+                    $hlavnyV=0;
+                    $predoslyHlavnyV=0;
+                    $predoslyHlavnyR=0;
 
-                                $poleVysledneR=array();
-
-                                //$polee=array();
-
-                                //while(!feof($vzorovy)){
-                                // $polee[]=fgets($vzorovy);
-                                // }
-                                // dd($polee);
-
-                                while(!feof($vzorovy)) {
+                    $poleVysledneR=array();
 
 
 
-                                    $odovzdany = fopen(storage_path($riesenie->konfiguracia), "r");
+                    while(!feof($vzorovy)) {
+
+                        $odovzdany = fopen(storage_path($riesenie->konfiguracia), "r");
+
+                        $aktualnyRV= fgets($vzorovy);
+                        $poleRiadokV = explode(" ", $aktualnyRV);
 
 
 
-                                    $aktualnyRV= fgets($vzorovy);
-                                    $poleRiadokV = explode(" ", $aktualnyRV);
+                        if($aktualnyRV !=  "!\r\n" && $aktualnyRV != false){
+
+                           // if($pole[$indexB]==0){              //if 1
+
+                           $zhoda=0;
+                           $uplneZhodny=0;
+
+                           while(!feof($odovzdany)){                //hladanie riadku v rieseni
+                                $aktualnyRR= fgets($odovzdany);
+
+                                if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){   //ak je aktualny zhodny
+
+                                   $uplneZhodny++;
+
+                                }
+                           }
+
+                           fclose($odovzdany);
+
+                           $indexx=0;                                  // zmena hlavneho riadku--------
+                           $medzery=0;
+
+
+                           while($indexx<sizeof($poleRiadokV)){
+
+                                if($poleRiadokV[$indexx]==""){
+
+                                   $medzery++;
+
+                                }
+
+                                $indexx++;
+                           }
+
+                           if($medzery==0){
+                               $hlavnyV=$aktualnyRV;    //treba spravit predosli
+                               $hlavnyR=$aktualnyRV;
+                           }                                            // koniec zmena hlavneho riadku-------
 
 
 
-                                    if($aktualnyRV !=  "!\r\n" && $aktualnyRV != false){
-
-
-                                        if($pole[$indexB]==0){              //if 1
-
-
-
-
-                                            $zhoda=0;
-                                            $uplneZhodny=0;
-
-
-
-
-                                            while(!feof($odovzdany)){                //hladanie riadku v rieseni
-
-                                                $aktualnyRR= fgets($odovzdany);
-
-
-
-
-                                                if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){   //ak je aktualny zhodny
-                                                    $uplneZhodny++;
-
-                                                 }
-                                            }
-
-                                            fclose($odovzdany);
-
-                                                $indexx=0;                                  // zmena hlavneho riadku--------
-                                                $medzery=0;
-
-
-                                                while($indexx<sizeof($poleRiadokV)){
-
-
-                                                    if($poleRiadokV[$indexx]==""){
-
-                                                     $medzery++;
-
-                                                    }
-
-                                                    $indexx++;
-                                                }
-
-                                                if($medzery==0){
-                                                    $hlavnyV=$aktualnyRV;    //treba spravit predosli
-                                                    $hlavnyR=$aktualnyRV;
-                                                }                                            // koniec zmena hlavneho riadku-------
-
-
-                                                if($uplneZhodny!=0){                        //ak su riadky zhodne
+                           if($uplneZhodny!=0){                        //ak su riadky zhodne
                                                     //zapis do vysledneho
-                                                 }
+                           }
+                           else{     //treba prehladat riesenie a urcit cez poleS zhodu
+
+                               if($pole[$indexB]==1){
+                                                        //vypis
+                               }
 
 
-                                                else{                                                                   //treba prehladat riesenie a urcit cez poleS zhodu
-                                                    $odovzdany = fopen(storage_path($riesenie->konfiguracia), "r");
+                               $odovzdany = fopen(storage_path($riesenie->konfiguracia), "r");
+                               $najdenyRiadok=0;
 
-                                                    $chybaPoleS=0;
+                               while(!feof($odovzdany)){                //chyba az ked sa prejde cely a nebude ziadny zhodny riadok podla polaS
 
-                                                    while(!feof($odovzdany)){                //
-
-                                                        $aktualnyRR= fgets($odovzdany);
-                                                        $poleRiadokR = explode(" ", $aktualnyRR);
+                                   $aktualnyRR= fgets($odovzdany);
+                                   $poleRiadokR = explode(" ", $aktualnyRR);
 
 
 
-                                                        if(sizeof($poleRiadokV)==sizeof($poleRiadokR) && $predoslyHlavnyV==$predoslyHlavnyR){   //ak je aktualny zhodny
+                                   if(sizeof($poleRiadokV)==sizeof($poleRiadokR) && $predoslyHlavnyV==$predoslyHlavnyR){
 
-                                                            $indexX=0;
-                                                            while($indexX<sizeof($poleRiadokV)){
+                                   $indexX=0;                              // na zistenie, ci existuje riadok zhodny podla poleS-------
+                                   while($indexX<sizeof($poleRiadokV)){    //prechadzanie slov jednoho riadku
 
-                                                                if($poleS[$indexBS]==0){
-                                                                    if($poleRiadokV[$indexX]!=$poleRiadokR[$indexX]){
-                                                                        $chybaPoleS++;  //treba potom zjednotit s $chybou
-                                                                    }
-
-                                                                }
-                                                                else{           //ak sa nema kontrolovat slovo
-
-                                                                }
+                                        if($poleRiadokV[$indexX]!=$poleRiadokR[$indexX]){
+                                            if($poleS[$indexBS]==0){
+                                                $chybaRiadokS++;
+                                            }
+                                        }
 
 
-                                                                $indexX++;
-                                                            }
+
+                                        $indexX++;
+                                   }
+
+                                   if($chybaRiadokS==0){
+                                       $najdenyRiadok++;
+
+                                    }
 
                                                         }
                                                     }
+                                                    fclose($odovzdany);
 
 
 
-
+                                                    if($najdenyRiadok==0){
+                                                        $chyba++;
+                                                    }
 
 
                                                 }
 
 
+                                                        //treba toto cele??
 
-
-
-
-
-
-
+                                                                /*
                                                     $poleRiadokR = explode(" ", $aktualnyRR);
 
 
@@ -217,11 +203,7 @@
 
 
 
-
-
-
-
-                                                    while($indexSlovo<sizeof($poleRiadokV)){        //spracovanie riadku
+                                                  while($indexSlovo<sizeof($poleRiadokV)){        //spracovanie riadku
                                                         //echo "<td>",$poleRiadokV[$indexSlovo],    "</td>";
                                                         // echo "<td>",$poleRiadokR[$indexSlovo], "<br>",   "</td>";
 
@@ -267,15 +249,15 @@
 
 
 
-                                                    }
+                                                    } */
                                                    // var_dump($pocetRVz);
 
 
                                                     //var_dump($indexBS);
 
-                                                    if($chyba==0){
-                                                        $zhoda++;
-                                                    }
+                                                   // if($chyba==0){
+                                                   //     $zhoda++;
+                                                   // }
 
 
                                                     //$zhoda++; tre pouzittttttttt
@@ -293,11 +275,11 @@
 
 
 
-                                            if($zhoda!=0){
-                                                $pocetOk++;
-                                            }
+                                           // if($zhoda!=0){
+                                             //   $pocetOk++;
+                                           // }
 
-                                            $pocetRVz++;
+                                           // $pocetRVz++;
 
 
 
@@ -305,22 +287,22 @@
 
                                         }
 
-                                        else{
+                                        //else{
 
 
 
 
 
 
-                                            foreach($poleRiadokV as $word){
-                                                if($word!=""){
+                                          //  foreach($poleRiadokV as $word){
+                                              //  if($word!=""){
 
-                                                    $indexBS++;}}
-
-
+                                                  //  $indexBS++;}}
 
 
-                                        }
+
+
+                                       // }
 
                                         $indexB++;
                                     }
