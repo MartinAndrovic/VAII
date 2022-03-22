@@ -122,6 +122,8 @@
                                                  }
                                             }
 
+                                            fclose($odovzdany);
+
                                                 $indexx=0;                                  // zmena hlavneho riadku--------
                                                 $medzery=0;
 
@@ -144,9 +146,51 @@
                                                 }                                            // koniec zmena hlavneho riadku-------
 
 
-                                                if($uplneZhodny!=0){
+                                                if($uplneZhodny!=0){                        //ak su riadky zhodne
                                                     //zapis do vysledneho
                                                  }
+
+
+                                                else{                                                                   //treba prehladat riesenie a urcit cez poleS zhodu
+                                                    $odovzdany = fopen(storage_path($riesenie->konfiguracia), "r");
+
+                                                    $chybaPoleS=0;
+
+                                                    while(!feof($odovzdany)){                //
+
+                                                        $aktualnyRR= fgets($odovzdany);
+                                                        $poleRiadokR = explode(" ", $aktualnyRR);
+
+
+
+                                                        if(sizeof($poleRiadokV)==sizeof($poleRiadokR) && $predoslyHlavnyV==$predoslyHlavnyR){   //ak je aktualny zhodny
+
+                                                            $indexX=0;
+                                                            while($indexX<sizeof($poleRiadokV)){
+
+                                                                if($poleS[$indexBS]==0){
+                                                                    if($poleRiadokV[$indexX]!=$poleRiadokR[$indexX]){
+                                                                        $chybaPoleS++;  //treba potom zjednotit s $chybou
+                                                                    }
+
+                                                                }
+                                                                else{           //ak sa nema kontrolovat slovo
+
+                                                                }
+
+
+                                                                $indexX++;
+                                                            }
+
+                                                        }
+                                                    }
+
+
+
+
+
+
+                                                }
 
 
 
