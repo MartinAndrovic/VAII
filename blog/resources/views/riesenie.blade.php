@@ -150,37 +150,35 @@
 
                                    if(sizeof($poleRiadokV)==sizeof($poleRiadokR) && $predoslyHlavnyV==$predoslyHlavnyR){
 
-                                   $indexX=0;                              // na zistenie, ci existuje riadok zhodny podla poleS-------
-                                   while($indexX<sizeof($poleRiadokV)){    //prechadzanie slov jednoho riadku
+                                        $indexX=0;                              // na zistenie, ci existuje riadok zhodny podla poleS-------
+                                        while($indexX<sizeof($poleRiadokV)){    //prechadzanie slov jednoho riadku
 
-                                        if($poleRiadokV[$indexX]!=$poleRiadokR[$indexX]){
-                                            if($poleS[$indexBS]==0){
+                                            if($poleRiadokV[$indexX]!=$poleRiadokR[$indexX]){
+                                                if($poleS[$indexBS]==0){
                                                 $chybaRiadokS++;
+                                                }
                                             }
+
+                                         $indexX++;
                                         }
 
+                                        if($chybaRiadokS==0){
 
+                                            $najdenyRiadok++;
 
-                                        $indexX++;
+                                        }
+
                                    }
-
-                                   if($chybaRiadokS==0){
-                                       $najdenyRiadok++;
-
-                                    }
-
-                                                        }
-                                                    }
-                                                    fclose($odovzdany);
+                               }
+                               fclose($odovzdany);
 
 
 
-                                                    if($najdenyRiadok==0){
-                                                        $chyba++;
-                                                    }
+                               if($najdenyRiadok==0){
+                                   $chyba++;
+                               }
 
-
-                                                }
+                           }
 
 
                                                         //treba toto cele??
