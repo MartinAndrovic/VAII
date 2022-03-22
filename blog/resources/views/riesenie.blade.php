@@ -38,13 +38,7 @@
 
 
 
-            $pole=array();
-            $pole=unserialize($uloha->riadiace);
 
-            $poleS=array();
-            $poleS=unserialize($uloha->riadiaceS);
-            $chyba=0;
-            //dd($poleS);
 
             ?>
 
@@ -59,7 +53,13 @@
                     //    <a href="/skuska/riesenie/{{$riesenie->id}}  ">
                        //     <div class="inner">
 
+                    $pole=array();
+                    $pole=unserialize($uloha->riadiace);
 
+                    $poleS=array();
+                    $poleS=unserialize($uloha->riadiaceS);
+                    $chyba=0;
+                    //dd($poleS);
 
 
                     $vzorovy = fopen(storage_path($uloha->obrazok), "r");
@@ -89,18 +89,27 @@
 
                         if($aktualnyRV !=  "!\r\n" && $aktualnyRV != false){
 
-                           // if($pole[$indexB]==0){              //if 1
 
-                           $zhoda=0;
+                           $zhoda=0;                            //asi zmazat
                            $uplneZhodny=0;
 
                            while(!feof($odovzdany)){                //hladanie riadku v rieseni
                                 $aktualnyRR= fgets($odovzdany);
 
-                                if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){   //ak je aktualny zhodny
+                                if($poleRiadokV[0]==""){
+                                    if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){   //ak je aktualny zhodny
 
-                                   $uplneZhodny++;
+                                        $uplneZhodny++;
 
+                                    }
+                                }
+                                else{
+
+                                    if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){   //ak je aktualny zhodny
+
+                                        $uplneZhodny++;
+
+                                    }
                                 }
                            }
 
@@ -108,7 +117,6 @@
 
                            $indexx=0;                                  // zmena hlavneho riadku--------
                            $medzery=0;
-
 
                            while($indexx<sizeof($poleRiadokV)){
 
@@ -122,7 +130,7 @@
                            }
 
                            if($medzery==0){
-                               $hlavnyV=$aktualnyRV;    //treba spravit predosli
+                               $hlavnyV=$aktualnyRV;    //treba spravit predosli77777777777777777
                                $hlavnyR=$aktualnyRV;
                            }                                            // koniec zmena hlavneho riadku-------
 
@@ -148,9 +156,9 @@
 
 
 
-                                   if(sizeof($poleRiadokV)==sizeof($poleRiadokR) && $predoslyHlavnyV==$predoslyHlavnyR){
+                                   if(sizeof($poleRiadokV)==sizeof($poleRiadokR) && $predoslyHlavnyV==$predoslyHlavnyR){  //nasiel sa riadok ale nevieme ci zhodny
 
-                                        $indexX=0;                              // na zistenie, ci existuje riadok zhodny podla poleS-------
+                                        $indexX=0;                              // na zistenie, ci je to riadok zhodny podla poleS-------
                                         while($indexX<sizeof($poleRiadokV)){    //prechadzanie slov jednoho riadku
 
                                             if($poleRiadokV[$indexX]!=$poleRiadokR[$indexX]){
@@ -173,166 +181,33 @@
                                fclose($odovzdany);
 
 
-
                                if($najdenyRiadok==0){
                                    $chyba++;
                                }
 
                            }
 
-
-                                                        //treba toto cele??
-
-                                                                /*
-                                                    $poleRiadokR = explode(" ", $aktualnyRR);
-
-
-
-
-
-
-                                                      //dorobit kod ked sa nenajdu riadky
-
-
-                                                    $chyba=0;
-                                                    $indexSlovo=0;
-                                                    $checkH=0;
-
-
-
-
-                                                  while($indexSlovo<sizeof($poleRiadokV)){        //spracovanie riadku
-                                                        //echo "<td>",$poleRiadokV[$indexSlovo],    "</td>";
-                                                        // echo "<td>",$poleRiadokR[$indexSlovo], "<br>",   "</td>";
-
-                                                        //if($indexBS<375){
-                                                        //    echo "<td>",$poleRiadokV[$indexSlovo]." ",    "</td>";
-
-                                                        if($poleRiadokV[$indexSlovo]!=""){
-
-
-
-                                                        }
-                                                        if($poleRiadokV[$indexSlovo]==""){
-                                                            $checkH=1;
-                                                        }
-                                                        else{
-                                                            $hlavnyV=$aktualnyRV;     //zmena
-                                                            $hlavnyR=$aktualnyRR;      //zmena
-                                                        }
-
-
-                                                        if($poleS[$indexBS]==0){//ak sa slovo kontroluje
-
-                                                            //if($checkH==0){
-
-                                                            if($poleRiadokV[$indexSlovo]==$poleRiadokR[$indexSlovo]){
-
-                                                            }
-                                                            else{
-                                                                $chyba++;
-                                                            }
-
-
-
-
-                                                        }
-
-                                                        if($poleRiadokV[$indexSlovo]!=""){
-
-                                                            $indexBS++;
-                                                        }
-
-                                                        $indexSlovo++;
-
-
-
-                                                    } */
-                                                   // var_dump($pocetRVz);
-
-
-                                                    //var_dump($indexBS);
-
-                                                   // if($chyba==0){
-                                                   //     $zhoda++;
-                                                   // }
-
-
-                                                    //$zhoda++; tre pouzittttttttt
-                                                    // echo "<td>",$aktualnyRR,  "<br>",  "</td>";
-
-
                                                     $predoslyHlavnyR=$hlavnyR;
 
-
-
-
-
-
-
-
-
-
-                                           // if($zhoda!=0){
-                                             //   $pocetOk++;
-                                           // }
-
-                                           // $pocetRVz++;
-
-
-
-
-
-                                        }
-
-                                        //else{
-
-
-
-
-
-
-                                          //  foreach($poleRiadokV as $word){
-                                              //  if($word!=""){
-
-                                                  //  $indexBS++;}}
-
-
-
-
-                                       // }
+                        }
 
                                         $indexB++;
-                                    }
+                    }
 
-                                    $predoslyHlavnyV=$hlavnyV;
-
-                                }
-                                //  var_dump($pocetOk,$pocetRVz);
-
-
-
-                                ?>
+                    $predoslyHlavnyV=$hlavnyV;
 
 
 
 
+                    fclose($vzorovy);
+                    fclose($odovzdany);
 
 
 
-
-                                <?php
-                                fclose($vzorovy);
-                                fclose($odovzdany);
-
-
-
-                           // </div>
-                    //</div>
-                     ?>
+                      ?>
                 @endif
 
-                }
+
 
             @empty                           <!-- ak je prazdne -->
             <h2>zatiaľ žiadne riesenia</h2>
