@@ -62,7 +62,7 @@
                     $poleVysledneR=array();
 
 
-
+                    $indexRiesenie=0;
                     while(!feof($vzorovy)) {
 
                         $odovzdany = fopen(storage_path($riesenie->konfiguracia), "r");
@@ -78,6 +78,7 @@
                            $zhoda=0;                            //asi zmazat
                            $uplneZhodny=0;
 
+
                            while(!feof($odovzdany)){                //hladanie riadku v rieseni
                                 $aktualnyRR= fgets($odovzdany);
 
@@ -85,17 +86,53 @@
                                     if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){   //ak je aktualny zhodny
 
                                         $uplneZhodny++;
+                                        $vypisV[$indexVypisV]="s medzerou";
+                                        $indexVypisV++;
+                                        $vypisV[$indexVypisV]=$indexRiesenie." riadokVzorove ".$aktualnyRV;
+                                        $indexVypisV++;
+                                        $vypisV[$indexVypisV]="riadokRiesenie ".$aktualnyRR;
+                                        $indexVypisV++;
+                                        $vypisV[$indexVypisV]="predoslyVzorove ".$predoslyHlavnyV;
+                                      $indexVypisV++;
+                                        $vypisV[$indexVypisV]="predoslyRiesenie ".$predoslyHlavnyR;
+                                        $indexVypisV++;
+                                        $indexRiesenie++;
 
                                     }
                                 }
                                 else{
 
-                                    if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){   //ak je aktualny zhodny
+                                    if($aktualnyRV == $aktualnyRR ){   //ak je aktualny zhodny
 
                                         $uplneZhodny++;
+                                        $vypisV[$indexVypisV]="bez medzery";
+                                        $indexVypisV++;
+                                        $vypisV[$indexVypisV]=$indexRiesenie." riadokVzorove ".$aktualnyRV;
+                                        $indexVypisV++;
+                                        $vypisV[$indexVypisV]="riadokRiesenie ".$aktualnyRR;
+                                        $indexVypisV++;
+                                        $vypisV[$indexVypisV]="predoslyVzorove ".$predoslyHlavnyV;
+                                        $indexVypisV++;
+                                        $vypisV[$indexVypisV]="predoslyRiesenie ".$predoslyHlavnyR;
+                                        $indexVypisV++;
+                                        $indexRiesenie++;
+
+
+
+
+
 
                                     }
+
                                 }
+
+                                if($poleRiadokV[0]!=""){
+                                    $predoslyHlavnyR=$aktualnyRR;
+                                    $vypisV[$indexVypisV]="predoslyRPoBezMedz ".$predoslyHlavnyR;
+                                    $indexVypisV++;
+                                }
+
+
                            }
 
                            fclose($odovzdany);
@@ -125,14 +162,14 @@
 
                                                     //zapis do vysledneho
 
-                                $vypisV[$indexVypisV]=$aktualnyRV;
-                                $indexVypisV++;
+
 
 
 
                                $pocetOk++;
                            }
                            else{     //treba prehladat riesenie a urcit cez poleS zhodu
+
 
                                if($pole[$indexB]==1){
                                                         //vypis
@@ -187,14 +224,18 @@
 
                            }
 
-                                                    $predoslyHlavnyR=$hlavnyR;
+                                                    //$predoslyHlavnyR=$hlavnyR;
                            $pocetRVz++;
+                            $indexB++;
                         }
 
-                        $indexB++;
+                        
+
+                        $predoslyHlavnyV=$hlavnyV;
+                        var_dump($predoslyHlavnyV);
                     }
 
-                    $predoslyHlavnyV=$hlavnyV;
+
 
 
 
