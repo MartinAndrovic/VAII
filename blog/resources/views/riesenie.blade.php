@@ -73,6 +73,8 @@
                                 $predoslyHlavnyV=0;
                                 $predoslyHlavnyR=0;
 
+                                $poleVysledneR=array();
+
                                 //$polee=array();
 
                                 //while(!feof($vzorovy)){
@@ -96,68 +98,83 @@
                                     if($aktualnyRV !=  "!\r\n" && $aktualnyRV != false){
 
 
-                                        if($pole[$indexB]==0){
+                                        if($pole[$indexB]==0){              //if 1
 
 
-                                            // foreach($word_arr as $word){
-                                            //   if($word!=""){
+
 
                                             $zhoda=0;
+                                            $uplneZhodny=0;
 
 
-                                            // echo "<td>",$aktualnyRV,    "</td>";
-                                            //  echo "<td>",$pocetRVz. "<br>", "</td>";
 
-                                            while(!feof($odovzdany)){                //ku kazdemu riadku vzoroveho sa hlada riadok v rieseni
+
+                                            while(!feof($odovzdany)){                //hladanie riadku v rieseni
 
                                                 $aktualnyRR= fgets($odovzdany);
 
 
 
 
-                                                if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){
+                                                if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){   //ak je aktualny zhodny
+                                                    $uplneZhodny++;
 
-                                                   // echo "<td>",$aktualnyRV, "<br>",    "</td>";
-                                                   // echo "<td>",$aktualnyRR, "<br>",    "</td>";
+                                                 }
+                                            }
+
+                                                $indexx=0;                                  // zmena hlavneho riadku--------
+                                                $medzery=0;
+
+
+                                                while($indexx<sizeof($poleRiadokV)){
+
+
+                                                    if($poleRiadokV[$indexx]==""){
+
+                                                     $medzery++;
+
+                                                    }
+
+                                                    $indexx++;
+                                                }
+
+                                                if($medzery==0){
+                                                    $hlavnyV=$aktualnyRV;    //treba spravit predosli
+                                                    $hlavnyR=$aktualnyRV;
+                                                }                                            // koniec zmena hlavneho riadku-------
+
+
+                                                if($uplneZhodny!=0){
+                                                    //zapis do vysledneho
+                                                 }
+
+
+
+
+
+
+
+
 
                                                     $poleRiadokR = explode(" ", $aktualnyRR);
-                                                    ?>
 
 
 
 
 
-                                    <?php                       //dorobit kod ked sa nenajdu riadky
+
+                                                      //dorobit kod ked sa nenajdu riadky
 
 
                                                     $chyba=0;
                                                     $indexSlovo=0;
                                                     $checkH=0;
-                                                    ?>
-
-
-                                                        <script type="text/javascript">
 
 
 
 
 
 
-
-
-                                                        var tbodyRef = document.getElementById('tabRies').getElementsByTagName('tbody')[0];;
-                                                        var newRow = tbodyRef.insertRow();
-
-                                                        var tbodyRef = document.getElementById('tabVzor').getElementsByTagName('tbody')[0];;
-                                                        var newRowV = tbodyRef.insertRow();
-
-
-
-
-
-                                                        </script>
-
-                    <?php
 
 
                                                     while($indexSlovo<sizeof($poleRiadokV)){        //spracovanie riadku
@@ -170,56 +187,6 @@
                                                         if($poleRiadokV[$indexSlovo]!=""){
 
 
-                                                        ?>
-
-
-                                                         <script type="text/javascript">
-
-
-                                                         myHtmlContent=<?php echo json_encode($poleRiadokR[$indexSlovo]); ?>
-
-
-
-
-
-                                                        // var tbodyRef = document.getElementById('tabRies').getElementsByTagName('tbody')[0];;
-                                                         //var newRow = tbodyRef.insertRow();
-
-                                                           // newRow.innerHTML = "<td> " +myHtmlContent+ "</td>";
-
-                                                         var TD = document.createElement('tr'); //Create new cell
-
-
-                                                         TD.innerHTML = myHtmlContent; //Set some thing
-                                                        // newRow.appendChild (TD); //Add it to row
-
-
-
-
-                                                         myHtmlContent=<?php echo json_encode($poleRiadokV[$indexSlovo]); ?>
-
-
-
-                                                         var TD = document.createElement('input'); //Create new cell
-                                                         TD.innerHTML = " <input type=checkbox name=boxS[] >";
-                                                         newRowV.appendChild (TD); //Add it to row
-
-
-
-
-
-                                                        //var tbodyRef = document.getElementById('tabVzor').getElementsByTagName('tbody')[0];;
-                                                        //var newRow = tbodyRef.insertRow();
-
-
-
-
-
-
-
-
-                            </script>
-                    <?php
 
                                                         }
                                                         if($poleRiadokV[$indexSlovo]==""){
@@ -244,11 +211,7 @@
 
 
 
-                                                            //}
 
-
-
-                                                            // }
                                                         }
 
                                                         if($poleRiadokV[$indexSlovo]!=""){
@@ -277,12 +240,12 @@
 
                                                     $predoslyHlavnyR=$hlavnyR;
 
-                                                }
 
 
 
 
-                                            }
+
+
 
 
 
@@ -299,6 +262,10 @@
                                         }
 
                                         else{
+
+
+
+
 
 
                                             foreach($poleRiadokV as $word){
