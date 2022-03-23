@@ -81,6 +81,7 @@
 
                            while(!feof($odovzdany)){                //hladanie riadku v rieseni
                                 $aktualnyRR= fgets($odovzdany);
+                                $poleRiadokR = explode(" ", $aktualnyRR);
 
                                 if($poleRiadokV[0]==""){
                                     if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){   //ak je aktualny zhodny
@@ -126,10 +127,10 @@
 
                                 }
 
-                                if($poleRiadokV[0]!=""){
+                                if($poleRiadokR[0]!="" && $aktualnyRR!="!\r\n"){
                                     $predoslyHlavnyR=$aktualnyRR;
-                                    $vypisV[$indexVypisV]="predoslyRPoBezMedz ".$predoslyHlavnyR;
-                                    $indexVypisV++;
+                                    //$vypisV[$indexVypisV]="predoslyRPoBezMedz ".$predoslyHlavnyR;
+                                   //$indexVypisV++;
                                 }
 
 
@@ -229,7 +230,7 @@
                             $indexB++;
                         }
 
-                        
+
 
                         $predoslyHlavnyV=$hlavnyV;
                         var_dump($predoslyHlavnyV);
