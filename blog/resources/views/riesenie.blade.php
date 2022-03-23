@@ -91,10 +91,63 @@
 
                                         $uplneZhodny++;
 
+                                        //$indexRiesenie++;
+
+                                        $vypisV[$indexVypisV]= '<tr>';
+                                        $indexVypisV++;
+
+                                        foreach ($poleRiadokR as $slovo){
+                                            if($slovo !=""){
+
+
+                                                $vypisV[$indexVypisV]= '<td>';
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= $slovo;
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= '</td>';
+                                                $indexVypisV++;
+                                            }
+
+                                        }
+
+
+                                        foreach ($poleRiadokV as $slovo){
+                                            if($slovo !=""){
+
+                                                $vypisV[$indexVypisV]= '<td>';
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= $slovo;
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= '<input type=checkbox name=boxS[$x] >';
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= '</td>';
+                                                $indexVypisV++;
+
+                                            }
+
+                                        }
+
+                                        $vypisV[$indexVypisV]= "<td class=chB >";
+                                        $indexVypisV++;
+                                        $vypisV[$indexVypisV]= " <input type=checkbox name=box[] > ";
+                                        $indexVypisV++;
+                                        $vypisV[$indexVypisV]= "</td>";
+                                        $indexVypisV++;
+
+
+                                        $vypisV[$indexVypisV]= '<tr>';
+                                        $indexVypisV++;
+
+
+                                    }
+                                }
+                                else{
+
+                                    if($aktualnyRV == $aktualnyRR ){   //ak je aktualny zhodny
+
+                                        $uplneZhodny++;
 
                                         $indexRiesenie++;
-
-
 
                                         $vypisV[$indexVypisV]= '<tr>';
                                         $indexVypisV++;
@@ -144,54 +197,6 @@
                                         $vypisV[$indexVypisV]= '<tr>';
                                         $indexVypisV++;
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                    }
-                                }
-                                else{
-
-                                    if($aktualnyRV == $aktualnyRR ){   //ak je aktualny zhodny
-
-                                        $uplneZhodny++;
-
-                                        $indexRiesenie++;
-
-                                        $vypisV[$indexVypisV]= '<tr>';
-                                        $indexVypisV++;
-
-                                        foreach ($poleRiadokR as $slovo){
-                                            if($slovo !=""){
-
-
-                                                $vypisV[$indexVypisV]= '<td>';
-                                                $indexVypisV++;
-                                                $vypisV[$indexVypisV]= $slovo;
-                                                $indexVypisV++;
-                                                $vypisV[$indexVypisV]= '</td>';
-                                                $indexVypisV++;
-                                            }
-
-                                        }
-                                        $vypisV[$indexVypisV]= '</tr>';
-                                        $indexVypisV++;
-
-
-
-
-
-
-
-
                                     }
 
 
@@ -232,10 +237,7 @@
 
                            if($uplneZhodny!=0){                        //hlavny if----------------------------
 
-                                                    //zapis do vysledneho
-
-
-
+                                                    //zapis uz spraveny vyssie
 
 
                                $pocetOk++;
@@ -245,6 +247,56 @@
 
                                if($pole[$indexB]==1){
                                                         //vypis
+
+
+
+                                   $vypisV[$indexVypisV]= '<tr>';
+                                   $indexVypisV++;
+
+                                   foreach ($poleRiadokV as $slovo){
+                                       if($slovo !=""){
+
+
+                                           $vypisV[$indexVypisV]= '<td>';
+                                           $indexVypisV++;
+                                           $vypisV[$indexVypisV]= "DNF";
+                                           $indexVypisV++;
+                                           $vypisV[$indexVypisV]= '</td>';
+                                           $indexVypisV++;
+                                       }
+
+                                   }
+
+
+                                   foreach ($poleRiadokV as $slovo){
+                                       if($slovo !=""){
+
+                                           $vypisV[$indexVypisV]= '<td>';
+                                           $indexVypisV++;
+                                           $vypisV[$indexVypisV]= $slovo;
+                                           $indexVypisV++;
+                                           $vypisV[$indexVypisV]= '<input type=checkbox name=boxS[$x] >';
+                                           $indexVypisV++;
+                                           $vypisV[$indexVypisV]= '</td>';
+                                           $indexVypisV++;
+
+                                       }
+
+                                   }
+
+
+                                   $vypisV[$indexVypisV]= "<td class=chB >";
+                                   $indexVypisV++;
+                                   $vypisV[$indexVypisV]= " <input type=checkbox name=box[] > ";
+                                   $indexVypisV++;
+                                   $vypisV[$indexVypisV]= "</td>";
+                                   $indexVypisV++;
+
+
+
+
+                                   $vypisV[$indexVypisV]= '<tr>';
+                                   $indexVypisV++;
 
                                    $pocetOk++;
 
@@ -317,6 +369,7 @@
                     //_dump($pocetOk,$pocetRVz,$pocetChyb);
 
                     $index=0;
+                    echo'<p> co je </p>';
 
 
                     echo "<table style='display: inline-block;' id=tabRies border=1 class='stats' cellspacing='0'>";
