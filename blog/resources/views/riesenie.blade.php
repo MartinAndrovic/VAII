@@ -62,6 +62,8 @@
                     $predoslyHlavnyV=0;
                     $predoslyHlavnyR=0;
 
+
+
                     $poleVysledneR=array();
 
 
@@ -243,7 +245,8 @@
                                $pocetOk++;
                            }
                            else{     //treba prehladat riesenie a urcit cez poleS zhodu
-
+                               $string='je v  uplnezhodny pri ' .$aktualnyRV;
+                               var_dump($string);
 
                                if($pole[$indexB]==1){
                                                         //vypis
@@ -332,6 +335,11 @@
 
                                             $najdenyRiadok++;
 
+
+
+
+
+
                                         }
 
                                    }
@@ -369,7 +377,7 @@
                     //_dump($pocetOk,$pocetRVz,$pocetChyb);
 
                     $index=0;
-                    echo'<p> co je </p>';
+                    echo"<p> spravne $pocetOk z $pocetRVz pocet chyb $chyba <p>";
 
 
                     echo "<table style='display: inline-block;' id=tabRies border=1 class='stats' cellspacing='0'>";
