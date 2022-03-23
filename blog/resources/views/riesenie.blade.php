@@ -87,7 +87,8 @@
                                     if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){   //ak je aktualny zhodny
 
                                         $uplneZhodny++;
-                                        $vypisV[$indexVypisV]="s medzerou";
+
+                                       /* $vypisV[$indexVypisV]="s medzerou";
                                         $indexVypisV++;
                                         $vypisV[$indexVypisV]=$indexRiesenie." riadokVzorove ".$aktualnyRV;
                                         $indexVypisV++;
@@ -96,8 +97,17 @@
                                         $vypisV[$indexVypisV]="predoslyVzorove ".$predoslyHlavnyV;
                                       $indexVypisV++;
                                         $vypisV[$indexVypisV]="predoslyRiesenie ".$predoslyHlavnyR;
-                                        $indexVypisV++;
+                                        $indexVypisV++;*/
                                         $indexRiesenie++;
+
+                                        foreach ($poleRiadokR as $slovo){
+
+                                        $vypisV[$indexVypisV]= '<td> coje </td>';
+                                            $indexVypisV++;
+
+                                            }
+
+
 
                                     }
                                 }
@@ -106,6 +116,7 @@
                                     if($aktualnyRV == $aktualnyRR ){   //ak je aktualny zhodny
 
                                         $uplneZhodny++;
+                                        /*
                                         $vypisV[$indexVypisV]="bez medzery";
                                         $indexVypisV++;
                                         $vypisV[$indexVypisV]=$indexRiesenie." riadokVzorove ".$aktualnyRV;
@@ -115,7 +126,7 @@
                                         $vypisV[$indexVypisV]="predoslyVzorove ".$predoslyHlavnyV;
                                         $indexVypisV++;
                                         $vypisV[$indexVypisV]="predoslyRiesenie ".$predoslyHlavnyR;
-                                        $indexVypisV++;
+                                        $indexVypisV++;*/
                                         $indexRiesenie++;
 
 
@@ -245,7 +256,16 @@
                     fclose($odovzdany);
                     var_dump($pocetOk,$pocetRVz,$pocetChyb);
 
+                    $index=0;
 
+                    echo "<table border='4' class='stats' cellspacing='0'>";
+
+                    while ($index<sizeof($vypisV)){
+                        echo $vypisV[$index];
+                        $index++;
+                    }
+
+                    echo "</table>";
 
                       ?>
                 @endif
@@ -284,10 +304,7 @@
 
 
 
-                       <td>  {{$vypisV}} <br>
 
-
-                            </td>
 
 
 
@@ -304,6 +321,9 @@
                     <h2>vypis je prazdny</h2>
 
                     @endforelse
+
+
+
 
                 <!--    <table style="display: inline-block" id="tabRies" border=1 class='stats' cellspacing='0'>
 
