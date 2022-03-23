@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light  shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="/">Blog</a>
+                <a class="navbar-brand" href="/">PS</a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -39,20 +39,24 @@
                         </li>
                         @auth
                             <li class="nav-item">
+                                <a class="nav-link" href="/user/skuska">Skúšky</a>
+                            </li>
+
+                            <!--
+                            <li class="nav-item">
                                 <a class="nav-link" href="/posts/create">Vytvoriť príspevok</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/user/posts">Moje príspevky</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/user/skuska">Skúšky</a>
-                            </li>
+
 
                             @if(Auth::user()->isAdmin())
                                 <li class="nav-item">
                                     <a class="nav-link" href="/kategorie">Kategórie</a>
                                 </li>
                             @endif
+                            -->
                         @endauth
                     </ul>
 

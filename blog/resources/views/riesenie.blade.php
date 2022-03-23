@@ -332,7 +332,7 @@
 
                                    if($poleRiadokV[0]==""){
                                        $string='je v medzerovom';
-                                       var_dump($string);
+                                       //var_dump($string);
 
                                        if(sizeof($poleRiadokV)==sizeof($poleRiadokR) && $predoslyHlavnyV==$predoslyHlavnyR){
 
@@ -370,7 +370,7 @@
 
                                    if(sizeof($poleRiadokV)==sizeof($poleRiadokR)){  //nasiel sa riadok ale nevieme ci zhodny
 
-                                        var_dump($aktualnyRR);
+                                        //var_dump($aktualnyRR);
                                         $indexX=0;
                                        $chybaRiadokS=0;                                       // na zistenie, ci je to riadok zhodny podla poleS-------
                                         while($indexX<sizeof($poleRiadokV)){    //prechadzanie slov jednoho riadku
@@ -378,8 +378,8 @@
 
                                             if($poleRiadokV[$indexX]!=$poleRiadokR[$indexX]){
 
-                                                        var_dump($poleS[$indexBS]);
-                                                var_dump($indexBS);
+                                                        //var_dump($poleS[$indexBS]);
+                                                //var_dump($indexBS);
 
                                                 if($poleS[$indexBS]==0){
 
@@ -478,7 +478,7 @@
                                        if($slovo !=""){
 
 
-                                           $vypisV[$indexVypisV]= "<td style='background-color: red;min-width: 40px' >";
+                                           $vypisV[$indexVypisV]= "<td style='background-color: #ff0000;min-width: 40px' >";
                                            $indexVypisV++;
                                            $vypisV[$indexVypisV]= $slovo;
                                            $indexVypisV++;
