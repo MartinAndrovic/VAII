@@ -350,8 +350,10 @@
                                                }
 
                                                $indexX++;
-                                              // $indexBS++;
+                                               $indexBS++;
                                            }
+                                           $indexBS--;
+                                           $indexBS--;
 
                                            if($chybaRiadokS==0){
 
@@ -378,9 +380,14 @@
 
                                                         var_dump($poleS[$indexBS]);
                                                 var_dump($indexBS);
+
                                                 if($poleS[$indexBS]==0){
 
                                                 $chybaRiadokS++;
+
+                                                }
+                                                else{
+
 
                                                 }
                                             }
@@ -398,7 +405,55 @@
 
                                         if($chybaRiadokS==0){
 
+                                            $vypisV[$indexVypisV]= '<tr>';
+                                            $indexVypisV++;
 
+                                            foreach ($poleRiadokR as $slovo){
+                                                if($slovo !=""){
+
+
+                                                    $vypisV[$indexVypisV]= '<td>';
+                                                    $indexVypisV++;
+                                                    $vypisV[$indexVypisV]= $slovo;
+                                                    $indexVypisV++;
+                                                    $vypisV[$indexVypisV]= '</td>';
+                                                    $indexVypisV++;
+                                                }
+
+                                            }
+
+
+                                            foreach ($poleRiadokV as $slovo){
+                                                if($slovo !=""){
+
+                                                    $vypisV[$indexVypisV]= '<td>';
+                                                    $indexVypisV++;
+                                                    $vypisV[$indexVypisV]= $slovo;
+                                                    $indexVypisV++;
+                                                    $vypisV[$indexVypisV]= '<input type=checkbox name=boxS[$x] >';
+                                                    $indexVypisV++;
+                                                    $vypisV[$indexVypisV]= '</td>';
+                                                    $indexVypisV++;
+
+                                                    $indexBS++;
+
+                                                }
+
+                                            }
+
+
+                                            $vypisV[$indexVypisV]= "<td class=chB >";
+                                            $indexVypisV++;
+                                            $vypisV[$indexVypisV]= " <input type=checkbox name=box[] > ";
+                                            $indexVypisV++;
+                                            $vypisV[$indexVypisV]= "</td>";
+                                            $indexVypisV++;
+
+
+
+
+                                            $vypisV[$indexVypisV]= '<tr>';
+                                            $indexVypisV++;
 
                                             $najdenyRiadok++;
                                         }
