@@ -7,7 +7,8 @@
 
 
 
-
+    <form id="postUpdate1" method="POST" >
+    @csrf
 
 
 
@@ -53,6 +54,8 @@
 
                     $vypisV=array();
                     $indexVypisV=0;
+                    $vypisVz=array();
+                    $indexVypisVz=0;
 
                     $hlavnyV=0;
                     $hlavnyV=0;
@@ -88,24 +91,58 @@
 
                                         $uplneZhodny++;
 
-                                       /* $vypisV[$indexVypisV]="s medzerou";
-                                        $indexVypisV++;
-                                        $vypisV[$indexVypisV]=$indexRiesenie." riadokVzorove ".$aktualnyRV;
-                                        $indexVypisV++;
-                                        $vypisV[$indexVypisV]="riadokRiesenie ".$aktualnyRR;
-                                        $indexVypisV++;
-                                        $vypisV[$indexVypisV]="predoslyVzorove ".$predoslyHlavnyV;
-                                      $indexVypisV++;
-                                        $vypisV[$indexVypisV]="predoslyRiesenie ".$predoslyHlavnyR;
-                                        $indexVypisV++;*/
+
                                         $indexRiesenie++;
 
-                                        foreach ($poleRiadokR as $slovo){
 
-                                        $vypisV[$indexVypisV]= '<td> coje </td>';
+
+                                        $vypisV[$indexVypisV]= '<tr>';
+                                        $indexVypisV++;
+
+                                        foreach ($poleRiadokR as $slovo){
+                                            if($slovo !=""){
+
+
+                                        $vypisV[$indexVypisV]= '<td>';
                                             $indexVypisV++;
+                                            $vypisV[$indexVypisV]= $slovo;
+                                            $indexVypisV++;
+                                        $vypisV[$indexVypisV]= '</td>';
+                                        $indexVypisV++;
+                                                            }
 
                                             }
+
+
+                                            foreach ($poleRiadokV as $slovo){
+                                            if($slovo !=""){
+
+
+                                                $vypisV[$indexVypisV]= '<td>';
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= $slovo;
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= '<input type=checkbox name=boxS[$x] >';
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= '</td>';
+                                                $indexVypisV++;
+
+                                            }
+
+                                        }
+
+                                         $vypisV[$indexVypisV]= '<tr>';
+                                        $indexVypisV++;
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -116,25 +153,55 @@
                                     if($aktualnyRV == $aktualnyRR ){   //ak je aktualny zhodny
 
                                         $uplneZhodny++;
-                                        /*
-                                        $vypisV[$indexVypisV]="bez medzery";
-                                        $indexVypisV++;
-                                        $vypisV[$indexVypisV]=$indexRiesenie." riadokVzorove ".$aktualnyRV;
-                                        $indexVypisV++;
-                                        $vypisV[$indexVypisV]="riadokRiesenie ".$aktualnyRR;
-                                        $indexVypisV++;
-                                        $vypisV[$indexVypisV]="predoslyVzorove ".$predoslyHlavnyV;
-                                        $indexVypisV++;
-                                        $vypisV[$indexVypisV]="predoslyRiesenie ".$predoslyHlavnyR;
-                                        $indexVypisV++;*/
+
                                         $indexRiesenie++;
 
+                                        $vypisV[$indexVypisV]= '<tr>';
+                                        $indexVypisV++;
+
+                                        foreach ($poleRiadokR as $slovo){
+                                            if($slovo !=""){
+
+
+                                                $vypisV[$indexVypisV]= '<td>';
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= $slovo;
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= '</td>';
+                                                $indexVypisV++;
+                                            }
+
+                                        }
+                                        $vypisV[$indexVypisV]= '</tr>';
+                                        $indexVypisV++;
+
+
+                                        $vypisVz[$indexVypisVz]= '<tr>';
+                                        $indexVypisVz++;
+
+                                        foreach ($poleRiadokV as $slovo){
+                                            if($slovo !=""){
+
+
+                                                $vypisVz[$indexVypisVz]= '<td>';
+                                                $indexVypisVz++;
+                                                $vypisVz[$indexVypisVz]= $slovo;
+                                                $indexVypisVz++;
+                                                $vypisVz[$indexVypisVz]= '</td>';
+                                                $indexVypisVz++;
+                                            }
+
+                                        }
+                                        $vypisVz[$indexVypisVz]= '</tr>';
+                                        $indexVypisVz++;
 
 
 
 
 
                                     }
+
+                                    
 
                                 }
 
@@ -244,7 +311,7 @@
 
 
                         $predoslyHlavnyV=$hlavnyV;
-                        var_dump($predoslyHlavnyV);
+                        //var_dump($predoslyHlavnyV);
                     }
 
 
@@ -254,18 +321,30 @@
 
                     fclose($vzorovy);
                     fclose($odovzdany);
-                    var_dump($pocetOk,$pocetRVz,$pocetChyb);
+                    //_dump($pocetOk,$pocetRVz,$pocetChyb);
 
                     $index=0;
 
-                    echo "<table border='4' class='stats' cellspacing='0'>";
+
+                    echo "<table style='display: inline-block;' id=tabRies border=1 class='stats' cellspacing='0'>";
 
                     while ($index<sizeof($vypisV)){
                         echo $vypisV[$index];
-                        $index++;
+                       $index++;
                     }
 
                     echo "</table>";
+
+
+                     echo "<table style='float: left;' id=tabVzor border=1 class='stats' cellspacing='0'>";
+
+                     $index=0;
+
+                    while ($index<sizeof($vypisVz)){
+                        echo $vypisVz[$index];
+                        $index++;
+                    }
+                    echo "</table>"
 
                       ?>
                 @endif
@@ -287,55 +366,7 @@
         @endforelse
 
 
-        <form id="postUpdate1" method="POST" >
-            @csrf
-            <table border='4' class='stats' cellspacing='0'>
 
-                <tbody>
-
-                </tbody>
-
-
-                    @forelse($vypisV as $vypisV)
-
-
-
-                    <tr>
-
-
-
-
-
-
-
-
-
-
-                      </tr>
-
-
-
-
-                    @empty
-
-                    <h2>vypis je prazdny</h2>
-
-                    @endforelse
-
-
-
-
-                <!--    <table style="display: inline-block" id="tabRies" border=1 class='stats' cellspacing='0'>
-
-                        <tbody>
-
-                        </tbody>
-
-                    </table>
-                    -->
-
-
-            </table>
 
     </form>
 @endsection
