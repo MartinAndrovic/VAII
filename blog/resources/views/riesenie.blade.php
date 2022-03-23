@@ -103,20 +103,19 @@
                                             if($slovo !=""){
 
 
-                                        $vypisV[$indexVypisV]= '<td>';
-                                            $indexVypisV++;
-                                            $vypisV[$indexVypisV]= $slovo;
-                                            $indexVypisV++;
-                                        $vypisV[$indexVypisV]= '</td>';
-                                        $indexVypisV++;
-                                                            }
-
+                                                $vypisV[$indexVypisV]= '<td>';
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= $slovo;
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= '</td>';
+                                                $indexVypisV++;
                                             }
 
+                                        }
 
-                                            foreach ($poleRiadokV as $slovo){
+
+                                        foreach ($poleRiadokV as $slovo){
                                             if($slovo !=""){
-
 
                                                 $vypisV[$indexVypisV]= '<td>';
                                                 $indexVypisV++;
@@ -131,7 +130,18 @@
 
                                         }
 
-                                         $vypisV[$indexVypisV]= '<tr>';
+
+                                        $vypisV[$indexVypisV]= "<td class=chB >";
+                                        $indexVypisV++;
+                                        $vypisV[$indexVypisV]= " <input type=checkbox name=box[] > ";
+                                        $indexVypisV++;
+                                        $vypisV[$indexVypisV]= "</td>";
+                                        $indexVypisV++;
+
+
+
+
+                                        $vypisV[$indexVypisV]= '<tr>';
                                         $indexVypisV++;
 
 
@@ -176,24 +186,7 @@
                                         $indexVypisV++;
 
 
-                                        $vypisVz[$indexVypisVz]= '<tr>';
-                                        $indexVypisVz++;
 
-                                        foreach ($poleRiadokV as $slovo){
-                                            if($slovo !=""){
-
-
-                                                $vypisVz[$indexVypisVz]= '<td>';
-                                                $indexVypisVz++;
-                                                $vypisVz[$indexVypisVz]= $slovo;
-                                                $indexVypisVz++;
-                                                $vypisVz[$indexVypisVz]= '</td>';
-                                                $indexVypisVz++;
-                                            }
-
-                                        }
-                                        $vypisVz[$indexVypisVz]= '</tr>';
-                                        $indexVypisVz++;
 
 
 
@@ -201,7 +194,7 @@
 
                                     }
 
-                                    
+
 
                                 }
 
@@ -336,15 +329,15 @@
                     echo "</table>";
 
 
-                     echo "<table style='float: left;' id=tabVzor border=1 class='stats' cellspacing='0'>";
+                    // echo "<table style='float: left;' id=tabVzor border=1 class='stats' cellspacing='0'>";
 
-                     $index=0;
+                   //  $index=0;
 
-                    while ($index<sizeof($vypisVz)){
-                        echo $vypisVz[$index];
-                        $index++;
-                    }
-                    echo "</table>"
+                   // while ($index<sizeof($vypisVz)){
+                    //    echo $vypisVz[$index];
+                    //    $index++;
+                  //  }
+                   // echo "</table>"
 
                       ?>
                 @endif

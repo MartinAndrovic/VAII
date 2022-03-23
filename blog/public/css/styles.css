@@ -163,6 +163,11 @@ h1{
 }
 
 
+.chB{
+    min-width: 40px;
+}
+
+
 
 .btn{
     border: 2px solid black;
