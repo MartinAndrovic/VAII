@@ -100,7 +100,7 @@
                                     <div class="col-xl-3 col-md-5 col-sm-12 col-offset-3 post ">
                                          <a href="/skuska/riesenie/{{$riesenie->id}}  ">
                                         <div class="inner">
-                                    <h2 class="text-center">{{$idZadania->id}}</h2>
+                                    <h2 class="text-center">{{$idZadania->nazov}}</h2>
 
                                 <?php
 
@@ -160,8 +160,8 @@
 
                                                 if($aktualnyRV == $aktualnyRR && $predoslyHlavnyV==$predoslyHlavnyR){
 
-                                                    echo "<td>",$aktualnyRV, "<br>",    "</td>";
-                                                    echo "<td>",$aktualnyRR, "<br>",    "</td>";
+                                                   // echo "<td>",$aktualnyRV, "<br>",    "</td>";
+                                                   // echo "<td>",$aktualnyRR, "<br>",    "</td>";
 
                                                     $poleRiadokR = explode(" ", $aktualnyRR);
 
@@ -217,7 +217,7 @@
 
 
                                                     }
-                                                    var_dump($pocetRVz);
+                                                   // var_dump($pocetRVz);
                                                     echo "<br>";
 
                                                     //var_dump($indexBS);
@@ -296,7 +296,7 @@
                                     </div>
                             @endif
 
-                            }
+
 
                             @empty                           <!-- ak je prazdne -->
                                 <h2>zatiaľ žiadne riesenia</h2>
