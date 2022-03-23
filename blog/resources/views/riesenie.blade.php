@@ -108,6 +108,7 @@
                                                 $indexVypisV++;
                                                 $vypisV[$indexVypisV]= '</td>';
                                                 $indexVypisV++;
+
                                             }
 
                                         }
@@ -124,6 +125,8 @@
                                                 $indexVypisV++;
                                                 $vypisV[$indexVypisV]= '</td>';
                                                 $indexVypisV++;
+
+                                                $indexBS++;
 
                                             }
 
@@ -180,6 +183,8 @@
                                                 $indexVypisV++;
                                                 $vypisV[$indexVypisV]= '</td>';
                                                 $indexVypisV++;
+
+                                                $indexBS++;
 
                                             }
 
@@ -283,6 +288,8 @@
                                            $vypisV[$indexVypisV]= '</td>';
                                            $indexVypisV++;
 
+                                           $indexBS++;
+
                                        }
 
                                    }
@@ -309,9 +316,12 @@
                                $odovzdany = fopen(storage_path($riesenie->konfiguracia), "r");
                                $najdenyRiadok=0;
 
+
                                while(!feof($odovzdany)){                //chyba az ked sa prejde cely a nebude ziadny zhodny riadok podla polaS
 
+
                                    $aktualnyRR= fgets($odovzdany);
+                                   if($aktualnyRR!=false){
                                    $poleRiadokR = explode(" ", $aktualnyRR);
 
                                    //$string='predoslyHV ' .$predoslyHlavnyV;
@@ -340,7 +350,7 @@
                                                }
 
                                                $indexX++;
-                                               $indexBS++;
+                                              // $indexBS++;
                                            }
 
                                            if($chybaRiadokS==0){
@@ -358,26 +368,33 @@
 
                                    if(sizeof($poleRiadokV)==sizeof($poleRiadokR)){  //nasiel sa riadok ale nevieme ci zhodny
 
-
+                                        var_dump($aktualnyRR);
                                         $indexX=0;
                                        $chybaRiadokS=0;                                       // na zistenie, ci je to riadok zhodny podla poleS-------
                                         while($indexX<sizeof($poleRiadokV)){    //prechadzanie slov jednoho riadku
 
-                                            //var_dump($indexBS);
+
                                             if($poleRiadokV[$indexX]!=$poleRiadokR[$indexX]){
 
-
+                                                        var_dump($poleS[$indexBS]);
+                                                var_dump($indexBS);
                                                 if($poleS[$indexBS]==0){
 
                                                 $chybaRiadokS++;
 
                                                 }
                                             }
+                                            else{
+                                                $string='vie ze sa rovna';
+                                               // var_dump($string);
+                                            }
 
                                             $indexX++;
                                             $indexBS++;
                                         }
-                                        var_dump($indexX);
+                                        $indexBS--;
+                                       $indexBS--;
+                                        //var_dump($indexX);
 
                                         if($chybaRiadokS==0){
 
@@ -385,6 +402,8 @@
 
                                             $najdenyRiadok++;
                                         }
+
+                                   }
 
                                    }
 
