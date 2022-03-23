@@ -121,7 +121,11 @@
                                                 $indexVypisV++;
                                                 $vypisV[$indexVypisV]= $slovo;
                                                 $indexVypisV++;
-                                                $vypisV[$indexVypisV]= '<input type=checkbox name=boxS[$x] >';
+                                                $vypisV[$indexVypisV]= '</td>';
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= '<td>';
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= "<input style='position center' type=checkbox name=boxS[] >";
                                                 $indexVypisV++;
                                                 $vypisV[$indexVypisV]= '</td>';
                                                 $indexVypisV++;
@@ -179,7 +183,11 @@
                                                 $indexVypisV++;
                                                 $vypisV[$indexVypisV]= $slovo;
                                                 $indexVypisV++;
-                                                $vypisV[$indexVypisV]= '<input type=checkbox name=boxS[$x] >';
+                                                $vypisV[$indexVypisV]= '</td>';
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= '<td>';
+                                                $indexVypisV++;
+                                                $vypisV[$indexVypisV]= "<input style='position center' type=checkbox name=boxS[] >";
                                                 $indexVypisV++;
                                                 $vypisV[$indexVypisV]= '</td>';
                                                 $indexVypisV++;
@@ -283,7 +291,11 @@
                                            $indexVypisV++;
                                            $vypisV[$indexVypisV]= $slovo;
                                            $indexVypisV++;
-                                           $vypisV[$indexVypisV]= '<input type=checkbox name=boxS[$x] >';
+                                           $vypisV[$indexVypisV]= '</td>';
+                                           $indexVypisV++;
+                                           $vypisV[$indexVypisV]= '<td>';
+                                           $indexVypisV++;
+                                           $vypisV[$indexVypisV]= "<input style='position center' type=checkbox name=boxS[] >";
                                            $indexVypisV++;
                                            $vypisV[$indexVypisV]= '</td>';
                                            $indexVypisV++;
@@ -430,7 +442,11 @@
                                                     $indexVypisV++;
                                                     $vypisV[$indexVypisV]= $slovo;
                                                     $indexVypisV++;
-                                                    $vypisV[$indexVypisV]= '<input type=checkbox name=boxS[$x] >';
+                                                    $vypisV[$indexVypisV]= '</td>';
+                                                    $indexVypisV++;
+                                                    $vypisV[$indexVypisV]= '<td>';
+                                                    $indexVypisV++;
+                                                    $vypisV[$indexVypisV]= "<input style='position center' type=checkbox name=boxS[] >";
                                                     $indexVypisV++;
                                                     $vypisV[$indexVypisV]= '</td>';
                                                     $indexVypisV++;
@@ -496,7 +512,11 @@
                                            $indexVypisV++;
                                            $vypisV[$indexVypisV]= $slovo;
                                            $indexVypisV++;
-                                           $vypisV[$indexVypisV]= '<input type=checkbox name=boxS[$x] >';
+                                           $vypisV[$indexVypisV]= '</td>';
+                                           $indexVypisV++;
+                                           $vypisV[$indexVypisV]= "<td style='min-width: 25px'>";
+                                           $indexVypisV++;
+                                           $vypisV[$indexVypisV]= "<input style='position center' type=checkbox name=boxS[] >";
                                            $indexVypisV++;
                                            $vypisV[$indexVypisV]= '</td>';
                                            $indexVypisV++;
@@ -555,7 +575,7 @@
                     //_dump($pocetOk,$pocetRVz,$pocetChyb);
 
                     $index=0;
-                    echo"<p> spravne $pocetOk z $pocetRVz pocet chyb $chyba <p>";
+                    echo"<p> spravne $pocetOk z $pocetRVz pocet chyb $pocetChyb <p>";
 
 
                     echo "<table style='display: inline-block;' id=tabRies border=1 class='stats' cellspacing='0'>";
