@@ -469,8 +469,64 @@
 
                                if($najdenyRiadok==0){
                                    $pocetChyb++;
-                                  // $string='je v  uplnezhodny pri ' .$aktualnyRV;
-                                  // var_dump($string);
+
+
+                                   $vypisV[$indexVypisV]= '<tr>';
+                                   $indexVypisV++;
+
+                                   foreach ($poleRiadokR as $slovo){
+                                       if($slovo !=""){
+
+
+                                           $vypisV[$indexVypisV]= "<td style='background-color: red;min-width: 40px' >";
+                                           $indexVypisV++;
+                                           $vypisV[$indexVypisV]= $slovo;
+                                           $indexVypisV++;
+                                           $vypisV[$indexVypisV]= '</td>';
+                                           $indexVypisV++;
+                                       }
+
+                                   }
+
+
+                                   foreach ($poleRiadokV as $slovo){
+                                       if($slovo !=""){
+
+                                           $vypisV[$indexVypisV]= '<td>';
+                                           $indexVypisV++;
+                                           $vypisV[$indexVypisV]= $slovo;
+                                           $indexVypisV++;
+                                           $vypisV[$indexVypisV]= '<input type=checkbox name=boxS[$x] >';
+                                           $indexVypisV++;
+                                           $vypisV[$indexVypisV]= '</td>';
+                                           $indexVypisV++;
+
+                                           $indexBS++;
+
+                                       }
+
+                                   }
+
+
+                                   $vypisV[$indexVypisV]= "<td class=chB >";
+                                   $indexVypisV++;
+                                   $vypisV[$indexVypisV]= " <input type=checkbox name=box[] > ";
+                                   $indexVypisV++;
+                                   $vypisV[$indexVypisV]= "</td>";
+                                   $indexVypisV++;
+
+
+
+
+                                   $vypisV[$indexVypisV]= '<tr>';
+                                   $indexVypisV++;
+
+
+
+
+
+
+
                                }
                                else{
                                    $pocetOk++;
@@ -540,7 +596,6 @@
 
 
         @endforelse
-
 
 
 
