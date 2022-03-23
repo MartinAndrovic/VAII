@@ -245,10 +245,10 @@
                                $pocetOk++;
                            }
                            else{     //treba prehladat riesenie a urcit cez poleS zhodu
-                               $string='je v  uplnezhodny pri ' .$aktualnyRV;
-                               var_dump($string);
+
 
                                if($pole[$indexB]==1){
+
                                                         //vypis
 
 
@@ -314,33 +314,79 @@
                                    $aktualnyRR= fgets($odovzdany);
                                    $poleRiadokR = explode(" ", $aktualnyRR);
 
+                                   //$string='predoslyHV ' .$predoslyHlavnyV;
+                                  // var_dump($string);
+                                  // $string='predoslyHR ' .$predoslyHlavnyR;
+                                  // var_dump($string);
 
 
-                                   if(sizeof($poleRiadokV)==sizeof($poleRiadokR) && $predoslyHlavnyV==$predoslyHlavnyR){  //nasiel sa riadok ale nevieme ci zhodny
+                                   if($poleRiadokV[0]==""){
+                                       $string='je v medzerovom';
+                                       var_dump($string);
 
-                                        $indexX=0;                              // na zistenie, ci je to riadok zhodny podla poleS-------
+                                       if(sizeof($poleRiadokV)==sizeof($poleRiadokR) && $predoslyHlavnyV==$predoslyHlavnyR){
+
+                                           $indexX=0;                              // na zistenie, ci je to riadok zhodny podla poleS-------
+                                           while($indexX<sizeof($poleRiadokV)){    //prechadzanie slov jednoho riadku
+
+                                               $chybaRiadokS=0;
+
+                                               if($poleRiadokV[$indexX]!=$poleRiadokR[$indexX]){
+
+                                                   if($poleS[$indexBS]==0){
+                                                       $chybaRiadokS++;
+
+                                                   }
+                                               }
+
+                                               $indexX++;
+                                               $indexBS++;
+                                           }
+
+                                           if($chybaRiadokS==0){
+
+                                               $najdenyRiadok++;
+
+
+
+                                           }
+                                       }
+                                   }
+                                   else{
+
+
+
+                                   if(sizeof($poleRiadokV)==sizeof($poleRiadokR)){  //nasiel sa riadok ale nevieme ci zhodny
+
+
+                                        $indexX=0;
+                                       $chybaRiadokS=0;                                       // na zistenie, ci je to riadok zhodny podla poleS-------
                                         while($indexX<sizeof($poleRiadokV)){    //prechadzanie slov jednoho riadku
 
+                                            //var_dump($indexBS);
                                             if($poleRiadokV[$indexX]!=$poleRiadokR[$indexX]){
+
+
                                                 if($poleS[$indexBS]==0){
+
                                                 $chybaRiadokS++;
+
                                                 }
                                             }
 
-                                         $indexX++;
+                                            $indexX++;
                                             $indexBS++;
                                         }
+                                        var_dump($indexX);
 
                                         if($chybaRiadokS==0){
 
+
+
                                             $najdenyRiadok++;
-
-
-
-
-
-
                                         }
+
+                                   }
 
                                    }
                                }
@@ -349,6 +395,8 @@
 
                                if($najdenyRiadok==0){
                                    $pocetChyb++;
+                                  // $string='je v  uplnezhodny pri ' .$aktualnyRV;
+                                  // var_dump($string);
                                }
                                else{
                                    $pocetOk++;
